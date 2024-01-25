@@ -77,7 +77,7 @@ const Testimonials = (props) => {
 
       <div className="flex text-3xl mt-5 gap-3 text-blue-400 font-bold mx-auto">
         <button
-          onClick={leftShiftHandler}
+          onClick={leftShiftHandler}z
           className="cursor-pointer hover:text-blue-500"
         >
           <FiChevronLeft />
