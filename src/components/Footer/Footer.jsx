@@ -103,8 +103,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-full md:w-1/2">
-          Map will come here
-          {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13885.855007308546!2d73.43053239999999!3d29.531986099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393d8b000f41444b%3A0xe29b4630e6ba95cf!2s23%20wala%20Moga!5e0!3m2!1sen!2sin!4v1706268925562!5m2!1sen!2sin" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" className="w-full"></iframe> */}
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.791730986784!2d77.6619388!3d12.985168699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae114efa821173%3A0x819978309ce921dc!2sDRDO%20Township!5e0!3m2!1sen!2sin!4v1706290397203!5m2!1sen!2sin" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" className="w-full"></iframe>
         </div>
       </section>
     </footer>
