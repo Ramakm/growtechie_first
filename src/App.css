@@ -88,7 +88,28 @@ hr {
     filter: invert(100.10);
 }
 
-  
+.footer-heading::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+    height: 5px;
+    width: 100px;
+    background-color: white;
+}
+
+.footer-heading::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: 2px;
+    height: 1px;
+    width: 95%;
+    max-width: 500px;
+    background-color: whitesmoke;
+}
+
+
 .shadow-courses {
     box-shadow: 0px 40px 20px rgba(0, 0, 0, 0.15);
 }
@@ -118,7 +139,8 @@ hr {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
-
