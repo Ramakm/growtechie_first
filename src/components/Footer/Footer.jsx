@@ -4,17 +4,7 @@ import { useNavigate } from 'react-router';
 import { IoLogoFacebook } from "react-icons/io";
 import { FaInstagramSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-
-const siteMapData = [
-  { text: "Home", to: "hero" },
-  { text: "Courses", to: "courses" },
-  { text: "Join us", to: "joinus" },
-  { text: "Gallery", to: "/gallery" },
-  { text: "Testimonials", to: "testimonials" },
-  { text: "FAQ", to: "faq" },
-  { text: "About Us", to: "about-us" }
-];
-
+import siteMapData from '../../navData';
 
 const Footer = () => {
   const navigate = useNavigate();

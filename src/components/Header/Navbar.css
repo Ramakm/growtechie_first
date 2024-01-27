@@ -12,10 +12,12 @@
   background: #a0aec0;
 }
 
-.sticky {
+.sticky-nav {
   position: fixed;
   top: 0;
   width: 100%;
-  transition: all 0.5s ease;
+  height: 90px;
+  transition: 0.5s;
   animation: smoothScroll 1s forwards;
+  box-sizing: border-box;
 }
