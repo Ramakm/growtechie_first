@@ -2,17 +2,15 @@
 import React, { useEffect } from 'react';
 import './Navbar.css';
 import { useNavigate } from 'react-router-dom';
+import handleScrollToElement from '../../commonFn';
 
 const Header = () => {
   const navigate = useNavigate();
 
-  function handleScrollToElement(e, elementId) {
+  function handleNavigation(e, elementId) {
     e.preventDefault();
+    handleScrollToElement(elementId);
     toggleMobileNav();
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
   }
 
   function toggleMobileNav() {
@@ -65,19 +63,19 @@ const Header = () => {
           className="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-lg text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
         >
           <a
-            onClick={(e) => handleScrollToElement(e, 'hero')}
+            onClick={(e) => handleNavigation(e, 'hero')}
             className="ml-0 mr-0 font-semibold duration-200 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
           >
             Home
           </a>
           <a
-            onClick={(e) => handleScrollToElement(e, 'courses')}
+            onClick={(e) => handleNavigation(e, 'courses')}
             className="mr-0 font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
           >
             Courses
           </a>
           <a
-            onClick={(e) => handleScrollToElement(e, 'joinus')}
+            onClick={(e) => handleNavigation(e, 'joinus')}
             className="mr-0 font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
           >
             Join us
@@ -89,19 +87,19 @@ const Header = () => {
             Gallery
           </a>
           <a
-            onClick={(e) => handleScrollToElement(e, 'testimonials')}
+            onClick={(e) => handleNavigation(e, 'testimonials')}
             className="mr-0 font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
           >
             Testimonials
           </a>
           <a
-            onClick={(e) => handleScrollToElement(e, 'faq')}
+            onClick={(e) => handleNavigation(e, 'faq')}
             className="mr-0 font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
           >
             FAQ
           </a>
           <a
-            onClick={(e) => handleScrollToElement(e, 'about-us')}
+            onClick={(e) => handleNavigation(e, 'about-us')}
             className="font-semibold duration-200 transition-color hover:text-indigo-600"
           >
             About Us
