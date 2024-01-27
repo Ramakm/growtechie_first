@@ -1,15 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Navbar.css';
 import { useNavigate } from 'react-router-dom';
 import handleScrollToElement from '../../commonFn';
+import siteMapData from '../../navData';
 
 const Header = () => {
   const navigate = useNavigate();
+  const navRef = useRef();
+  useScroll(navRef);
 
   function handleNavigation(e, elementId) {
     e.preventDefault();
-    handleScrollToElement(elementId);
+    handleScrollToElement(elementId, navigate);
     toggleMobileNav();
   }
 
@@ -41,7 +44,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full bg-white backdrop-blur-md shadow-lg z-50">
+    <header ref={navRef} className="sticky-nav bg-white backdrop-blur-md shadow-lg z-50">
       <div
         id="sticky-header"
         className="container flex items-center justify-between max-w-6xl px-8 mx-auto sm:justify-between xl:px-0"
@@ -62,48 +65,15 @@ const Header = () => {
           id="nav"
           className="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-lg text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
         >
-          <a
-            onClick={(e) => handleNavigation(e, 'hero')}
-            className="ml-0 mr-0 font-semibold duration-200 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
-          >
-            Home
-          </a>
-          <a
-            onClick={(e) => handleNavigation(e, 'courses')}
-            className="mr-0 font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
-          >
-            Courses
-          </a>
-          <a
-            onClick={(e) => handleNavigation(e, 'joinus')}
-            className="mr-0 font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
-          >
-            Join us
-          </a>
-          <a
-            onClick={() => navigate('/gallery')}
-            className="mr-0 font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
-          >
-            Gallery
-          </a>
-          <a
-            onClick={(e) => handleNavigation(e, 'testimonials')}
-            className="mr-0 font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
-          >
-            Testimonials
-          </a>
-          <a
-            onClick={(e) => handleNavigation(e, 'faq')}
-            className="mr-0 font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
-          >
-            FAQ
-          </a>
-          <a
-            onClick={(e) => handleNavigation(e, 'about-us')}
-            className="font-semibold duration-200 transition-color hover:text-indigo-600"
-          >
-            About Us
-          </a>
+          {siteMapData.map((item, idx) => (
+            <a
+              key={idx}
+              onClick={(e) => handleNavigation(e, item.to)}
+              className="mr-0 cursor-pointer font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
+            >
+              {item.text}
+            </a>
+          ))}
         </nav>
 
         <div
@@ -119,3 +89,18 @@ const Header = () => {
 };
 
 export default Header;
+
+
+function useScroll(navRef) {
+  const lastScrollTop = useRef(0);
+  function handleScroll() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    navRef.current.style.top = scrollTop > lastScrollTop.current ? "-90px" : "0px";
+    lastScrollTop.current = scrollTop
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+}
