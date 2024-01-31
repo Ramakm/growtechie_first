@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './page/home.jsx';
-import Gallery from './page/gallery';
+import Gallery from './page/gallery.jsx';
 import Page404 from './page/Page404.jsx';
 import PythonProgramming from './page/courses/pythonprogramming.jsx';
 import './App.css'
