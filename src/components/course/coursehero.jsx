@@ -1,5 +1,3 @@
-import { CourseLink } from '../../coursedata';
-
 const CourseHero = ({ title, subtitle, imagelink, formlink }) => {
   return (
     <div className="relative h-80 bg-blue-600 text-white">
@@ -7,7 +5,7 @@ const CourseHero = ({ title, subtitle, imagelink, formlink }) => {
         <h1 className="text-5xl font-bold tracking-tight mb-2">{title}</h1>
         <p className="text-2xl font-medium mb-4">{subtitle}</p>
       </div>
-      <div className="hidden lg:block lg:w-1/4 absolute top-1/3 lg:top-2/3 right-0 lg:right-10 mt-8 lg:mt-0">
+      <div className="hidden z-50 lg:block lg:w-1/4 absolute top-1/3 lg:top-2/3 right-0 lg:right-10 mt-8 lg:mt-0">
         <div className="bg-white rounded-lg shadow-lg p-4">
           <img
             src={imagelink}
