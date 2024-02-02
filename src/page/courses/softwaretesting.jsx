@@ -8,7 +8,7 @@ import CourseDescription from '../../components/course/coursedescription';
 import CourseRequriement from '../../components/course/courserequirements';
 import CourseHero from '../../components/course/coursehero';
 import CourseheroMobile from '../../components/course/courseheromobile';
-import { CourseLink, courseImageURL, softwareTestingCourse } from '../../coursedata';
+import { courseImageURL, softwareTestingCourse } from '../../coursedata';
 import ScrollTop from '../../hooks/scrollTop';
 const SoftwareTesting = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -23,7 +23,7 @@ const SoftwareTesting = () => {
 
   ScrollTop();
 
-  const formlink = CourseLink['Software Testing'];
+  const courseName = "software-testing";
   const imageurl = courseImageURL['Software Testing'];
 
   const requirement = [
@@ -40,12 +40,12 @@ const SoftwareTesting = () => {
         title={'Software Testing'}
         subtitle={'Master Art of Software Testing'}
         imagelink={imageurl}
-        formlink={formlink}
+        courseName={courseName}
       ></CourseHero>
 
       <CourseheroMobile
         imageurl={imageurl}
-        formLink={formlink}
+        courseName={courseName}
       ></CourseheroMobile>
 
       {/* Course Details */}

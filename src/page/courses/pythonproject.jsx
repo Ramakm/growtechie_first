@@ -1,5 +1,5 @@
 import React from 'react';
-import { CourseLink, courseImageURL, pythonProjects } from '../../coursedata';
+import { courseImageURL, pythonProjects } from '../../coursedata';
 
 import CourseHeader from '../../components/course/courseHeader';
 import CourseFooter from '../../components/course/coursefooter';
@@ -20,7 +20,7 @@ const PythonProject = () => {
     ` Passion and curiosity to learn something new and do hand-on projects live`,
   ];
   ScrollTop();
-  const formlink = CourseLink['Python Projects'];
+  const courseName = "python-projects";
   return (
     <div className="min-h-screen font-sans">
       {/* Header */}
@@ -30,12 +30,12 @@ const PythonProject = () => {
         title={'Python Project'}
         subtitle={'Make Begineer to Advance Level Projects'}
         imagelink={imageurl}
-        formlink={formlink}
+        courseName={courseName}
       ></CourseHero>
 
       <CourseheroMobile
         imageurl={imageurl}
-        formlink={formlink}
+        courseName={courseName}
       ></CourseheroMobile>
 
       {/* Course Details */}

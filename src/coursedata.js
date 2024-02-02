@@ -578,19 +578,6 @@ const computerScienceSubjects = [
   'Computer Organisation',
 ];
 
-const
-  CourseLink = {
-    "Data Analyst": "https://docs.google.com/forms/d/e/1FAIpQLScJWk3Ham-n5MxPvuEEZPiA_mgQ1_7X97EUN6OhpbUttkukKQ/viewform",
-    "Career Growth": "https://docs.google.com/forms/d/e/1FAIpQLScWJHr2NKfip2pv9yP-fp6K6r_IMzwgidDCo_KVZw9eq06EAA/viewform",
-    "Python Programming": "https://docs.google.com/forms/d/e/1FAIpQLSd4od7_mReasx-5VUUabZ5_IaUdehc0KQ0wSuItbfdHohmvew/viewform",
-    "Power BI": "https://docs.google.com/forms/d/e/1FAIpQLSe_72n5Khk2emHOqcS7zqnYI3fvOO8y6weQn7MQU3vL4zJFOQ/viewform",
-    "SQL": "https://docs.google.com/forms/d/e/1FAIpQLSe2_-if-J0bn1WDfztOPWPtN59TfGwnjQNVAxYdWSNqaQbhvA/viewform",
-    "Python Projects": "https://docs.google.com/forms/d/e/1FAIpQLSdhC_pRXfDBiTFLri9eVlRviu7NGlZIAx7q8LBc2JPhPQ6dhQ/viewform",
-    "CS College Subjects": "https://docs.google.com/forms/d/e/1FAIpQLSd9CwIGxtV2L-wpqm3KNwXwllCCnbNRe_0okgeHNh5VrjSIrA/viewform",
-    "Data Science": "https://docs.google.com/forms/d/e/1FAIpQLScdKTtlM7PHxjnz9r_ySvpKbuWbI-cyWXeBAsEkRxsUm6a1mQ/viewform",
-    "Software Testing": "https://docs.google.com/forms/d/e/1FAIpQLScn098dqUFlz9fePO4DBw3AcHKgoXzNPHZ4T89jLwWoL74l4A/viewform",
-  };
-
 const courseImageURL = {
   'Python Programming': 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80',
   'Python Projects': 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80',
@@ -616,7 +603,6 @@ export {
   dataAnalystCourse,
   softwareTestingCourse,
   computerScienceSubjects,
-  CourseLink,
   courseImageURL,
   mainimage
 };

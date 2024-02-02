@@ -1,6 +1,6 @@
 const CourseHeader = () => {
   return (
-    <header className="fixed top-0 w-full bg-white backdrop-blur-md shadow-lg z-50">
+    <header className="fixed top-0 w-full bg-white backdrop-blur-md shadow-lg z-[100]">
       <div className="container flex items-center justify-between max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
         <a
           href="/"
