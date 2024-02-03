@@ -9,6 +9,7 @@ import Footer from '../components/Footer/Footer';
 import Social from '../components/Sociallink/Social';
 import { main } from '../homepage';
 import Joinus from '../components/joinus/twitter';
+import Banner from '../components/banner/Banner';
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Header />
       <Social />
       <Hero />
+      <Banner />
       <Courses />
       <Joinus {...main} />
       <Testimonials />

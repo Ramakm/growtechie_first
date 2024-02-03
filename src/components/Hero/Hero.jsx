@@ -30,7 +30,7 @@ const Hero = () => {
     <div className="bg-lightkblue" id="hero">
       <div
         id="home-section"
-        className="h-screen flex justify-center items-center relative"
+        className="min-h-screen flex justify-center items-center relative"
       >
         <span
           className={`absolute animate-bounce left-[240px] top-[102px] ${
