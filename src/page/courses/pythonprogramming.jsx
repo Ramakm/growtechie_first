@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from 'react';
-import { CourseLink, courseImageURL, pythonCourse } from '../../coursedata';
+import { courseImageURL, pythonCourse } from '../../coursedata';
 
 import CourseHeader from '../../components/course/courseHeader';
 import CourseFooter from '../../components/course/coursefooter';
@@ -31,7 +31,7 @@ const PythonProgramming = () => {
   ];
   ScrollTop();
 
-  const formlink = CourseLink['Python Programming'];
+  const courseName = "python-programming";
   return (
     <div className="min-h-screen font-sans">
       {/* Header */}
@@ -41,13 +41,13 @@ const PythonProgramming = () => {
         title={'Python Programming'}
         subtitle={'Beginner to Master'}
         imagelink={imageurl}
-        formlink={formlink}
+        courseName={courseName}
       ></CourseHero>
 
       {/* Registration Section (Mobile) */}
       <CourseheroMobile
         imageurl={imageurl}
-        formLink={formlink}
+        courseName={courseName}
       ></CourseheroMobile>
       {/* Course Details */}
       <CourseDetail

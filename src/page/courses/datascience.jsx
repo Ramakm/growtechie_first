@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from 'react';
-import { CourseLink, courseImageURL, dataScienceCourse } from '../../coursedata';
+import { courseImageURL, dataScienceCourse } from '../../coursedata';
 
 import CourseHeader from '../../components/course/courseHeader';
 import CourseFooter from '../../components/course/coursefooter';
@@ -24,14 +24,14 @@ const DataScience = () => {
   
   ScrollTop();
 
-  const imageurl =courseImageURL['Data Science'];
+  const imageurl = courseImageURL['Data Science'];
 
   const requirement = [
     'No prior experience is required. We will start from the very basics',
     'Microsoft Excel 2003, 2010, 2013, 2016, or 365 ',
   ];
 
-  const formLink = CourseLink['Data Science'];
+  const courseName = "data-science";
 
   return (
     <div className="min-h-screen font-sans">
@@ -42,13 +42,13 @@ const DataScience = () => {
         title={'Data Science'}
         subtitle={'Complete Data Science Bootcamp'}
         imagelink={imageurl}
-        formlink={formLink}
+        courseName={courseName}
       ></CourseHero>
 
       {/* Registration Section (Mobile) */}
       <CourseheroMobile
         imageurl={imageurl}
-        formLink={formLink}
+        courseName={courseName}
       ></CourseheroMobile>
 
       {/* Course Details */}

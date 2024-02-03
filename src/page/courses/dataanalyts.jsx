@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from 'react';
-import { CourseLink, courseImageURL, dataAnalystCourse } from '../../coursedata';
+import { courseImageURL, dataAnalystCourse } from '../../coursedata';
 import CourseHeader from '../../components/course/courseHeader';
 import CourseFooter from '../../components/course/coursefooter';
 import CourseDetail from '../../components/course/coursedetail';
@@ -29,7 +29,7 @@ const DataAnalytics = () => {
     '    No prior experience is required. We will start from the very basics',
   ];
 
-  const formLink = CourseLink['Data Analyst'];
+  const courseName = "data-analytics";
 
   return (
     <div className="min-h-screen font-sans">
@@ -40,11 +40,11 @@ const DataAnalytics = () => {
         title={'Data analyst'}
         subtitle={'Complete Data Analyst Bootcamp'}
         imagelink={imageurl}
-        formlink={formLink}
+        courseName={courseName}
       ></CourseHero>
 
       {/* Registration Section (Mobile) */}
-      <CourseheroMobile imageurl={imageurl} formLink={formLink}></CourseheroMobile>
+      <CourseheroMobile imageurl={imageurl} courseName={courseName}></CourseheroMobile>
 
       {/* Course Details */}
       <CourseDetail

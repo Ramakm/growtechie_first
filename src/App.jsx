@@ -13,6 +13,7 @@ import DataAnalyst from './page/courses/dataanalyts.jsx';
 import SoftwareTesting from './page/courses/softwaretesting.jsx';
 import CSsubjects from './page/courses/cssubjects.jsx';
 import CareerinTech from './page/courses/careertech.jsx';
+import Form from './page/form.jsx';
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path='/course/cssubjects' element={<CSsubjects />} />
         <Route path='course/careerintech' element={<CareerinTech />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/form" element={<Form/>} />
         <Route path='/*' element={<Page404 />} />
       </Routes>
       {/* </div> */}

@@ -8,7 +8,7 @@ import CourseDescription from '../../components/course/coursedescription';
 import CourseRequriement from '../../components/course/courserequirements';
 import CourseHero from '../../components/course/coursehero';
 import CourseheroMobile from '../../components/course/courseheromobile';
-import { CourseLink, courseImageURL, powerBICourse } from '../../coursedata';
+import { courseImageURL, powerBICourse } from '../../coursedata';
 import ScrollTop from '../../hooks/scrollTop';
 const PowerBI = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -22,7 +22,7 @@ const PowerBI = () => {
   };
   ScrollTop();
 
-  const formlink = CourseLink['Power BI'];
+  const courseName = "power-BI";
 
   const requirement = [
     `Absolutely no experience is required. We will start from the basics and gradually build up your knowledge with clear and concise step by step instructions`,
@@ -41,12 +41,12 @@ const PowerBI = () => {
         title={'Power BI'}
         subtitle={'Business Intelligence for Beginners to Advance'}
         imagelink={imageurl}
-        formlink={formlink}
+        courseName={courseName}
       ></CourseHero>
 
       <CourseheroMobile
         formLink={formlink}
-        imageurl={imageurl}
+        courseName={courseName}
       ></CourseheroMobile>
 
       {/* Course Details */}

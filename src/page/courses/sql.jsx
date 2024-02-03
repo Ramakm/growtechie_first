@@ -1,5 +1,5 @@
 import React from 'react';
-import { CourseLink, courseImageURL, sqlCourse } from '../../coursedata';
+import { courseImageURL, sqlCourse } from '../../coursedata';
 
 import CourseHeader from '../../components/course/courseHeader';
 import CourseFooter from '../../components/course/coursefooter';
@@ -21,7 +21,7 @@ const SQL = () => {
   const imageurl = courseImageURL.SQL;
   ScrollTop();
 
-  const formlink = CourseLink['SQL'];
+  const courseName = "SQL";
   return (
     <div className="min-h-screen font-sans">
       {/* Header */}
@@ -31,11 +31,11 @@ const SQL = () => {
         title={'SQL'}
         subtitle={'Complete SQL'}
         imagelink={imageurl}
-        formlink={formlink}
+        courseName={courseName}
       ></CourseHero>
 
       <CourseheroMobile
-        formLink={formlink}
+        courseName={courseName}
         imageurl={imageurl}
       ></CourseheroMobile>
 

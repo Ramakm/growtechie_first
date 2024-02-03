@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  CourseLink,
   computerScienceSubjects,
   courseImageURL,
 } from '../../coursedata';
@@ -23,7 +22,7 @@ const CSsubjects = () => {
   ];
 
   ScrollTop();
-  const formLink = CourseLink['CS College Subjects'];
+  const courseName = "CS-GATE-college-subjects";
 
   const imageurl = courseImageURL['Computer Science Subjects'];
 
@@ -35,12 +34,12 @@ const CSsubjects = () => {
         title={'Computer Science Subjects'}
         subtitle={'Master the Theory Behind Programming'}
         imagelink={imageurl}
-        formlink={formLink}
+        courseName={courseName}
       ></CourseHero>
 
       <CourseheroMobile
         imageurl={imageurl}
-        formLink={formLink}
+        courseName={courseName}
       ></CourseheroMobile>
 
       {/* Course Details */}
