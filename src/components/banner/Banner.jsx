@@ -3,7 +3,7 @@ import "./banner.css";
 const data = {
     title: "Annual",
     subTitle: "Conference",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis rerum quod quisquam sunt! Ipsa, illum",
+    description: "We do free webniar for all. All you need to do is register and book a seat. Every week we will have a session from our leaders and other indurstry experts to clear your tech career doubts for free.",
     buttonText: "Register now",
     image1Src: "https://avatars.githubusercontent.com/u/8182816?v=4",
     image1Alt: "Ramakrushna Mohapatra",
