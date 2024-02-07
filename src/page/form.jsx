@@ -37,16 +37,16 @@ const Form = () => {
                 form.current,
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
             )
-            .then(
-                () => {
+            .then(() => {
                     setFormData(initialData);
                     form.current.reset();
+                    alert("Successfully submitted form! 🥳");
                     navigate("/?submitted=true");
                 },
-                (error) => {
-                    console.error("Error:", error);
-                },
-            );
+            )
+            .catch(() => {
+                alert("❌ There was an error while submitting ❌\n Please try again");
+            })
     }
 
     const [searchParams] = useSearchParams();
