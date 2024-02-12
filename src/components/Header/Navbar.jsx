@@ -44,7 +44,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header ref={navRef} className="sticky-nav bg-white backdrop-blur-md shadow-lg z-50">
+    <header ref={navRef} className="sticky-nav z-50">
       <div
         id="sticky-header"
         className="container flex items-center justify-between max-w-6xl px-8 mx-auto sm:justify-between xl:px-0"
@@ -56,9 +56,9 @@ const Header = () => {
           <img
             src="/logo.png"
             alt="GrowTechie logo"
-            className="w-auto h-20 text-indigo-600 fill-current"
+            className="w-auto h-20 fill-current invert"
           />
-          <span className="ml-3 text-2xl text-gray-800">GrowTechie</span>
+          <span className="ml-3 text-2xl text-slate-200">GrowTechie</span>
         </a>
 
         <nav
@@ -69,7 +69,7 @@ const Header = () => {
             <a
               key={idx}
               onClick={(e) => handleNavigation(e, item.to)}
-              className="mr-0 cursor-pointer font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
+              className="mr-0 cursor-pointer text-white font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
             >
               {item.text}
             </a>

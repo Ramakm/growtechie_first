@@ -3,7 +3,7 @@ function handleScrollToElement(elementId, navigate) {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
-        navigate('/gallery');
+        navigate(elementId);
     }
   }
 

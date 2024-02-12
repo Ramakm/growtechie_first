@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root {
+    --moonstone-blue: #01CABD;
+    --slate: rgb(230, 223, 223);
+
+    --primary-text: white;
+    --secondary-text: var(--slate);
+    --highlighted-text: var(--moonstone-blue);
+}
+
+/* ---------------- GRADIENTS -------------- */
+
+
+.linear-purple-green-gradient {
+    background: linear-gradient(90deg, #5235C5, rgba(22, 105, 99, 1));
+}
+
+.linear-purple-gradient {
+    background: linear-gradient(90deg, #5235C5, #645DE5);
+}
+
+.radial-shiny-gray-gradient {
+    background: radial-gradient(circle, #384B59, #2C2C2C);
+}
