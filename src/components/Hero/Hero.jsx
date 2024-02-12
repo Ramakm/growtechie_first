@@ -30,7 +30,7 @@ const Hero = () => {
                 className="absolute w-40 bottom-0 -right-4" />
             </div>
             <div className="radial-shiny-gray-gradient rounded-lg px-3 py-2">
-              <p className="text-[#C6C6C6]">Classes Done</p>
+              <p className="text-[var(--secondary-text)]">Classes Done</p>
               <p className="text-3xl">932 hrs+</p>
             </div>
           </div>

@@ -5,11 +5,14 @@
 
 :root {
     --moonstone-blue: #01CABD;
-    --slate: rgb(230, 223, 223);
+    --light-gray: #C6C6C6;
+    --dark-blue: rgb(79 70 229);
+    --dark-gray: #a8a6a6;
 
     --primary-text: white;
-    --secondary-text: var(--slate);
+    --secondary-text: var(--light-gray);
     --highlighted-text: var(--moonstone-blue);
+    --active-link: var(--dark-blue);
 }
 
 /* ---------------- GRADIENTS -------------- */
