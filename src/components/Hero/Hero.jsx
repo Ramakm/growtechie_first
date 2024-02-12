@@ -38,9 +38,9 @@ const Hero = () => {
 
           {/* Hero main content START */}
           <div className="flex flex-col gap-7">
-            <h1 className="text-[40px] font-bold">
+            <h1 className="text-[50px] font-bold">
               Elevate Your Tech career.
-              <span className="block text-[36px] mt-5 text-[var(--highlighted-text)]">
+              <span className="block text-[45px] mt-5 text-[var(--highlighted-text)]">
                 Don’t Learn for Certificate</span>
             </h1>
             <p>Prioritize Knowledge Over Certifications.</p>
