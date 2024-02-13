@@ -13,3 +13,9 @@
     background-color: #2779bd;
   }
   
+.shiny-border-design {
+  border-radius: 32% 68% 74% 26% / 20% 65% 35% 80%;
+  border-top: solid 8px;
+  border-bottom: solid 8px;
+  border-color: rgba(22, 105, 99, 1);
+}
