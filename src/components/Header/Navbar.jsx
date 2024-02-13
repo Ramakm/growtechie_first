@@ -69,7 +69,7 @@ const Header = () => {
             <a
               key={idx}
               onClick={(e) => handleNavigation(e, item.to)}
-              className="mr-0 cursor-pointer text-white font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
+              className="mr-0 cursor-pointer text-white font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-[var(--active-link)]"
             >
               {item.text}
             </a>
