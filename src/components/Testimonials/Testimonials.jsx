@@ -62,7 +62,7 @@ const Testimonial = () => {
   return (
     <div
       id="testimonials"
-      className="flex flex-col w-[100vw] overflow-hidden min-h-[100vh] justify-center items-center bg-gray-200"
+      className="flex flex-col w-[100vw] overflow-hidden min-h-[100vh] justify-center items-center"
     >
       <div className="text-center">
         <h1 className="text-4xl font-bold">Our Testimonials</h1>

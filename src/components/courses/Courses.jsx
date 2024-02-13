@@ -1,3 +1,4 @@
+import "./courses.css";
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { courseCategories, demoCourses } from '../../coursedata';
@@ -14,7 +15,7 @@ const Courses = () => {
   }, [selectedCategory])
 
   return (
-    <div className="py-12 bg-gray-100">
+    <div className="py-24 pb-12">
       <div id="courses" className="container mx-auto px-4">
         <h2 className="text-8xl uppercase font-bold
         text-center text-[var(--secondary-text)] mb-8">
@@ -56,9 +57,9 @@ const Courses = () => {
             {courses.map((course, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg m-4 shadow-lg
-                 overflow-hidden hover:shadow-2xl transition-transform
-                 duration-300 transform hover:scale-105 shadow-courses
+                className="rounded-lg bg-slate-300 card-shadow m-4
+                 overflow-hidden transition-transform
+                 duration-300 transform hover:scale-105
                  max-w-96 h-fit"
               >
                 <Link to={course.courseLink} smooth={true} duration={500}>

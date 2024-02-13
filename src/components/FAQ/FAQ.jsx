@@ -73,7 +73,7 @@ const FAQ = () => {
         {faqData.map((faq, index) => (
           <div
             key={index}
-            className="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3"
+            className="w-full px-6 py-6 mx-auto mt-10 border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow md:w-2/3"
           >
             <div
               onClick={() => toggleAccordion(index)}

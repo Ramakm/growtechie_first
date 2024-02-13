@@ -12,7 +12,7 @@ const AboutUs = () => {
               About Us
             </h2>
           </div>
-          <div className="w-full flex flex-col xl:flex-row justify-between max-w-screen-xl p-4 bg-white bg-opacity-100 rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105" style={{ boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
+          <div className="w-full flex flex-col xl:flex-row justify-between max-w-screen-xl p-4  bg-opacity-100 rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105" style={{ boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
             <div className="flex justify-around xl:flex-col flex-wrap">
               <div className="flex flex-col xl:flex-row xl:h-1/2 xl:gap-8 items-center">
                 <div className="mb-6 text-center">

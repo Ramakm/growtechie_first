@@ -5,7 +5,7 @@ import './styles.css';
 const Joinus = ({ eyebrow, title, description, primaryLink, twitterLink }) => {
   return (
     <div id="joinus" className="text-white font-sans h-screen flex justify-center items-center">
-      <section className="container mx-auto p-8 md:p-16 rounded-lg shadow-xl bg-white bg-opacity-20">
+      <section className="container mx-auto p-8 md:p-16 rounded-lg shadow-xl bg-opacity-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="md:col-span-1">
             <h1 className="main-title text-5xl md:text-6xl font-extrabold text-blue-800 text-center md:text-left">
