@@ -10,10 +10,11 @@
     --dark-gray: #a8a6a6;
     --shadow-color: rgba(22, 105, 99, 1);
 
-    --primary-text: rgb(240, 235, 235);
+    --primary-text: white;
     --secondary-text: var(--light-gray);
     --highlighted-text: var(--moonstone-blue);
     --active-link: var(--dark-blue);
+    --bg-color: black;
 }
 
 /* ---------------- GRADIENTS -------------- */

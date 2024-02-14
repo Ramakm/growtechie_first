@@ -14,11 +14,10 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: #000;
   background: linear-gradient(330deg,
       rgba(22, 105, 99, 1) 0%,
-      rgba(0, 0, 0, 1) 20%,
-      rgba(0, 0, 0, 1) 70%,
+      var(--bg-color) 20%,
+      var(--bg-color) 70%,
       rgba(22, 105, 99, 1) 100%);
 }
 

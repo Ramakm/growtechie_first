@@ -18,7 +18,7 @@ const Courses = () => {
     <div className="py-24 pb-12">
       <div id="courses" className="container mx-auto px-4">
         <h2 className="text-8xl uppercase font-bold
-        text-center text-[var(--secondary-text)] mb-8">
+        text-center text-[var(--primary-text)] mb-8">
           OUR COURSES
         </h2>
 
