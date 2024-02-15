@@ -4,15 +4,16 @@ import './styles.css';
 
 const Joinus = ({ eyebrow, title, description, primaryLink, twitterLink }) => {
   return (
-    <div id="joinus" className="text-white font-sans h-screen flex justify-center items-center">
-      <section className="container mx-auto p-8 md:p-16 rounded-lg shadow-xl bg-white bg-opacity-20">
+    <div id="joinus" className="font-sans h-screen relative flex justify-center items-center">
+      <span className="absolute shiny-border-design top-0 right-[60%] w-[800px] h-[600px]"></span>
+      <section className="container mx-auto p-8 md:p-16 rounded-lg shadow-xl bg-opacity-20 z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="md:col-span-1">
-            <h1 className="main-title text-5xl md:text-6xl font-extrabold text-blue-800 text-center md:text-left">
+            <h1 className="main-title text-5xl md:text-6xl font-extrabold text-[var(--primary-text)] text-center md:text-left text-gradient">
               {title}
             </h1>
 
-            <div className="main-description prose-lg text-blue-900 text-center md:text-left">
+            <div className="main-description prose-lg text-[var(--secondary-text)] text-center md:text-left">
               {description}
             </div>
 
