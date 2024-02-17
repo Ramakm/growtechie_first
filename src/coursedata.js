@@ -31,8 +31,7 @@ const demoCourses = [
   },
   {
     title: 'SQL',
-    description:
-      'Structured query language (SQL) is a programming language for storing and processing information in a relational database. ',
+            description: 'SQL is a programming language for storing and processing information in a relational database. ',
     tag: 'Technology',
     imageURL:
       'https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-1125-SQL_Server_2022_web_blade_image_RWWaqg:VP1-539x440?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=1920&hei=600&qlt=100&fmt=png-alpha&fit=constrain',
@@ -86,8 +85,7 @@ const demoCourses = [
   },
   {
     title: 'Computer Science Subjects',
-    description:
-      'Principal areas of study within Computer Science include computer systems and networks, security, database systems, human computer interaction, vision and graphics, programming languages, software engineering and theory of computing',
+            description: 'Principal areas of study within Computer Science includes computer science syllabus subjects for college and GATE exam',
     tag: 'College Subject',
     imageURL:
       'https://us.123rf.com/450wm/ra2studio/ra2studio2104/ra2studio210405103/168030448-hand-touching-digital-button-modern-technology-concept.jpg?ver=6',
