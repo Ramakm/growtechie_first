@@ -64,10 +64,10 @@ const Form = () => {
             </div>
             <section className="p-5 py-28 z-10">
                 <div className="max-w-[90vw] mx-auto w-[700px]">
-                    <h1 className="capitalize text-[38px] font-semibold">
+                    <h1 className="capitalize text-[40px] text-gradient font-bold">
                         {course} Registration
                     </h1>
-                    <p className="max-w-[64ch]">If you are interested in GrowTechie <span className="capitalize">{course}</span> course, Please fill out this form first.</p>
+                    <p className="max-w-[64ch] text-[var(--secondary-text)]">If you are interested in GrowTechie <span className="capitalize">{course}</span> course, Please fill out this form first.</p>
 
                     <form ref={form} onSubmit={handleSubmit} className="mt-[5vh] flex flex-col gap-4">
                         <input className="w-0 h-0 m-0 p-0" name="course" value={course} />
