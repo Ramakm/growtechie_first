@@ -44,7 +44,7 @@ const Testimonial = () => {
     <div className="flex flex-col w-[100vw] mt-20 overflow-hidden min-h-[100vh]">
       <div id="testimonials" className="text-center">
         <h1 className="text-6xl mt-2 font-semibold capitalize text-white">
-          What Other say about us?
+          Student Testimonies
         </h1>
         <div className="bg-blue-400 h-[4px] w-2/5 mx-auto mt-2"></div>
 
