@@ -10,7 +10,7 @@ const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <footer className="bg-gradient-to-r from-slate-900 to-slate-700 py-5 px-8">
+    <footer className="radial-shiny-gray-gradient py-5 px-8">
       <section className="flex justify-center gap-5 flex-col md:flex-row">
         <div className="flex flex-col gap-5">
           <h3
