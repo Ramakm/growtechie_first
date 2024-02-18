@@ -1,6 +1,6 @@
 const CourseHero = ({ title, subtitle, imagelink, courseName }) => {
   return (
-    <div className="relative h-80 bg-blue-600 text-white">
+    <div className="relative h-80 radial-shiny-gray-gradient text-white">
       <div className="h-full flex flex-col justify-center items-center relative z-10">
         <h1 className="text-5xl font-bold tracking-tight mb-2">{title}</h1>
         <p className="text-2xl font-medium mb-4">{subtitle}</p>

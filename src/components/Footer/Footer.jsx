@@ -10,11 +10,11 @@ const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <footer className="bg-gradient-to-r from-slate-900 to-slate-700 py-5 px-8">
+    <footer className="radial-shiny-gray-gradient py-5 px-8">
       <section className="flex justify-center gap-5 flex-col md:flex-row">
         <div className="flex flex-col gap-5">
           <h3
-            className="text-5xl xl:text-8xl relative font-semibold footer-heading leading-[1.15] mb-2 text-white"
+            className="text-5xl xl:text-8xl relative font-semibold footer-heading leading-[1.15] mb-2 text-[var(--primary-text)]"
           >Contact Us</h3>
           <p className="text-blue-300">
             We'd love to hear from you. Contact us through the following

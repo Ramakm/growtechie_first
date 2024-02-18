@@ -30,7 +30,7 @@ const PowerBI = () => {
     ` Passion and curiosity to learn something new and do hand-on projects live`,
   ];
 
-  const imageurl =courseImageURL['Power BI'];
+  const imageurl = courseImageURL['Power BI'];
 
   return (
     <div className="min-h-screen font-sans">
@@ -45,7 +45,6 @@ const PowerBI = () => {
       ></CourseHero>
 
       <CourseheroMobile
-        formLink={formlink}
         courseName={courseName}
       ></CourseheroMobile>
 
@@ -58,19 +57,18 @@ const PowerBI = () => {
       <CourseBenefits></CourseBenefits>
 
       {/* Course Syllabus */}
-      <section className="px-4 py-8 max-w-5xl mx-auto text-gray-700">
-        <h2 className="text-3xl font-semibold mb-4">Course Syllabus</h2>
+      <section className="px-4 linear-purple-green-gradient py-8 max-w-5xl mx-auto rounded-lg shadow-lg">
+        <h2 className="text-4xl text-center text-[var(--primary-text)] font-bold mb-4">Course Syllabus</h2>
         {powerBICourse.map((section, index) => (
-          <div key={index} className="mb-6">
+          <div key={index} className="mb-6 p-4 rounded-lg hover:shadow-md transition duration-300 select-none radial-shiny-gray-gradient text-[var(--primary-text)]">
             <div
               onClick={() => toggleAccordion(index)}
               className="flex justify-between cursor-pointer"
             >
               <h3 className="text-xl font-semibold mb-2">{section.title}</h3>
               <span
-                className={`${
-                  activeIndex === index ? 'transform rotate-180' : ''
-                } transition-transform duration-300`}
+                className={`${activeIndex === index ? 'transform rotate-180' : ''
+                  } transition-transform duration-300`}
               >
                 &#x25B6;
               </span>
