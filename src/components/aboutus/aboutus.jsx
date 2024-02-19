@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <div className="text-[var(--primary-text)] relative mt-10">
       <div>
-        <div className="p-5">
+        <div className="p-5" id="about-us">
           <h2 className="text-7xl mb-7 font-semibold text-[var(--moonstone-blue)] w-fit relative">
             Our Team
             <span className="absolute h-[2px] w-[100vw] bg-[var(--moonstone-blue)] top-1/2"></span>
