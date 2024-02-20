@@ -15,6 +15,7 @@
     --highlighted-text: var(--moonstone-blue);
     --active-link: var(--dark-blue);
     --bg-color: black;
+    --contrast-bg-color: rgb(248, 245, 245);
 }
 
 /* ---------------- GRADIENTS -------------- */

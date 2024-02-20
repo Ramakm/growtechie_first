@@ -14,14 +14,12 @@ import SoftwareTesting from './page/courses/softwaretesting.jsx';
 import CSsubjects from './page/courses/cssubjects.jsx';
 import CareerinTech from './page/courses/careertech.jsx';
 import Form from './page/form.jsx';
+import JoinAsTeacher from "./page/joinAsTeacher.jsx"
 
 const App = () => {
   return (
     <>
-      {/* // <Router> */}
-      {/* <div className='overflow-x-hidden antialiased'> */}
       <Routes>
-
         <Route path='/' element={<Home />} />
         {/* <Route path='/course/:coursename' element={<Course />} /> */}
         <Route path='/course/pythonprogramming' element={<PythonProgramming />} />
@@ -35,10 +33,9 @@ const App = () => {
         <Route path='course/careerintech' element={<CareerinTech />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/form" element={<Form/>} />
+        <Route path="/join-as-teacher" element={<JoinAsTeacher />} />
         <Route path='/*' element={<Page404 />} />
       </Routes>
-      {/* </div> */}
-      {/* // </Router> */}
     </>
   );
 };

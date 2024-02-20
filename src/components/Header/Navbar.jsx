@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Navbar.css';
 import { useNavigate } from 'react-router-dom';
 import handleScrollToElement from '../../commonFn';
 import siteMapData from '../../navData';
+import DialogBox from './DialogBox';
 
 const Header = () => {
   const navigate = useNavigate();
   const navRef = useRef();
+  const [openDialogBox, setOpenDialogBox] = useState(false);
   useScroll(navRef);
 
   function handleNavigation(e, elementId) {
@@ -51,7 +53,7 @@ const Header = () => {
       >
         <a
           href="/"
-          className="relative flex items-center inline-block h-5 h-full font-black leading-none"
+          className="relative flex items-center h-5 font-black leading-none"
         >
           <img
             src="/logo.png"
@@ -63,7 +65,7 @@ const Header = () => {
 
         <nav
           id="nav"
-          className="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-lg text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
+          className="absolute top-0 left-0 z-50 flex flex-col items-center justify-between w-full h-64 pt-5 mt-24 text-lg text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
         >
           {siteMapData.map((item, idx) => (
             <a
@@ -74,6 +76,12 @@ const Header = () => {
               {item.text}
             </a>
           ))}
+          <button
+            className="ml-auto linear-purple-green-gradient text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
+            onClick={() => setOpenDialogBox(true)}
+          >
+            JoinUs
+          </button>
         </nav>
 
         <div
@@ -84,6 +92,7 @@ const Header = () => {
           <span className="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
         </div>
       </div>
+      {openDialogBox && <DialogBox setOpenDialogBox={setOpenDialogBox} />}
     </header>
   );
 };
