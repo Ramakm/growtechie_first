@@ -11,7 +11,13 @@ const Header = () => {
   const navigate = useNavigate();
   const navRef = useRef();
   const [openDialogBox, setOpenDialogBox] = useState(false);
+  const [user, setUser] = useState(auth?.currentUser);
   useScroll(navRef);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => setUser(authUser));
+    return () => unsubscribe()
+}, []);
 
   function handleNavigation(e, elementId) {
     e.preventDefault();
@@ -77,7 +83,7 @@ const Header = () => {
               {item.text}
             </a>
           ))}
-          {auth.currentUser ? (
+          {user ? (
             <button 
               className="text-white underline hover:no-underline"
               onClick={() => auth.signOut()}
