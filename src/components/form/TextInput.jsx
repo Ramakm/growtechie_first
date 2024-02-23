@@ -6,7 +6,7 @@ const TextInput = ({ data, formData, handleChange }) => {
                 {data.optional? <span>{" "}(Optional)</span> : <span className="text-red-700">*</span>}
             </label>
             <input
-                type="text"
+                type={data.type || "text"}
                 id={data.name}
                 name={data.name}
                 value={formData[data.name]}

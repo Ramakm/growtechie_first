@@ -45,7 +45,7 @@ const Courses = () => {
                     className="flex justify-between gap-6 items-center
                     text-left ml-3 w-full h-full">
                     {category}
-                    {category == selectedCategory && <span className="text-2xl">></span>}
+                    {category == selectedCategory && <span className="text-2xl">&#12297;</span>}
                   </button>
                 </li>
               ))}

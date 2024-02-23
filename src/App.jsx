@@ -15,8 +15,11 @@ import CSsubjects from './page/courses/cssubjects.jsx';
 import CareerinTech from './page/courses/careertech.jsx';
 import Form from './page/form.jsx';
 import JoinAsTeacher from "./page/joinAsTeacher.jsx"
+import { auth } from './firebase/config.js';
 
 const App = () => {
+  const user = auth.currentUser;
+
   return (
     <>
       <Routes>
@@ -33,7 +36,7 @@ const App = () => {
         <Route path='course/careerintech' element={<CareerinTech />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/form" element={<Form/>} />
-        <Route path="/join-as-teacher" element={<JoinAsTeacher />} />
+        <Route path="/join-as-teacher" element={user ? <Page404 /> : <JoinAsTeacher />} />
         <Route path='/*' element={<Page404 />} />
       </Routes>
     </>

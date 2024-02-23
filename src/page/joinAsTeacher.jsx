@@ -1,7 +1,13 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import CourseHeader from "../components/course/courseHeader";
 import { FormBody, TextInput, RadioInput } from "../components/form";
 import { textData, radioData } from "../staticData/teacherFormData";
+import { auth } from "../firebase/config";
+import { login } from "../utils/auth";
+import { useNavigate } from "react-router";
+import handleFormChange from "../utils/handleFormChange"
+import { db } from "../firebase/config";
+import { FullScreenLoader } from "../components/loader/Loader";
 
 const JoinAsTeacher = () => {
     const initialData = {
@@ -10,27 +16,61 @@ const JoinAsTeacher = () => {
         phone: "",
         groupFee: "",
         individualFee: "",
+        sessionCount: "",
+        position: "",
         linkedin: "",
         twitter: "",
         instagram: "",
         demoCount: "",
         preRequisities: "",
+        experience: "",
         ytLink: "",
         languages: "",
     }
     const form = useRef(null);
     const [formData, setFormData] = useState(initialData);
+    const [uploadForm, setUploadForm] = useState(false);
+    const navigate = useNavigate();
 
-    function handleChange(event) {
-        setFormData(prevFormData => ({
-            ...prevFormData,
-            [event.target.name]: event.target.value
-        }))
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser && authUser.metadata.creationTime === authUser.metadata.lastSignInTime) {
+                postFormToDB(authUser);
+            } else if (authUser) {
+                navigate("/");
+            }
+        });
+        return () => {
+            unsubscribe();
+        };
+    }, []);
+
+    async function postFormToDB(user) {
+        await db.collection("teachers").add({
+            ...formData,
+            uid: user.uid,
+        })
+            .then(() => {
+                setFormData(initialData);
+                alert("We will go through your application soon.\nTill then please wait!");
+            })
+            .catch(err => {
+                alert(err.message);
+            })
+            .finally(() => {
+                setUploadForm(false);
+                navigate("/");
+            })
     }
 
+    function handleChange(event) {
+        handleFormChange(event, setFormData);
+    }
 
-    function handleSubmit() {
-
+    function handleSubmit(e) {
+        e.preventDefault();
+        setUploadForm(true);
+        login();
     }
 
     return (
@@ -51,6 +91,7 @@ const JoinAsTeacher = () => {
                     ))}
                 </FormBody>
             </div>
+            {uploadForm && <FullScreenLoader text="Don't refresh" />}
         </div>
     )
 }

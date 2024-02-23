@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import handleScrollToElement from '../../commonFn';
 import siteMapData from '../../navData';
 import DialogBox from './DialogBox';
+import { auth } from '../../firebase/config';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -76,12 +77,21 @@ const Header = () => {
               {item.text}
             </a>
           ))}
-          <button
-            className="ml-auto linear-purple-green-gradient text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
-            onClick={() => setOpenDialogBox(true)}
-          >
-            JoinUs
-          </button>
+          {auth.currentUser ? (
+            <button 
+              className="text-white underline hover:no-underline"
+              onClick={() => auth.signOut()}
+            >
+              LogOut
+            </button>
+          ) : (
+            <button
+              className="ml-auto linear-purple-green-gradient text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
+              onClick={() => setOpenDialogBox(true)}
+            >
+              JoinUs
+            </button>
+          )}
         </nav>
 
         <div

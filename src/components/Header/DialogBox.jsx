@@ -1,7 +1,14 @@
 import { useNavigate } from "react-router";
+import { login } from "../../utils/auth";
+
 
 const DialogBox = ({ setOpenDialogBox }) => {
     const navigate = useNavigate();
+
+    function handleJoinAsStudent() {
+        login();
+        setOpenDialogBox(false);
+    }
 
     return (
         <div className="fixed select-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--contrast-bg-color)] py-5 px-10 rounded-lg">
@@ -10,7 +17,7 @@ const DialogBox = ({ setOpenDialogBox }) => {
             </p>
             <div className="flex flex-col justify-center items-center gap-3">
                 <JoinBtn
-                    onClick={() => { }}
+                    onClick={handleJoinAsStudent}
                     text="Join as STUDENT"
                 />
                 <span className="text-[var(--bg-color)]">or</span>

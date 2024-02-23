@@ -1,4 +1,6 @@
-const FormBody = ({ children, title, intro, ref, onSubmit }) => {
+import { forwardRef } from "react";
+
+const FormBody = ({ children, title, intro, onSubmit }, ref) => {
     return (
         <section className="p-5 py-28 z-10">
             <div className="max-w-[90vw] mx-auto w-[700px]">
@@ -20,4 +22,4 @@ const FormBody = ({ children, title, intro, ref, onSubmit }) => {
     )
 }
 
-export default FormBody;
+export default forwardRef(FormBody);

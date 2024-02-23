@@ -12,12 +12,16 @@ const textData = [
         name: "phone"
     },
     {
+        label: "Your current position",
+        name: "position"
+    },
+    {
         label: "Course Fee for Group Session",
-        name: "group-fee"
+        name: "groupFee"
     },
     {
         label: "Course Fee for 1-1 Session",
-        name: "individual-fee"
+        name: "individualFee"
     },
     {
         label: "Drop your LinkedIn handle",
@@ -36,19 +40,26 @@ const textData = [
     },
     {
         label: "Number of demo classes you will provide to each student",
-        name: "demo-count"
+        name: "demoCount",
+        type: "number",
+    },
+    {
+        label: "Number of sessions you will take per week",
+        name: "sessionCount",
+        type: "number",
     },
     {
         label: "Pre-requisties for students",
-        name: "pre-requisities"
+        name: "preRequisities"
     },
     {
         label: "Teaching Experience you have(in years)",
-        name: "experience"
+        name: "experience",
+        type: "number"
     },
     {
         label: "YouTube video link that describe about your work",
-        name: "yt-link",
+        name: "ytLink",
         optional: true,
     },
     {
