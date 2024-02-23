@@ -5,7 +5,7 @@ import { login } from "../../utils/auth";
 const DialogBox = ({ setOpenDialogBox }) => {
     const navigate = useNavigate();
 
-    function handleJoinAsStudent() {
+    function handleJoin() {
         login();
         setOpenDialogBox(false);
     }
@@ -17,7 +17,7 @@ const DialogBox = ({ setOpenDialogBox }) => {
             </p>
             <div className="flex flex-col justify-center items-center gap-3">
                 <JoinBtn
-                    onClick={handleJoinAsStudent}
+                    onClick={handleJoin}
                     text="Join as STUDENT"
                 />
                 <span className="text-[var(--bg-color)]">or</span>
@@ -28,7 +28,7 @@ const DialogBox = ({ setOpenDialogBox }) => {
             </div>
             <p className="mt-7 text-sm text-[var(--bg-color)]">
                 Already have an account? {" "}
-                <button className="text-blue-400 underline hover:no-underline">
+                <button className="text-blue-400 underline hover:no-underline" onClick={handleJoin}>
                     SignIn
                 </button>
             </p>
