@@ -4,8 +4,8 @@ const textData = [
         name: "name"
     },
     {
-        label: "Email",
-        name: "email"
+        label: "Link to your Image",
+        name: "imageLink"
     },
     {
         label: "Mobile No",

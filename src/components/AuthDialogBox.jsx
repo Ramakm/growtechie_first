@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router";
-import { login } from "../../utils/auth";
+import { login } from "../utils/auth"
 
-
-const DialogBox = ({ setOpenDialogBox }) => {
+const AuthDialogBox = ({ setOpenDialogBox }) => {
     const navigate = useNavigate();
 
-    function handleJoin() {
+    function handleJoin(e) {
+        e.stopPropagation();
         login();
         setOpenDialogBox(false);
     }
@@ -33,7 +33,7 @@ const DialogBox = ({ setOpenDialogBox }) => {
                 </button>
             </p>
             <button
-                className="absolute -top-2 -right-2 bg-blue-500 text-white p-3 py-1 aspect-square rounded-full"
+                className="absolute -top-2 -right-2 bg-blue-500 text-white p-3 py-1 aspect-square rounded-full cursor-pointer"
                 onClick={() => setOpenDialogBox(false)}
             >
                 X
@@ -42,7 +42,7 @@ const DialogBox = ({ setOpenDialogBox }) => {
     )
 }
 
-export default DialogBox;
+export default AuthDialogBox;
 
 
 const JoinBtn = ({ onClick, text }) => (

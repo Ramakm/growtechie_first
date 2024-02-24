@@ -8,25 +8,10 @@ import { useNavigate } from "react-router";
 import handleFormChange from "../utils/handleFormChange"
 import { db } from "../firebase/config";
 import { FullScreenLoader } from "../components/loader/Loader";
+import extractInitData from "../utils/extractInitData";
 
 const JoinAsTeacher = () => {
-    const initialData = {
-        name: "",
-        email: "",
-        phone: "",
-        groupFee: "",
-        individualFee: "",
-        sessionCount: "",
-        position: "",
-        linkedin: "",
-        twitter: "",
-        instagram: "",
-        demoCount: "",
-        preRequisities: "",
-        experience: "",
-        ytLink: "",
-        languages: "",
-    }
+    const initialData = extractInitData([...textData, ...radioData], "name");
     const form = useRef(null);
     const [formData, setFormData] = useState(initialData);
     const [uploadForm, setUploadForm] = useState(false);
@@ -48,6 +33,7 @@ const JoinAsTeacher = () => {
     async function postFormToDB(user) {
         await db.collection("teachers").add({
             ...formData,
+            email: user.email,
             uid: user.uid,
         })
             .then(() => {

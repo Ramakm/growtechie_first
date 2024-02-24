@@ -3,9 +3,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Navbar.css';
 import { useNavigate } from 'react-router-dom';
 import handleScrollToElement from '../../commonFn';
-import siteMapData from '../../navData';
-import DialogBox from './DialogBox';
+import { navData } from '../../navData';
 import { auth } from '../../firebase/config';
+import AuthDialogBox from '../AuthDialogBox';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -74,7 +74,7 @@ const Header = () => {
           id="nav"
           className="absolute top-0 left-0 z-50 flex flex-col items-center justify-between w-full h-64 pt-5 mt-24 text-lg text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
         >
-          {siteMapData.map((item, idx) => (
+          {navData.map((item, idx) => (
             <a
               key={idx}
               onClick={(e) => handleNavigation(e, item.to)}
@@ -108,7 +108,7 @@ const Header = () => {
           <span className="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
         </div>
       </div>
-      {openDialogBox && <DialogBox setOpenDialogBox={setOpenDialogBox} />}
+      {openDialogBox && <AuthDialogBox setOpenDialogBox={setOpenDialogBox} />}
     </header>
   );
 };
