@@ -13,24 +13,25 @@ import extractInitData from "../utils/extractInitData";
 const JoinAsTeacher = () => {
     const initialData = extractInitData([...textData, ...radioData], "name");
     const form = useRef(null);
+    const [user, setUser] = useState(auth.currentUser)
     const [formData, setFormData] = useState(initialData);
     const [uploadForm, setUploadForm] = useState(false);
     const navigate = useNavigate();
-
+    
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((authUser) => {
-            if (authUser && authUser.metadata.creationTime === authUser.metadata.lastSignInTime) {
-                postFormToDB(authUser);
-            } else if (authUser) {
-                navigate("/");
-            }
-        });
-        return () => {
-            unsubscribe();
-        };
-    }, []);
+        const unsubscribe = auth.onAuthStateChanged(authUser => setUser(authUser))
 
-    async function postFormToDB(user) {
+        if(user && user.metadata.creationTime === user.metadata.lastSignInTime) {
+            postFormToDB()
+        } else if (user) {
+            alert("Uh Oh! You already exist as a user.\n We can't save your data.");
+            navigate("/")
+        }
+
+        return () => unsubscribe();
+    }, [user]);
+
+    async function postFormToDB() {
         await db.collection("teachers").add({
             ...formData,
             email: user.email,

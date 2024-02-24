@@ -1,4 +1,5 @@
 import CourseHeader from "../components/course/courseHeader";
+import TeachersComponent from "../components/teachers/teachers";
 
 const Teachers = () => {
     return (
@@ -9,7 +10,7 @@ const Teachers = () => {
                     Book a Free Trial with a Teacher of your Choice
                 </h1>
                 <div className="flex flex-col gap-8">
-                    {/* <TeacherComponent /> */}
+                    <TeachersComponent />
                 </div>
             </div>
         </div>
