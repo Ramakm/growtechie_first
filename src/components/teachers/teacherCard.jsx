@@ -2,8 +2,9 @@ import { useNavigate } from "react-router";
 import { auth } from "../../firebase/config"
 import { useState, useEffect } from "react";
 import AuthDialogBox from "../AuthDialogBox";
+import BookTrial from "./bookTrial";
 
-function TeacherCard() {
+function TeacherCard({ teacher }) {
     const navigate = useNavigate();
     const [user, setUser] = useState(auth.currentUser);
     const [openDialogBox, setOpenDialogBox] = useState(false);
@@ -17,7 +18,7 @@ function TeacherCard() {
     }, []);
 
     function navigateToProfile() {
-        navigate("/teachers/palakgoyal")
+        navigate(`/teachers/${teacher.uid}`)
     }
 
     function handleCloseBookTrialWindow() {
@@ -26,11 +27,7 @@ function TeacherCard() {
 
     function handleBookTrial(e) {
         e.stopPropagation();
-        if (user) {
-            setOpenBookTrialWindow(true);
-        } else {
-            setOpenDialogBox(true);
-        }
+        user ? setOpenBookTrialWindow(true) : setOpenDialogBox(true);
     }
 
     return (
@@ -39,11 +36,11 @@ function TeacherCard() {
         >
             <div className="w-[60%] flex flex-col gap-5">
                 <div className="flex gap-5">
-                    <div className="shrink-0 w-48 h-48">
+                    <div className="shrink-0 w-48 h-48 overflow-hidden">
                         <img
-                            src="https://avatars.githubusercontent.com/u/116902573?v=4"
-                            alt="Palak Goyal"
-                            className="w-full h-full rounded-md"
+                            src={teacher.imageLink}
+                            alt={teacher.name}
+                            className="w-full h-full rounded-md object-center aspect-[initial]"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -51,13 +48,13 @@ function TeacherCard() {
                             className="font-bold capitalize text-2xl hover:underline cursor-pointer mb-3"
                             onClick={navigateToProfile}
                         >
-                            Palak Goyal
+                            {teacher.name}
                         </h3>
                         <p className="mb-1 text-[var(--light-gray)]">
-                            Software Engineer at Tesla
+                            {teacher.position}
                         </p>
                         <p className="text-sm mb-8 text-[var(--dark-gray)]">
-                            5 years of teaching exprience
+                            {teacher.experience} years of teaching exprience
                         </p>
                         <p className="line-clamp-2 w-full text-xs">
                             Lorem ipsum, dolor sit amet tur adipisicing elit. Reprehenderit quidem culpa earum inventore quas, voluptatibus delectus. Architecto minus deserunt fugit eligendi officia excepturi laboriosam vel voluptate rerum ex ad maxime autem consectetur recusandae enim magnam ipsa, dolorem ab ut placeat.
@@ -66,22 +63,22 @@ function TeacherCard() {
                 </div>
                 <p className="text-[var(--light-gray)]">
                     <span className="font-semibold">Course: </span>
-                    Python Programming and projects
+                    {teacher.courseName}
                 </p>
                 <div className="flex gap-5 justify-between">
                     <p className="line-clamp-1 w-1/2 text-sm">
                         💼 <span className="font-semibold text-base">For: {" "}</span>
-                        Beginner frontend dev Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, iste, dolorum enim laboriosam magni molestiae voluptatibus veniam voluptatum eum excepturi quae, odit libero error dolores corporis sint! Quo, mollitia illo?
+                        {teacher.preRequisities}
                     </p>
                     <p className="">
-                        🎯 2 demo classes
+                        🎯 {teacher.demoCount} demo classes
                     </p>
                 </div>
             </div>
             <div className="w-[40%] flex flex-col pl-5 border-l-[1px] border-[var(--light-gray)] border-solid">
                 <div className="flex flex-col gap-2 text-sm capitalize mb-7">
                     <p>
-                        📞 2x Sessions Per Week
+                        📞 {teacher.sessionCount}x Sessions Per Week
                     </p>
                     <p>
                         ☑️ Task Assignment and resources
@@ -93,13 +90,13 @@ function TeacherCard() {
 
                 <p className="mb-1">
                     <span className="text-2xl">
-                        ₹15000 {" "}
+                        ₹{teacher.individualFee} {" "}
                     </span>
                     individual/month
                 </p>
                 <p>
                     <span className="text-2xl">
-                        ₹10000 {" "}
+                        ₹{teacher.groupFee} {" "}
                     </span>
                     group/month
                 </p>
@@ -118,7 +115,7 @@ function TeacherCard() {
                 </button>
             </div>
             {openDialogBox && <AuthDialogBox setOpenDialogBox={setOpenDialogBox} />}
-            <BookTrialWindow user={user} teacher={""} open={openBookTrialWindow} handleClose={handleCloseBookTrialWindow} />
+            <BookTrial user={user} teacher={teacher} open={openBookTrialWindow} handleClose={handleCloseBookTrialWindow} />
         </div>
     )
 }

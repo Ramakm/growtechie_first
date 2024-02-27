@@ -3,7 +3,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import handleFormChange from "../utils/handleFormChange";
+import handleFormChange from "../../utils/handleFormChange";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -26,18 +26,19 @@ const BookTrial = ({ teacher, user, open, handleClose }) => {
         textAlign: 'center',
     };
 
-    const [formData, setFormData] = useState({
+    const initData = {
         phoneNumber: "",
         session: ""
-    });
+    }
 
-    const groupFees = 10000;
-    const individualFees = 15000;
+    const [formData, setFormData] = useState(initData);
+
+    const groupFees = teacher.groupFee;
+    const individualFees = teacher.individualFee;
     const form = useRef(null);
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log("submitted!");
         emailjs
             .sendForm(
                 import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -46,10 +47,7 @@ const BookTrial = ({ teacher, user, open, handleClose }) => {
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
             )
             .then(() => {
-                setFormData({
-                    phoneNumber: "",
-                    session: ""
-                })
+                setFormData(initData);
                 alert("Successfully submitted form! 🥳");
             },
             )
@@ -65,11 +63,11 @@ const BookTrial = ({ teacher, user, open, handleClose }) => {
     return (
         <div>
             <form ref={form} className="hidden">
-                <input type="text" id="name" name="name" value={"Palak"} readOnly />
-                <input type="text" id="email" name="email" value={"example.com"} readOnly />
+                <input type="text" id="name" name="name" value={user.name} readOnly />
+                <input type="text" id="email" name="email" value={user.email} readOnly />
                 <input type="text" id="phone" name="phone" value={formData.phoneNumber} readOnly />
-                <input type="text" id="teacherName" name="teacherName" value={"testing"} readOnly />
-                <input type="text" id="uid" name="uid" value={"dkfweurewewjdsj"} readOnly />
+                <input type="text" id="teacherName" name="teacherName" value={teacher.name} readOnly />
+                <input type="text" id="uid" name="uid" value={teacher.uid} readOnly />
                 <input type="text" id="session" name="session" value={formData.session} readOnly />
             </form>
             <Modal
@@ -90,8 +88,8 @@ const BookTrial = ({ teacher, user, open, handleClose }) => {
                             marginX: 'auto',
                             marginBottom: 2,
                         }}
-                        alt="Palak Goyal"
-                        src="https://avatars.githubusercontent.com/u/116902573?v=4"
+                        alt={teacher.name}
+                        src={teacher.imageLink}
                     />
                     <Typography id="modal-modal-title" variant="h5" component="h2">
                         Continue Booking a Free Trial
@@ -99,7 +97,7 @@ const BookTrial = ({ teacher, user, open, handleClose }) => {
                     <p></p>
                     <Typography id="modal-modal-description" sx={{ fontSize: '14px', maxWidth: '50ch' }}>
                         You're only a few steps away from booking a FREE trial session with{" "}
-                        <span className="font-semibold">Pranab Chaudhari</span>
+                        <span className="font-semibold">{teacher.name}</span>
                     </Typography>
                     <form onSubmit={handleSubmit} className="mt-4">
                         <FormControl variant="standard" sx={{ minWidth: "100%" }}>
