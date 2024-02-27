@@ -10,7 +10,7 @@ import { db } from "../firebase/config";
 import { FullScreenLoader } from "../components/loader/Loader";
 import extractInitData from "../utils/extractInitData";
 
-const JoinAsTeacher = () => {
+const JoinAsTeacherForm = () => {
     const initialData = extractInitData([...textData, ...radioData], "name");
     const form = useRef(null);
     const [user, setUser] = useState(auth.currentUser)
@@ -83,4 +83,4 @@ const JoinAsTeacher = () => {
     )
 }
 
-export default JoinAsTeacher;
+export default JoinAsTeacherForm;

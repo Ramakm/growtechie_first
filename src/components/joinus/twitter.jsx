@@ -2,7 +2,7 @@
 import React from 'react';
 import './styles.css';
 
-const Joinus = ({ eyebrow, title, description, primaryLink, twitterLink }) => {
+const Joinus = ({ title, description, primaryLink, twitterLink }) => {
   return (
     <div id="joinus" className="font-sans h-screen relative flex justify-center items-center">
       <span className="absolute shiny-border-design top-0 right-[60%] w-[800px] h-[600px]"></span>

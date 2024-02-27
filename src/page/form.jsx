@@ -64,7 +64,7 @@ const Form = () => {
                 ref={form}
                 handleSubmit={handleSubmit}
             >
-                <input className="w-0 h-0 m-0 p-0" name="course" value={course} />
+                <input className="w-0 h-0 m-0 p-0" name="course" value={course} readOnly />
                 <TextInput data={textData[0]} handleChange={handleChange} formData={formData} />
                 <TextInput data={textData[1]} handleChange={handleChange} formData={formData} />
                 <TextInput data={textData[2]} handleChange={handleChange} formData={formData} />
