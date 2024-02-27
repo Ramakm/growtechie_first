@@ -62,7 +62,7 @@ const Courses = () => {
                  duration-300 transform hover:scale-105
                  max-w-96 h-fit"
               >
-                <Link to={course.courseLink} smooth={true} duration={500}>
+                <Link to={course.courseLink} smooth="true" duration={500}>
                   <img
                     className="w-full h-64 object-cover clipPath"
                     src={course.imageURL}
@@ -73,7 +73,7 @@ const Courses = () => {
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     <Link
                       to={course.courseLink}
-                      smooth={true}
+                      smooth="true"
                       duration={500}
                       className="text-blue-700 hover:underline hover:text-blue-900"
                     >

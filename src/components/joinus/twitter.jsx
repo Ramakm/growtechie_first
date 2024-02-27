@@ -27,7 +27,7 @@ const Joinus = ({ eyebrow, title, description, primaryLink, twitterLink }) => {
               src="https://discord.com/widget?id=1015348978755313764&theme=dark"
               width="100%"
               height="500"
-              allowTransparency="true"
+              allowtransparency="true"
               frameBorder="0"
               sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
             ></iframe>
