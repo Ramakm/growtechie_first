@@ -1,43 +1,39 @@
 import { useState, useRef } from "react";
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
+import { useNavigate } from "react-router";
 import handleFormChange from "../../utils/handleFormChange";
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
-import Button from '@mui/material/Button';
 import emailjs from "@emailjs/browser";
+import { FullScreenLoader } from "../loader/Loader";
+import {
+    Modal,
+    Box,
+    Typography,
+    TextField,
+    Radio,
+    RadioGroup,
+    FormControlLabel,
+    FormControl,
+    FormHelperText,
+    Button,
+} from "@mui/material"
+
 
 const BookTrial = ({ teacher, user, open, handleClose }) => {
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        maxWidth: '600px',
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
-        boxShadow: 24,
-        p: 4,
-        textAlign: 'center',
-    };
-
     const initData = {
         phoneNumber: "",
         session: ""
     }
 
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState(initData);
+    const [sendingMail, setSendingMail] = useState(false);
 
     const groupFees = teacher.groupFee;
     const individualFees = teacher.individualFee;
     const form = useRef(null);
 
     function handleSubmit(e) {
+        setSendingMail(true)
         e.preventDefault();
         emailjs
             .sendForm(
@@ -48,35 +44,39 @@ const BookTrial = ({ teacher, user, open, handleClose }) => {
             )
             .then(() => {
                 setFormData(initData);
-                alert("Successfully submitted form! 🥳");
+                alert("Successfully send request to book trial! 🥳\nWe will contact you soon");
             },
             )
-            .catch((err) => {
+            .catch(() => {
                 alert("❌ There was an error while submitting ❌\n Please try again later");
             })
-
-        // Close form
-        // navigate to home
+            .finally(() => {
+                setSendingMail(false)
+                navigate("/");
+            })
     }
 
 
     return (
         <div>
-            <form ref={form} className="hidden">
-                <input type="text" id="name" name="name" value={user.name} readOnly />
-                <input type="text" id="email" name="email" value={user.email} readOnly />
-                <input type="text" id="phone" name="phone" value={formData.phoneNumber} readOnly />
-                <input type="text" id="teacherName" name="teacherName" value={teacher.name} readOnly />
-                <input type="text" id="uid" name="uid" value={teacher.uid} readOnly />
-                <input type="text" id="session" name="session" value={formData.session} readOnly />
-            </form>
             <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
+                <Box sx={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    maxWidth: '600px',
+                    bgcolor: 'background.paper',
+                    border: '2px solid #000',
+                    boxShadow: 24,
+                    p: 4,
+                    textAlign: 'center',
+                }}>
                     <Box
                         component="img"
                         sx={{
@@ -122,10 +122,21 @@ const BookTrial = ({ teacher, user, open, handleClose }) => {
                             <FormControlLabel value={`Group ₹${groupFees}`} control={<Radio required={true} />} label={`Group ₹${groupFees}`} />
                             <FormControlLabel value={`Individual ₹${individualFees}`} control={<Radio required={true} />} label={`Individual ₹${individualFees}`} />
                         </RadioGroup>
-                        <Button variant="contained" type="submit" sx={{ minWidth: "100%" }}>Submit</Button>
+                        <Button variant="contained" disabled={sendingMail} type="submit" sx={{ minWidth: "100%" }}>Submit</Button>
                     </form>
                 </Box>
             </Modal>
+            {sendingMail && <FullScreenLoader />}
+
+            {/* Form to send data to Email JS */}
+            <form ref={form} className="hidden">
+                <input type="text" id="name" name="name" value={user.displayName} readOnly />
+                <input type="text" id="email" name="email" value={user.email} readOnly />
+                <input type="text" id="phone" name="phone" value={formData.phoneNumber} readOnly />
+                <input type="text" id="teacherName" name="teacherName" value={teacher.name} readOnly />
+                <input type="text" id="uid" name="uid" value={teacher.uid} readOnly />
+                <input type="text" id="session" name="session" value={formData.session} readOnly />
+            </form>
         </div>
     )
 }

@@ -16,6 +16,10 @@ const textData = [
         name: "position"
     },
     {
+        label: "Bio",
+        name: "bio"
+    },
+    {
         label: "Course Fee for Group Session",
         name: "groupFee"
     },
@@ -71,7 +75,7 @@ const textData = [
 
 const radioData = [
     {
-        name: "course-name",
+        name: "courseName",
         label: "Course you want to teach",
         values: ["Python Programming", "Python Projects", "SQL", "Power BI", "Data Science", "Data analytics", "Software Testing", "Computer Science Subjects", "How to start a Career in Tech"]
     },

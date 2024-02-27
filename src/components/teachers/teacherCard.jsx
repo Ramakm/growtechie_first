@@ -32,7 +32,7 @@ function TeacherCard({ teacher }) {
 
     return (
         <div
-            className="flex border-2 border-slate-500 p-5 gap-5 rounded-lg hover:shadow-lg"
+            className="flex border-2 hover:scale-[1.01] transition-all ease-in-out border-slate-500 p-5 gap-5 rounded-lg"
         >
             <div className="w-[60%] flex flex-col gap-5">
                 <div className="flex gap-5">
@@ -57,7 +57,7 @@ function TeacherCard({ teacher }) {
                             {teacher.experience} years of teaching exprience
                         </p>
                         <p className="line-clamp-2 w-full text-xs">
-                            Lorem ipsum, dolor sit amet tur adipisicing elit. Reprehenderit quidem culpa earum inventore quas, voluptatibus delectus. Architecto minus deserunt fugit eligendi officia excepturi laboriosam vel voluptate rerum ex ad maxime autem consectetur recusandae enim magnam ipsa, dolorem ab ut placeat.
+                            {teacher.bio}
                         </p>
                     </div>
                 </div>
@@ -115,7 +115,7 @@ function TeacherCard({ teacher }) {
                 </button>
             </div>
             {openDialogBox && <AuthDialogBox setOpenDialogBox={setOpenDialogBox} />}
-            <BookTrial user={user} teacher={teacher} open={openBookTrialWindow} handleClose={handleCloseBookTrialWindow} />
+            {user && <BookTrial user={user} teacher={teacher} open={openBookTrialWindow} handleClose={handleCloseBookTrialWindow} />}
         </div>
     )
 }
