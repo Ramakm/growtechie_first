@@ -51,29 +51,29 @@ const demoCourses = [
     category: ['Other Courses'],
   },
   {
-    title: 'Data Science ',
+    title: 'Data Science',
     description:
       'Data science combines math and statistics, specialized programming, advanced analytics, artificial intelligence (AI), and machine learning ',
     tag: 'Technology',
     imageURL:
       'https://d1m75rqqgidzqn.cloudfront.net/wp-data/2019/09/11134058/What-is-data-science-2.jpg',
-    alt: 'Data Science ',
+    alt: 'Data Science',
     courseLink: '/course/datascience',
     category: ['Analytics & Data Science'],
   },
   {
-    title: 'Data analytics ',
+    title: 'Data analytics',
     description:
       'A data analyst collects, cleans, and interprets data sets to answer a question or solve a problem',
     tag: 'Technology',
     imageURL:
       'https://images.yourstory.com/cs/2/96eabe90392211eb93f18319e8c07a74/DATAANALYTICS-1686234812978.png',
-    alt: 'Data analytics ',
+    alt: 'Data analytics',
     courseLink: '/course/dataanalytics',
     category: ['Analytics & Data Science'],
   },
   {
-    title: 'Software Testing ',
+    title: 'Software Testing',
     description:
       'AIct of examining the artifacts and the behavior of the software under test by validation and verification.',
     tag: 'Technology',
@@ -89,7 +89,7 @@ const demoCourses = [
     tag: 'College Subject',
     imageURL:
       'https://us.123rf.com/450wm/ra2studio/ra2studio2104/ra2studio210405103/168030448-hand-touching-digital-button-modern-technology-concept.jpg?ver=6',
-    alt: 'Computer Science subjects ',
+    alt: 'Computer Science subjects',
     courseLink: '/course/cssubjects',
     category: ['Career Guidance'],
   },

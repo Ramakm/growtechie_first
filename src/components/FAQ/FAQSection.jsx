@@ -18,6 +18,7 @@ const FAQSection = () => {
             <div className="w-1/2">
                 {firstHalfFaq.map((faq, index) => (
                     <FAQItem
+                        key={index}
                         faq={faq}
                         index={index}
                         toggleAccordion={toggleAccordion}
@@ -28,6 +29,7 @@ const FAQSection = () => {
             <div className="w-1/2">
                 {secondHalfFaq.map((faq, index) => (
                     <FAQItem
+                        key={index + faqDivide}
                         faq={faq}
                         index={index + faqDivide}
                         toggleAccordion={toggleAccordion}

@@ -1,27 +1,35 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './page/home.jsx';
-import Gallery from './page/gallery.jsx';
-import Page404 from './page/Page404.jsx';
-import PythonProgramming from './page/courses/pythonprogramming.jsx';
 import './App.css'
-import PythonProject from './page/courses/pythonproject.jsx';
-import SQL from './page/courses/sql.jsx';
-import PowerBI from './page/courses/powerbi.jsx';
-import DataScience from './page/courses/datascience.jsx';
-import DataAnalyst from './page/courses/dataanalyts.jsx';
-import SoftwareTesting from './page/courses/softwaretesting.jsx';
-import CSsubjects from './page/courses/cssubjects.jsx';
-import CareerinTech from './page/courses/careertech.jsx';
-import Form from './page/form.jsx';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import {
+  PythonProgramming,
+  PythonProject,
+  SQL,
+  PowerBI,
+  DataScience,
+  DataAnalyst,
+  SoftwareTesting,
+  CSsubjects,
+  CareerinTech,
+} from "./page/courses";
+
+import { 
+  Form,
+  Gallery,
+  Home,
+  JoinAsTeacherForm,
+  Page404,
+  TeacherProfile,
+  Teachers,
+} from "./page"
+import { auth } from './firebase/config.js';
 
 const App = () => {
+  const user = auth.currentUser;
+
   return (
     <>
-      {/* // <Router> */}
-      {/* <div className='overflow-x-hidden antialiased'> */}
       <Routes>
-
         <Route path='/' element={<Home />} />
         {/* <Route path='/course/:coursename' element={<Course />} /> */}
         <Route path='/course/pythonprogramming' element={<PythonProgramming />} />
@@ -35,10 +43,11 @@ const App = () => {
         <Route path='course/careerintech' element={<CareerinTech />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/form" element={<Form/>} />
+        <Route path="/teachers" element={<Teachers />} />
+        <Route path="/teachers/:id" element={<TeacherProfile />} />
+        <Route path="/join-as-teacher" element={user ? <Page404 /> : <JoinAsTeacherForm />} />
         <Route path='/*' element={<Page404 />} />
       </Routes>
-      {/* </div> */}
-      {/* // </Router> */}
     </>
   );
 };

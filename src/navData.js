@@ -8,4 +8,15 @@ const siteMapData = [
     { text: "About Us", to: "about-us" }
   ];
 
+
+const navData = [
+    { text: "Courses", to: "courses" },
+    { text: "Teachers", to: "/teachers" },
+    { text: "Gallery", to: "/gallery" },
+    { text: "Testimonials", to: "testimonials" },
+    { text: "FAQ", to: "faq" },
+    { text: "About Us", to: "about-us" }
+  ];
+
 export default siteMapData;
+export { navData };

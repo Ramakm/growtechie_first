@@ -2,7 +2,7 @@
 import React from 'react';
 import './styles.css';
 
-const Joinus = ({ eyebrow, title, description, primaryLink, twitterLink }) => {
+const Joinus = ({ title, description, primaryLink, twitterLink }) => {
   return (
     <div id="joinus" className="font-sans h-screen relative flex justify-center items-center">
       <span className="absolute shiny-border-design top-0 right-[60%] w-[800px] h-[600px]"></span>
@@ -27,7 +27,7 @@ const Joinus = ({ eyebrow, title, description, primaryLink, twitterLink }) => {
               src="https://discord.com/widget?id=1015348978755313764&theme=dark"
               width="100%"
               height="500"
-              allowTransparency="true"
+              allowtransparency="true"
               frameBorder="0"
               sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
             ></iframe>

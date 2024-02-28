@@ -1,7 +1,6 @@
-const FAQItem = ({faq, toggleAccordion, index, activeIndex}) => {
+const FAQItem = ({ faq, toggleAccordion, index, activeIndex }) => {
     return (
         <div
-            key={index}
             className="px-6 py-6 mb-4 mx-auto border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow"
         >
             <div
