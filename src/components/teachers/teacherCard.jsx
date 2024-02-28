@@ -1,33 +1,26 @@
 import { useNavigate } from "react-router";
-import { auth } from "../../firebase/config"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AuthDialogBox from "../AuthDialogBox";
-import BookTrial from "./bookTrial";
+import BookTrialModal from "./bookTrialModal";
+import useAuth from "../../hooks/useAuth";
 
 function TeacherCard({ teacher }) {
     const navigate = useNavigate();
-    const [user, setUser] = useState(auth.currentUser);
+    const [user] = useAuth();
     const [openDialogBox, setOpenDialogBox] = useState(false);
-    const [openBookTrialWindow, setOpenBookTrialWindow] = useState(false);
-
-    // create page for that teacher profile -------------------------------
-
-    useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((authUser) => setUser(authUser));
-        return () => unsubscribe()
-    }, []);
+    const [openBookTrialModal, setOpenBookTrialModal] = useState(false);
 
     function navigateToProfile() {
         navigate(`/teachers/${teacher.uid}`)
     }
 
-    function handleCloseBookTrialWindow() {
-        setOpenBookTrialWindow(false);
+    function handleCloseBookTrialModal() {
+        setOpenBookTrialModal(false);
     }
 
     function handleBookTrial(e) {
         e.stopPropagation();
-        user ? setOpenBookTrialWindow(true) : setOpenDialogBox(true);
+        user ? setOpenBookTrialModal(true) : setOpenDialogBox(true);
     }
 
     return (
@@ -115,7 +108,7 @@ function TeacherCard({ teacher }) {
                 </button>
             </div>
             {openDialogBox && <AuthDialogBox setOpenDialogBox={setOpenDialogBox} />}
-            {user && <BookTrial user={user} teacher={teacher} open={openBookTrialWindow} handleClose={handleCloseBookTrialWindow} />}
+            {user && <BookTrialModal user={user} teacher={teacher} open={openBookTrialModal} handleClose={handleCloseBookTrialModal} />}
         </div>
     )
 }

@@ -25,7 +25,7 @@ const sampleDataObj = [
         "preRequisities": "No pre-requisities",
         "twitter": "",
         "name": "Mehul Mohan",
-        "uid": "1guBYADd1DOvY2w9oilXc7BWLMI2",
+        "uid": "2guBYADd1DOvY2w9oilXc7BWLMI2",
         "phone": "22222 22222"
     },
     {

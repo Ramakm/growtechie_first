@@ -9,12 +9,14 @@
     --dark-blue: rgb(79 70 229);
     --dark-gray: #a8a6a6;
     --shadow-color: rgba(22, 105, 99, 1);
+    --black-olive: #3a3737;
 
     --primary-text: white;
     --secondary-text: var(--light-gray);
     --highlighted-text: var(--moonstone-blue);
     --active-link: var(--dark-blue);
     --bg-color: black;
+    --profile-section-bg-color: var(--black-olive);
     --contrast-bg-color: rgb(248, 245, 245);
 }
 
