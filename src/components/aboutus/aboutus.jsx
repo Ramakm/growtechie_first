@@ -22,6 +22,11 @@ const AboutUs = () => {
                 alt="Yashodhan Gandage"
                 job="Advisor"
               />
+              <Socials
+              //  twitter="codewith_ram"
+              //  github="Ramakm"
+               linkedin="yashodhan-gandage-874b48119"
+              />
             </div>
 
             {/* Ramkrushna */}
