@@ -10,7 +10,7 @@ import AuthDialogBox from '../AuthDialogBox';
 const Header = () => {
   const navigate = useNavigate();
   const navRef = useRef();
-  const [openDialogBox, setOpenDialogBox] = useState(false);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [user, setUser] = useState(auth?.currentUser);
   useScroll(navRef);
 
@@ -93,7 +93,7 @@ const Header = () => {
           ) : (
             <button
               className="ml-auto linear-purple-green-gradient text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
-              onClick={() => setOpenDialogBox(true)}
+              onClick={() => setOpenAuthModal(true)}
             >
               JoinUs
             </button>
@@ -108,7 +108,7 @@ const Header = () => {
           <span className="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
         </div>
       </div>
-      {openDialogBox && <AuthDialogBox setOpenDialogBox={setOpenDialogBox} />}
+      <AuthDialogBox handleClose={() => setOpenAuthModal(false)} open={openAuthModal} />
     </header>
   );
 };
