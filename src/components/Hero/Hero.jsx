@@ -61,15 +61,17 @@ const Hero = () => {
 
           {/* Right side images START*/}
           <div className="flex flex-col items-center gap-[10vh]">
-            <div className="linear-purple-gradient rounded-lg px-8 py-6 flex 
-            flex-col items-center gap-3">
-              <p className="">Happy Learners</p>
-              <img
-                src={heroImgLearners}
-                alt="GrowTechie happy learners in circular frames"
-                className="w-32 -rotate-1"
-              />
-            </div>
+            <a href="#testimonials">
+              <div className="linear-purple-gradient rounded-lg px-8 py-6 flex 
+              flex-col items-center gap-3">
+                <p className="">Happy Learners</p>
+                <img
+                  src={heroImgLearners}
+                  alt="GrowTechie happy learners in circular frames"
+                  className="w-32 -rotate-1"
+                />
+              </div>
+            </a>
             <div className="woman-box-shadow rounded-lg h-40 w-36 bg-[#01CABD] relative">
               <img src={heroImgWoman}
                 alt="A girl working on laptop"
