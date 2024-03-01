@@ -11,14 +11,16 @@ import {
 } from "@mui/material";
 import handleFormChange from "../../utils/handleFormChange";
 import { FullScreenLoader } from "../loader/Loader";
-import sendMail from "../../utils/sendMail";
+import emailjs from "@emailjs/browser";
+import useAuth from "../../hooks/useAuth";
 
-const BookTrialForm = ({ teacher, user }) => {
+const BookTrialForm = ({ teacher }) => {
   const groupFees = teacher.groupFee;
   const individualFees = teacher.individualFee;
+  const [user] = useAuth();
 
   const initData = {
-    phoneNumber: "",
+    email: "",
     session: "",
   };
 
@@ -29,14 +31,22 @@ const BookTrialForm = ({ teacher, user }) => {
 
   const form = useRef(null);
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     setSendingMail(true);
     e.preventDefault();
-    await sendMail(
-      form,
-      "Successfully send request to book trial! 🥳\nWe will contact you soon"
-    )
-      .then(() => setFormData(initData))
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_BOOK_TRAIL_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setFormData(initData);
+        alert(
+          "Successfully send request to book trial! 🥳\nWe will contact you soon"
+        );
+      })
       .catch(() => {
         alert(
           "❌ There was an error while submitting ❌\n Please try again later"
@@ -51,19 +61,20 @@ const BookTrialForm = ({ teacher, user }) => {
   return (
     <div>
       <form onSubmit={handleSubmit} className="mt-4">
-        <FormControl variant="standard" sx={{ minWidth: "100%" }}>
+        {!user?.email && <FormControl variant="standard" sx={{ minWidth: "100%" }}>
           <TextField
-            id="outlined-controlled"
-            label="Phone number"
-            value={formData.phoneNumber}
-            name="phoneNumber"
+            id="emailInput"
+            label="Email"
+            value={formData.email}
+            name="email"
+            type="email"
             onChange={(e) => handleFormChange(e, setFormData)}
             required
           />
           <FormHelperText id="component-helper-text">
-            We will NEVER share your phone with anyone
+            We will NEVER share your personal data with anyone
           </FormHelperText>
-        </FormControl>
+        </FormControl>}
 
         <RadioGroup
           aria-labelledby="demo-controlled-radio-buttons-group"
@@ -74,12 +85,12 @@ const BookTrialForm = ({ teacher, user }) => {
           <FormControlLabel
             value={`Group ₹${groupFees}`}
             control={<Radio required={true} />}
-            label={`Group ₹${groupFees}`}
+            label={`Group Session`}
           />
           <FormControlLabel
             value={`Individual ₹${individualFees}`}
             control={<Radio required={true} />}
-            label={`Individual ₹${individualFees}`}
+            label={`Individual Session`}
           />
         </RadioGroup>
         <Button
@@ -96,23 +107,9 @@ const BookTrialForm = ({ teacher, user }) => {
       <form ref={form} className="hidden">
         <input
           type="text"
-          id="name"
-          name="name"
-          value={user.displayName}
-          readOnly
-        />
-        <input
-          type="text"
           id="email"
           name="email"
-          value={user.email}
-          readOnly
-        />
-        <input
-          type="text"
-          id="phone"
-          name="phone"
-          value={formData.phoneNumber}
+          value={user?.email ? user.email : formData.email}
           readOnly
         />
         <input
@@ -122,7 +119,27 @@ const BookTrialForm = ({ teacher, user }) => {
           value={teacher.name}
           readOnly
         />
-        <input type="text" id="uid" name="uid" value={teacher.uid} readOnly />
+        <input
+          type="text"
+          id="teacherImageLink"
+          name="teacherImgLink"
+          value={teacher.imageLink}
+          readOnly
+        />
+        <input
+          type="text"
+          id="courseName"
+          name="courseName"
+          value={teacher.courseName}
+          readOnly
+        />
+        <input
+          type="text"
+          id="teacherProfileLink"
+          name="teacherProfileLink"
+          value={`https://growtechie.com/teachers/${teacher.uid}`}
+          readOnly
+        />
         <input
           type="text"
           id="session"

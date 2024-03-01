@@ -1,10 +1,7 @@
 import Wrapper from "./wrapper";
 import BookTrialForm from "../teachers/bookTrialForm";
-import useAuth from "../../hooks/useAuth";
-import AuthDialogBox from "../AuthDialogBox";
 
 const BookTrialSection = ({ teacher }) => {
-  const [user] = useAuth();
 
   return (
     <div className="w-[35%]">
@@ -16,7 +13,7 @@ const BookTrialSection = ({ teacher }) => {
           To Plan Your Learning Journey with {teacher.name}
         </h3>
 
-        {user && <BookTrialForm teacher={teacher} user={user} />}
+        <BookTrialForm teacher={teacher}/>
       </Wrapper>
     </div>
   );

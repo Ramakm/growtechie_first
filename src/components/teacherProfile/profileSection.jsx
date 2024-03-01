@@ -4,10 +4,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import BookTrialForm from "../teachers/bookTrialForm";
-import useAuth from "../../hooks/useAuth";
 
 const ProfileSection = ({ teacher }) => {
-    const [user] = useAuth();
 
     return (
         <div className="flex flex-col gap-8 mb-10">
@@ -86,7 +84,7 @@ const ProfileSection = ({ teacher }) => {
             </Wrapper>
             <Wrapper className="text-black !bg-slate-100">
                 <h2 className="text-2xl">🆓 Book a free trial session now! 🆓</h2>
-                {user && <BookTrialForm teacher={teacher} user={user} />}
+                <BookTrialForm teacher={teacher} />
             </Wrapper>
         </div>
     )
