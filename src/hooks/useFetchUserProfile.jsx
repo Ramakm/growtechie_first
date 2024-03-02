@@ -16,7 +16,7 @@ const useFetchUserProfile = (uid) => {
       });
 
     return unsubscribe;
-  }, []);
+  }, [uid]);
 
   return [userProfile, isFetchingProfile];
 };
