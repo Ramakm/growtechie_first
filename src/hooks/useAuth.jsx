@@ -9,6 +9,7 @@ const useAuth = () => {
         return () => unsubscribe()
     }, []);
 
+    // Todo: remove this array syntax and return only user(fix everywhere)
     return [user];
 }
 

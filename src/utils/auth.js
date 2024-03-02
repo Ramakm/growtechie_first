@@ -4,6 +4,7 @@ import { signInWithPopup } from "firebase/auth";
 async function login() {
     signInWithPopup(auth, googleAuthProvider)
         .then((result) => {
+            alert('Authentication successfull!');
             return result.user;
         })
         .catch((error) => {

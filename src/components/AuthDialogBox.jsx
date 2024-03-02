@@ -8,7 +8,7 @@ const AuthDialogBox = ({ open, handleClose }) => {
   function handleJoin(e) {
     e.stopPropagation();
     login();
-    setOpenDialogBox(false);
+    handleClose();
   }
   return (
     <div>

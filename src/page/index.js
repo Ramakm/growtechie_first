@@ -5,6 +5,7 @@ import JoinAsTeacherForm from "./joinAsTeacherForm";
 import Page404 from "./Page404";
 import TeacherProfile from "./teacherProfile";
 import Teachers from "./teachers";
+import UserProfile from "./UserProfile"
 
 export { 
     Form,
@@ -14,4 +15,5 @@ export {
     Page404,
     TeacherProfile,
     Teachers,
+    UserProfile,
 }

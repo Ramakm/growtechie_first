@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useRef, useState } from 'react';
-import './Navbar.css';
-import { useNavigate } from 'react-router-dom';
-import handleScrollToElement from '../../commonFn';
-import { navData } from '../../navData';
-import { auth } from '../../firebase/config';
-import AuthDialogBox from '../AuthDialogBox';
+import React, { useEffect, useRef, useState } from "react";
+import "./Navbar.css";
+import { useNavigate } from "react-router-dom";
+import handleScrollToElement from "../../commonFn";
+import { navData } from "../../navData";
+import { auth } from "../../firebase/config";
+import AuthDialogBox from "../AuthDialogBox";
+import Avatar from "@mui/material/Avatar";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -15,9 +16,11 @@ const Header = () => {
   useScroll(navRef);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => setUser(authUser));
-    return () => unsubscribe()
-}, []);
+    const unsubscribe = auth.onAuthStateChanged((authUser) =>
+      setUser(authUser)
+    );
+    return () => unsubscribe();
+  }, []);
 
   function handleNavigation(e, elementId) {
     e.preventDefault();
@@ -26,28 +29,28 @@ const Header = () => {
   }
 
   function toggleMobileNav() {
-    const navMobileBtn = document.getElementById('nav-mobile-btn');
-    const nav = document.getElementById('nav');
+    const navMobileBtn = document.getElementById("nav-mobile-btn");
+    const nav = document.getElementById("nav");
     if (navMobileBtn && nav) {
-      if (navMobileBtn.classList.contains('close')) {
-        nav.classList.add('hidden');
-        navMobileBtn.classList.remove('close');
+      if (navMobileBtn.classList.contains("close")) {
+        nav.classList.add("hidden");
+        navMobileBtn.classList.remove("close");
       } else {
-        nav.classList.remove('hidden');
-        navMobileBtn.classList.add('close');
+        nav.classList.remove("hidden");
+        navMobileBtn.classList.add("close");
       }
     }
   }
 
   useEffect(() => {
-    const navMobileBtn = document.getElementById('nav-mobile-btn');
+    const navMobileBtn = document.getElementById("nav-mobile-btn");
     if (navMobileBtn) {
-      navMobileBtn.addEventListener('click', toggleMobileNav);
+      navMobileBtn.addEventListener("click", toggleMobileNav);
     }
 
     return () => {
       if (navMobileBtn) {
-        navMobileBtn.removeEventListener('click', toggleMobileNav);
+        navMobileBtn.removeEventListener("click", toggleMobileNav);
       }
     };
   }, []);
@@ -84,12 +87,12 @@ const Header = () => {
             </a>
           ))}
           {user ? (
-            <button 
-              className="text-white underline hover:no-underline"
-              onClick={() => auth.signOut()}
-            >
-              LogOut
-            </button>
+            <Avatar
+              alt={user.displayName}
+              src={user.photoURL}
+              onClick={() => navigate("/profile")}
+              className="cursor-pointer"
+            />
           ) : (
             <button
               className="ml-auto linear-purple-green-gradient text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
@@ -108,24 +111,27 @@ const Header = () => {
           <span className="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
         </div>
       </div>
-      <AuthDialogBox handleClose={() => setOpenAuthModal(false)} open={openAuthModal} />
+      <AuthDialogBox
+        handleClose={() => setOpenAuthModal(false)}
+        open={openAuthModal}
+      />
     </header>
   );
 };
 
 export default Header;
 
-
 function useScroll(navRef) {
   const lastScrollTop = useRef(0);
   function handleScroll() {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    navRef.current.style.top = scrollTop > lastScrollTop.current ? "-90px" : "0px";
-    lastScrollTop.current = scrollTop
+    navRef.current.style.top =
+      scrollTop > lastScrollTop.current ? "-90px" : "0px";
+    lastScrollTop.current = scrollTop;
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 }
