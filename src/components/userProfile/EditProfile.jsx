@@ -22,7 +22,6 @@ const EditProfile = ({ teacher, setIsEditing }) => {
       .get();
 
     const docRef = doc.docs[0].ref;
-    console.log("fetched", docRef);
 
     await docRef
       .update(formData)
