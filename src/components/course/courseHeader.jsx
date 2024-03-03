@@ -11,7 +11,9 @@ const CourseHeader = () => {
             alt="GrowTechie logo"
             className="w-auto h-20 invert fill-current"
           />
-          <span className="ml-3 text-2xl text-[var(--primary-text)]">GrowTechie</span>
+          <span className="ml-3 text-2xl text-[var(--primary-text)]">
+            GrowTechie
+          </span>
         </a>
         <button
           onClick={() => window.history.back()}

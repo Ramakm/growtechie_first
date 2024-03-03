@@ -1,6 +1,6 @@
 const TextInput = ({ data, formData, handleChange }) => {
     return (
-        <div className="form-field bg-white z-10">
+        <div className="form-field bg-white z-10 text-black">
             <label htmlFor={data.name}>
                 {data.label}
                 {data.optional? <span>{" "}(Optional)</span> : <span className="text-red-700">*</span>}

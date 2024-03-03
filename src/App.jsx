@@ -21,11 +21,12 @@ import {
   Page404,
   TeacherProfile,
   Teachers,
+  UserProfile,
 } from "./page"
-import { auth } from './firebase/config.js';
+import useAuth from './hooks/useAuth.jsx';
 
 const App = () => {
-  const user = auth.currentUser;
+  const [user] = useAuth();
 
   return (
     <>
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/form" element={<Form/>} />
         <Route path="/teachers" element={<Teachers />} />
+        <Route path="/profile" element={user ? <UserProfile /> : <Page404 />} />
         <Route path="/teachers/:id" element={<TeacherProfile />} />
         <Route path="/join-as-teacher" element={user ? <Page404 /> : <JoinAsTeacherForm />} />
         <Route path='/*' element={<Page404 />} />

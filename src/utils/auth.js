@@ -4,6 +4,7 @@ import { signInWithPopup } from "firebase/auth";
 async function login() {
     signInWithPopup(auth, googleAuthProvider)
         .then((result) => {
+            alert('Authentication successfull!');
             return result.user;
         })
         .catch((error) => {
@@ -13,11 +14,16 @@ async function login() {
         });
 }
 
+function logout(navigate, path="/") {
+    auth.signOut();
+    navigate(path);
+    alert("Logged out successfully!");
+}
+
 function redirectIfLoggedIn(path, navigate) {
     if (auth.currentUser) {
-        console.log("running");
         navigate(path);
     }
 }
 
-export { login, redirectIfLoggedIn };
+export { login, redirectIfLoggedIn, logout };

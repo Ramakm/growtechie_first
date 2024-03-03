@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import { f1, f2, f3, f4 } from "../../public/assets/form";
 import CourseHeader from "../components/course/courseHeader";
 import radioData, { textData, coursesArr } from "../staticData/formData";
 import { FormBody, TextInput, RadioInput } from "../components/form";
@@ -80,12 +79,3 @@ const Form = () => {
 }
 
 export default Form;
-
-const FormDesign = () => (
-    <div>
-        <img src={f1} alt="design image" className="hidden lg:block fixed w-40 top-24 left-10" />
-        <img src={f2} alt="design image" className="hidden lg:block fixed w-40 top-24 right-10" />
-        <img src={f3} alt="design image" className="hidden lg:block bottom-design fixed w-40 bottom-0 left-10" />
-        <img src={f4} alt="design image" className="hidden lg:block bottom-design fixed w-40 bottom-10 right-10" />
-    </div>
-)

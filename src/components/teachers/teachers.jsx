@@ -9,14 +9,14 @@ const TeachersComponent = () => {
     const [fetchingTeachers, setFetchingTeachers] = useState(true);
 
     useEffect(() => {
-       const teacherssss = []
+       const tempTeachersArr = []
         const unsubscribe = db
-        .collection("teachers")
+        .collection("users")
         .where("approved", "==", true)
         .onSnapshot(snapshot => {
             setFetchingTeachers(false);
-            snapshot.docs.map(doc => teacherssss.push(doc.data()))
-            setTeachers(teacherssss);
+            snapshot.docs.map(doc => tempTeachersArr.push(doc.data()))
+            setTeachers(tempTeachersArr);
         })
 
         return unsubscribe;

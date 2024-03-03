@@ -5,7 +5,7 @@ import {
     Typography,
 } from "@mui/material";
 
-const BookTrialModal = ({ teacher, user, open, handleClose }) => {
+const BookTrialModal = ({ teacher, open, handleClose }) => {
     return (
         <div>
             <Modal
@@ -59,7 +59,6 @@ const BookTrialModal = ({ teacher, user, open, handleClose }) => {
                         </span>
                     </Typography>
                     <BookTrialForm
-                        user={user}
                         teacher={teacher}
                     />
                 </Box>

@@ -32,10 +32,11 @@ const JoinAsTeacherForm = () => {
     }, [user]);
 
     async function postFormToDB() {
-        await db.collection("teachers").add({
+        await db.collection("users").add({
             ...formData,
             email: user.email,
             uid: user.uid,
+            isTeacher: true,
         })
             .then(() => {
                 setFormData(initialData);
