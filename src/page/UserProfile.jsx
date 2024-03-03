@@ -4,6 +4,7 @@ import useAuth from "../hooks/useAuth";
 import useFetchUserProfile from "../hooks/useFetchUserProfile";
 import StudentCard from "../components/userProfile/StudentCard";
 import TeacherPersonalProfile from "../components/userProfile/TeacherPersonalProfile";
+import Footer from "../components/Footer/Footer";
 
 const UserProfile = () => {
   // use real data and uncomment loader
@@ -15,14 +16,15 @@ const UserProfile = () => {
   return (
     <div className="text-white">
       <CourseHeader />
-      <div className="mt-24">
+      <div className="my-24">
         {userProfile?.isTeacher ? (
-          <TeacherPersonalProfile />
+          <TeacherPersonalProfile teacher={userProfile} />
         ) : (
           <StudentCard user={user} />
         )}
       </div>
       {/* {isFetchingProfile && <FullScreenLoader />} */}
+      <Footer />
     </div>
   );
 };
@@ -40,7 +42,7 @@ const userProfile = {
   languages: "Hindi English",
   imageLink: "https://avatars.githubusercontent.com/u/116902573?v=4",
   twitter: "",
-  // "isTeacher": true,
+  "isTeacher": true,
   instagram: "",
   sessionCount: "2",
   name: "Palakgoyal",

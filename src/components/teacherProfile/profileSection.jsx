@@ -3,12 +3,11 @@ import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import BookTrialForm from "../teachers/bookTrialForm";
 
 const ProfileSection = ({ teacher }) => {
 
     return (
-        <div className="flex flex-col gap-8 mb-10">
+        <div className="flex flex-col gap-8">
             <Wrapper className="!p-0">
                 <div className="linear-purple-green-gradient rounded-t-lg relative h-52 w-full mb-[88px]">
                     <img
@@ -81,10 +80,6 @@ const ProfileSection = ({ teacher }) => {
                         {" "} GROUP FEE
                     </p>
                 </div>
-            </Wrapper>
-            <Wrapper className="text-black !bg-slate-100">
-                <h2 className="text-2xl">🆓 Book a free trial session now! 🆓</h2>
-                <BookTrialForm teacher={teacher} />
             </Wrapper>
         </div>
     )

@@ -1,5 +1,9 @@
 import CourseHeader from "../components/course/courseHeader";
-import { ProfileSection, BookTrialSection } from "../components/teacherProfile";
+import {
+  ProfileSection,
+  BookTrialSection,
+  BookTrial,
+} from "../components/teacherProfile";
 import { useParams } from "react-router-dom";
 import { FullScreenLoader } from "../components/loader/Loader";
 import Page404 from "./Page404";
@@ -20,7 +24,10 @@ const TeacherProfile = () => {
         <div className="mt-24 max-w-[1200px] flex gap-9 justify-between mx-auto">
           {teacherProfile ? (
             <>
-              <ProfileSection teacher={teacherProfile} />
+              <div>
+                <ProfileSection teacher={teacherProfile} />
+                <BookTrial teacher={teacherProfile} />
+              </div>
               <BookTrialSection teacher={teacherProfile} />
             </>
           ) : (
