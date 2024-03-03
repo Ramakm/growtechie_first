@@ -11,7 +11,7 @@ const StudentCard = ({ user }) => {
   }
 
   return (
-    <div className="mx-3">
+    <div className="mx-3 mt-24">
       <Card
         sx={{ maxWidth: 350, backgroundColor: "whitesmoke" }}
         className="mx-auto p-5 flex flex-col justify-center items-center mb-20"

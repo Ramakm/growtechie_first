@@ -12,7 +12,7 @@ const FormBody = ({ children, title, intro, onSubmit }, ref) => {
         <form
           ref={ref}
           onSubmit={onSubmit}
-          className="mt-[5vh] flex flex-col gap-4"
+          className="mt-[5vh] flex flex-col gap-4 relative"
         >
           {children}
           <button

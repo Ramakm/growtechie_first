@@ -21,7 +21,7 @@ const TeacherProfile = () => {
       {isFetchingTeacher ? (
         <FullScreenLoader />
       ) : (
-        <div className="mt-24 max-w-[1200px] flex gap-9 justify-between mx-auto">
+        <div className="mt-24 max-w-[1200px] flex gap-9 justify-between mx-auto px-4">
           {teacherProfile ? (
             <>
               <div>
