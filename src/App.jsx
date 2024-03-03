@@ -47,7 +47,7 @@ const App = () => {
         <Route path="/teachers" element={<Teachers />} />
         <Route path="/profile" element={user ? <UserProfile /> : <Page404 />} />
         <Route path="/teachers/:id" element={<TeacherProfile />} />
-        <Route path="/join-as-teacher" element={user ? <Page404 /> : <JoinAsTeacherForm />} />
+        <Route path="/join-as-teacher" element={ <JoinAsTeacherForm />} />
         <Route path='/*' element={<Page404 />} />
       </Routes>
     </>
