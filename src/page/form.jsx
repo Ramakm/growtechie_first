@@ -56,7 +56,6 @@ const Form = () => {
     return (
         <>
             <CourseHeader />
-            <FormDesign />
             <FormBody
                 title={`${course} Registration`}
                 intro={`If you are interested in GrowTechie ${course} course, Please fill out this form first.`}
