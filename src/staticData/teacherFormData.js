@@ -4,10 +4,6 @@ const textData = [
         name: "name"
     },
     {
-        label: "Link to your Image",
-        name: "imageLink"
-    },
-    {
         label: "Mobile No",
         name: "phone"
     },
@@ -81,8 +77,13 @@ const radioData = [
     },
 ]
 
+const fileData = [
+    {name: "imageLink"}
+]
+
 
 export {
     textData,
-    radioData
+    radioData,
+    fileData,
 }
