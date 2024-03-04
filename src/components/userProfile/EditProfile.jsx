@@ -1,12 +1,19 @@
 import { useState, useRef } from "react";
-import { FormBody, TextInput, RadioInput } from "../form";
-import { textData, radioData } from "../../staticData/teacherFormData";
+import { FormBody, TextInput, RadioInput, ImageInput } from "../form";
+import {
+  textData,
+  radioData,
+  fileData,
+} from "../../staticData/teacherFormData";
 import handleFormChange from "../../utils/handleFormChange";
 import { db } from "../../firebase/config";
 import { FullScreenLoader } from "../loader/Loader";
-import { Avatar } from "@mui/material";
 import useAuth from "../../hooks/useAuth";
 import CancelIcon from "@mui/icons-material/Cancel";
+import {
+  deleteImgFromFirebase,
+  uploadImageToFirebase,
+} from "../../utils/imageFn";
 
 const EditProfile = ({ teacher, setIsEditing }) => {
   const form = useRef(null);
@@ -15,6 +22,16 @@ const EditProfile = ({ teacher, setIsEditing }) => {
   const [user] = useAuth();
 
   async function postFormToDB() {
+    let url = formData.imageLink;
+    if (teacher.imageLink !== formData.imageLink) {
+      await deleteImgFromFirebase(teacher.imageLink);
+      url = await uploadImageToFirebase(formData.imageLink);
+    }
+
+    await postFormDataToFirestore({ ...formData, imageLink: url });
+  }
+
+  async function postFormDataToFirestore(data) {
     const doc = await db
       .collection("users")
       .where("uid", "==", user?.uid)
@@ -24,7 +41,7 @@ const EditProfile = ({ teacher, setIsEditing }) => {
     const docRef = doc.docs[0].ref;
 
     await docRef
-      .update(formData)
+      .update(data)
       .catch((err) => {
         console.error(err);
         alert("Uh Oh! Not able to upload form\nPlease try again later!");
@@ -60,7 +77,11 @@ const EditProfile = ({ teacher, setIsEditing }) => {
         >
           <CancelIcon className="scale-150" />
         </button>
-        <Avatar src={formData.imageLink} sx={{ width: 120, height: 120 }} />
+        <ImageInput
+          handleChange={handleChange}
+          formData={formData}
+          inputData={fileData[0]}
+        />
         {textData.map((data, index) => (
           <div key={index}>
             {index === 2 && (

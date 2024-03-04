@@ -16,15 +16,21 @@ const VisuallyHiddenInput = styled("input")({
 });
 
 export default function ImageInput({ inputData, handleChange, formData }) {
+  const src = formData[inputData.name];
+
+  function checkSrc() {
+    try {
+      return URL.createObjectURL(src);
+    } catch (error) {
+      return false;
+    }
+  }
+
   return (
     <div className={`w-fit z-10`}>
       <Avatar
         alt="User"
-        src={
-          formData[inputData.name]
-            ? URL.createObjectURL(formData[inputData.name])
-            : ""
-        }
+        src={checkSrc() ? URL.createObjectURL(src) : src}
         sx={{ width: 120, height: 120, marginBottom: 2, marginInline: "auto" }}
       />
       <Button

@@ -25,7 +25,7 @@ export async function uploadImageToFirebase(image) {
   });
 }
 
-  export default async function deleteImg(imageUrl) {
+  export async function deleteImgFromFirebase(imageUrl) {
     if (imageUrl && imageUrl !== "") {
       const imageRef = storage.refFromURL(imageUrl);
       try {
