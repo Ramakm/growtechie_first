@@ -2,8 +2,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
-import handleScrollToElement from "../../commonFn";
-import { navData } from "../../navData";
+import handleScrollToElement from "../../utils/commonFn";
+import { navData } from "../../staticData/navData";
 import { auth } from "../../firebase/config";
 import AuthDialogBox from "../AuthDialogBox";
 import Avatar from "@mui/material/Avatar";

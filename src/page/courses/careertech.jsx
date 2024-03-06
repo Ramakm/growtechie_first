@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
-import { courseImageURL } from '../../coursedata';
+import { courseImageURL } from '../../staticData/coursedata';
 
 import CourseHeader from '../../components/course/courseHeader';
 import CourseFooter from '../../components/course/coursefooter';

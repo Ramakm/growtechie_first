@@ -1,5 +1,5 @@
 import React from 'react';
-import { courseImageURL, sqlCourse } from '../../coursedata';
+import { courseImageURL, sqlCourse } from '../../staticData/coursedata';
 
 import CourseHeader from '../../components/course/courseHeader';
 import CourseFooter from '../../components/course/coursefooter';

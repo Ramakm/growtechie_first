@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from 'react';
-import { courseImageURL, pythonCourse } from '../../coursedata';
+import { courseImageURL, pythonCourse } from '../../staticData/coursedata';
 
 import CourseHeader from '../../components/course/courseHeader';
 import CourseFooter from '../../components/course/coursefooter';
