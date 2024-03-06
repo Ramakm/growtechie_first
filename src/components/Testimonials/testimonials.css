@@ -18,12 +18,13 @@
     background: linear-gradient(to right, rgba(255,255,255,0), #000);
 }
 
-.testimonials:hover .testimonials-slide {
-    animation-play-state: paused;
-}
 
 .testimonials-slide {
     animation: 25s slide infinite linear;
+}
+
+.testimonials:hover .testimonials-slide {
+    animation-play-state: paused;
 }
 
 @keyframes slide {
