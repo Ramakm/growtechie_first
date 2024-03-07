@@ -43,7 +43,7 @@ const Testimonial = () => {
   return (
     <div className="flex flex-col w-[100vw] mt-20 overflow-hidden min-h-[100vh]">
       <div id="testimonials" className="text-center">
-        <h1 className="text-6xl mt-2 font-semibold capitalize text-white">
+        <h1 className="text-3xl lg:text-6xl mt-2 font-semibold capitalize text-white">
           Student Testimonies
         </h1>
         <div className="bg-blue-400 h-[4px] w-2/5 mx-auto mt-2"></div>
@@ -64,7 +64,7 @@ const TestimonialSlides = ({ reviews }) => (
     {reviews.map((review) => (
       <div
         key={review.id}
-        className="testimonial-card relative p-8 pt-0 cursor-default rounded-md transition-transform duration-300 transform hover:scale-105 max-w-[400px] w-[30vw]"
+        className="testimonial-card w-[250px] relative px-2 py-4 lg:p-8 pt-0 cursor-default rounded-md transition-transform duration-300 transform hover:scale-105 lg:max-w-[400px] lg:w-[30vw]"
       >
         <img
           src={review.image}
@@ -77,7 +77,7 @@ const TestimonialSlides = ({ reviews }) => (
         <span className="text-sm block text-[var(--dark-gray)]">
           {review.job}
         </span>
-        <p className="text-sm leading-7 whitespace-normal my-3 font-light opacity-80 text-[var(--primary-text)]">
+        <p className="text-sm leading-5 md:leading-7 whitespace-normal my-3 font-light opacity-80 text-[var(--primary-text)]">
           {review.text}
         </p>
       </div>

@@ -34,7 +34,7 @@ const Courses = () => {
             >
               👨‍💻 Upskill Yourself
             </h4>
-            <ul className="flex flex-row lg:flex-col justify-between gap-5 w-full lg:h-full">
+            <ul className="flex flex-row flex-wrap lg:flex-col justify-between gap-5 w-full lg:h-full">
               {courseCategories.map((category, idx) => (
                 <li
                   key={idx}
