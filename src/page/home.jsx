@@ -7,7 +7,6 @@ import Testimonials from '../components/Testimonials/Testimonials';
 import FAQ from '../components/FAQ/FAQ';
 import Footer from '../components/Footer/Footer';
 import Social from '../components/Sociallink/Social';
-import { main } from '../homepage';
 import Joinus from '../components/joinus/twitter';
 import Banner from '../components/banner/Banner';
 
@@ -16,14 +15,14 @@ const Home = () => {
     <>
       <Header />
       <Social />
-      <Hero />
+      <Hero /> 
       {/* <Banner /> */}
       <Courses />
-      <Joinus {...main} />
-      <Testimonials />
-      <FAQ />
-      <Aboutus />
-      <Footer />
+      {/* <Joinus /> */}
+      {/* <Testimonials /> */}
+      {/* <FAQ /> */}
+      {/* <Aboutus /> */}
+      {/* <Footer />  */}
     </>
   );
 };
