@@ -21,7 +21,7 @@ const Home = () => {
       <Joinus />
       <Testimonials />
       <FAQ />
-      {/* <Aboutus /> */}
+      <Aboutus />
       {/* <Footer />  */}
     </>
   );
