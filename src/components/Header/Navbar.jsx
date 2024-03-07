@@ -3,63 +3,37 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import handleScrollToElement from "../../utils/commonFn";
-import { navData } from "../../staticData/navData";
-import { auth } from "../../firebase/config";
+import { navData, mobileNavData } from "../../staticData/navData";
 import AuthDialogBox from "../AuthDialogBox";
 import Avatar from "@mui/material/Avatar";
+import useAuth from "../../hooks/useAuth";
+import useMediaQuery from "@mui/material/useMediaQuery";
+// import BottomNavigationComponent from "./BottomNavigation";
 
 const Header = () => {
   const navigate = useNavigate();
   const navRef = useRef();
   const [openAuthModal, setOpenAuthModal] = useState(false);
-  const [user, setUser] = useState(auth?.currentUser);
+  const largeScreen = useMediaQuery("(min-width:600px)", { noSsr: true });
+  const [user] = useAuth();
   useScroll(navRef);
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) =>
-      setUser(authUser)
-    );
-    return () => unsubscribe();
-  }, []);
+  const currentNavData = largeScreen ? navData : mobileNavData;
 
+  console.log(largeScreen, "matches");
   function handleNavigation(e, elementId) {
     e.preventDefault();
     handleScrollToElement(elementId, navigate);
-    toggleMobileNav();
   }
 
-  function toggleMobileNav() {
-    const navMobileBtn = document.getElementById("nav-mobile-btn");
-    const nav = document.getElementById("nav");
-    if (navMobileBtn && nav) {
-      if (navMobileBtn.classList.contains("close")) {
-        nav.classList.add("hidden");
-        navMobileBtn.classList.remove("close");
-      } else {
-        nav.classList.remove("hidden");
-        navMobileBtn.classList.add("close");
-      }
-    }
-  }
 
-  useEffect(() => {
-    const navMobileBtn = document.getElementById("nav-mobile-btn");
-    if (navMobileBtn) {
-      navMobileBtn.addEventListener("click", toggleMobileNav);
-    }
-
-    return () => {
-      if (navMobileBtn) {
-        navMobileBtn.removeEventListener("click", toggleMobileNav);
-      }
-    };
-  }, []);
+  // Add bottom navigation on small screen
 
   return (
     <header ref={navRef} className="sticky-nav z-50">
       <div
         id="sticky-header"
-        className="container flex items-center justify-between max-w-6xl px-8 mx-auto sm:justify-between xl:px-0"
+        className=" flex items-center justify-between max-w-6xl px-3 mx-auto xl:px-0"
       >
         <a
           href="/"
@@ -75,46 +49,40 @@ const Header = () => {
 
         <nav
           id="nav"
-          className="absolute top-0 left-0 z-50 flex flex-col items-center justify-between w-full h-64 pt-5 mt-24 text-lg text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
+          className="relative flex items-center justify-between h-24 text-base text-gray-800 border-t border-gray-200 w-auto flex-row bg-transparent mt-0 md:border-none md:py-0"
         >
-          {navData.map((item, idx) => (
+          {currentNavData.map((item, idx) => (
             <a
               key={idx}
               onClick={(e) => handleNavigation(e, item.to)}
-              className="mr-0 cursor-pointer text-white font-semibold duration-200 md:mr-3 lg:mr-8 transition-color hover:text-[var(--active-link)]"
+              className="mr-3 cursor-pointer text-white font-semibold duration-200 lg:mr-8 transition-color hover:text-[var(--active-link)]"
             >
               {item.text}
             </a>
           ))}
-          {user ? (
-            <Avatar
-              alt={user.displayName}
-              src={user.photoURL}
-              onClick={() => navigate("/profile")}
-              className="cursor-pointer"
-            />
-          ) : (
-            <button
-              className="ml-auto linear-purple-green-gradient text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
-              onClick={() => setOpenAuthModal(true)}
-            >
-              JoinUs
-            </button>
-          )}
+          {largeScreen &&
+            (user ? (
+              <Avatar
+                alt={user.displayName}
+                src={user.photoURL}
+                onClick={() => navigate("/profile")}
+                className="cursor-pointer"
+              />
+            ) : (
+              <button
+                className="ml-auto linear-purple-green-gradient text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
+                onClick={() => setOpenAuthModal(true)}
+              >
+                JoinUs
+              </button>
+            ))}
         </nav>
-
-        <div
-          id="nav-mobile-btn"
-          className="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden sm:mt-10"
-        >
-          <span className="block w-full h-1 mt-2 duration-200 transform bg-gray-800 rounded-full sm:mt-1"></span>
-          <span className="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
-        </div>
       </div>
       <AuthDialogBox
         handleClose={() => setOpenAuthModal(false)}
         open={openAuthModal}
       />
+      {/* {largeScreen && <BottomNavigationComponent />} */}
     </header>
   );
 };
