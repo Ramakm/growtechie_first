@@ -14,8 +14,8 @@ const FAQSection = () => {
     let secondHalfFaq = faqData.slice(faqDivide, faqData.length);
 
     return (
-        <div className="flex justify-between gap-8 mt-10">
-            <div className="w-1/2">
+        <div className="flex flex-col md:flex-row px-3 md:justify-between items-center md:items-start md:gap-8 mt-10 w-full max-w-7xl mx-auto">
+            <div className="w-full md:w-[50%] flex-1">
                 {firstHalfFaq.map((faq, index) => (
                     <FAQItem
                         key={index}
@@ -26,7 +26,7 @@ const FAQSection = () => {
                     />
                 ))}
             </div>
-            <div className="w-1/2">
+            <div className="w-full md:w-[50%] flex-1">
                 {secondHalfFaq.map((faq, index) => (
                     <FAQItem
                         key={index + faqDivide}
