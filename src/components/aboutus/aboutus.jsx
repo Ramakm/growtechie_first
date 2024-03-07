@@ -17,8 +17,8 @@ const AboutUs = () => {
             Join Us on the Digital Learning Journey
           </p>
         </div>
-        <div className="md:pt-36 mt-10 h-[500px]">
-          <div className="relative px-3 mg:bg-[var(--moonstone-blue)] md:h-16 flex flex-wrap md:flex-nowrap justify-center gap-14 lg:gap-36 items-center w-full">
+        <div className="md:pt-36 mt-10 md:h-[500px] mb-24">
+          <div className="relative px-3 md:bg-[var(--moonstone-blue)] md:h-16 flex flex-wrap md:flex-nowrap justify-center gap-14 lg:gap-36 items-center w-full">
             {/* Yashodhan */}
             <div>
               <TeamImage

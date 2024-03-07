@@ -20,7 +20,7 @@ const Footer = () => {
             We'd love to hear from you. Contact us through the following
             channels:
           </p>
-          <div className="flex flex-wrap space-x-6 text-slate-400">
+          <div className="flex flex-wrap justify-center space-x-4 space-x-6 text-slate-400">
             <div className="text-center">
               <a
                 href="tel:+917978939845"
