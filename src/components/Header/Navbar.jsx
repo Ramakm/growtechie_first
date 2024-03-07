@@ -14,13 +14,12 @@ const Header = () => {
   const navigate = useNavigate();
   const navRef = useRef();
   const [openAuthModal, setOpenAuthModal] = useState(false);
-  const largeScreen = useMediaQuery("(min-width:600px)", { noSsr: true });
+  const largeScreen = useMediaQuery("(min-width:800px)", { noSsr: true });
   const [user] = useAuth();
   useScroll(navRef);
 
   const currentNavData = largeScreen ? navData : mobileNavData;
 
-  console.log(largeScreen, "matches");
   function handleNavigation(e, elementId) {
     e.preventDefault();
     handleScrollToElement(elementId, navigate);
@@ -42,9 +41,9 @@ const Header = () => {
           <img
             src="/logo.png"
             alt="GrowTechie logo"
-            className="w-auto h-20 fill-current invert"
+            className={`w-auto ${largeScreen? "h-20" : "h-12"} fill-current invert`}
           />
-          <span className="ml-3 text-2xl text-slate-200">GrowTechie</span>
+          {largeScreen && <span className="ml-3 text-2xl text-slate-200">GrowTechie</span>}
         </a>
 
         <nav
