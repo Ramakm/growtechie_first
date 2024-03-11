@@ -1,22 +1,20 @@
 import { useState, useRef, useEffect } from "react";
-import CourseHeader from "../components/course/courseHeader";
+import { FormBody, TextInput, RadioInput, ImageInput } from "../form";
 import {
-  FormBody,
-  TextInput,
-  RadioInput,
-  ImageInput,
-} from "../components/form";
-import { textData, radioData, fileData } from "../staticData/teacherFormData";
-import { auth } from "../firebase/config";
-import { login } from "../utils/auth";
+  textData,
+  radioData,
+  fileData,
+} from "../../staticData/teacherFormData";
+import { auth } from "../../firebase/config";
+import { login } from "../../utils/auth";
 import { useNavigate } from "react-router";
-import handleFormChange from "../utils/handleFormChange";
-import { db } from "../firebase/config";
-import { FullScreenLoader } from "../components/loader/Loader";
-import extractInitData from "../utils/extractInitData";
-import { uploadImageToFirebase } from "../utils/imageFn";
+import handleFormChange from "../../utils/handleFormChange";
+import { db } from "../../firebase/config";
+import { FullScreenLoader } from "../loader/Loader";
+import extractInitData from "../../utils/extractInitData";
+import { uploadImageToFirebase } from "../../utils/imageFn";
 
-const JoinAsTeacherForm = () => {
+const JoinAsTeacherForm = ({ open, handleClose }) => {
   const initialData = extractInitData(
     [...textData, ...radioData, ...fileData],
     "name"
@@ -25,6 +23,7 @@ const JoinAsTeacherForm = () => {
   const [user, setUser] = useState(auth.currentUser);
   const [formData, setFormData] = useState(initialData);
   const [uploadForm, setUploadForm] = useState(false);
+  // const [open, setOpen] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,6 +47,7 @@ const JoinAsTeacherForm = () => {
   }, [user]);
 
   async function postFormToDB() {
+    console.log("uploading");
     await uploadImageToFirebase(formData.imageLink)
       .then(async (url) => {
         await db
@@ -74,6 +74,8 @@ const JoinAsTeacherForm = () => {
       })
       .finally(() => {
         setUploadForm(false);
+        setFormData(initialData);
+        handleClose();
         navigate("/");
       });
   }
@@ -89,42 +91,38 @@ const JoinAsTeacherForm = () => {
   }
 
   return (
-    <div>
-      <CourseHeader />
-      <div>
-        <FormBody
-          title="Join As Teacher"
-          intro="If you are interested in joining GrowTechie as a teacher then, Please fill out this form first"
-          ref={form}
-          onSubmit={handleSubmit}
-        >
-          <ImageInput
+    <FormBody
+      title="Join As Teacher"
+      ref={form}
+      onSubmit={handleSubmit}
+      open={open}
+      handleClose={handleClose}
+    >
+      <ImageInput
+        handleChange={handleChange}
+        formData={formData}
+        inputData={fileData[0]}
+      />
+      {textData.map((data, index) => (
+        <div key={index}>
+          {index === 2 && (
+            <RadioInput
+              data={radioData[0]}
+              handleChange={handleChange}
+              formData={formData}
+              classes="mb-4"
+            />
+          )}
+          <TextInput
+            key={index}
+            data={data}
             handleChange={handleChange}
             formData={formData}
-            inputData={fileData[0]}
           />
-          {textData.map((data, index) => (
-            <div key={index}>
-              {index === 2 && (
-                <RadioInput
-                  data={radioData[0]}
-                  handleChange={handleChange}
-                  formData={formData}
-                  classes="mb-4"
-                />
-              )}
-              <TextInput
-                key={index}
-                data={data}
-                handleChange={handleChange}
-                formData={formData}
-              />
-            </div>
-          ))}
-        </FormBody>
-      </div>
+        </div>
+      ))}
       {uploadForm && <FullScreenLoader text="Don't refresh" />}
-    </div>
+    </FormBody>
   );
 };
 

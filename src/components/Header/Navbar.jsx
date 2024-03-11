@@ -4,16 +4,18 @@ import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import handleScrollToElement from "../../utils/commonFn";
 import { navData, mobileNavData } from "../../staticData/navData";
-import AuthDialogBox from "../AuthDialogBox";
+import AuthDialogBox from "./AuthDialogBox";
 import Avatar from "@mui/material/Avatar";
 import useAuth from "../../hooks/useAuth";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import JoinAsTeacherForm from "./JoinAsTeacherForm";
 // import BottomNavigationComponent from "./BottomNavigation";
 
 const Header = () => {
   const navigate = useNavigate();
   const navRef = useRef();
   const [openAuthModal, setOpenAuthModal] = useState(false);
+  const [openJoiningForm, setOpenJoiningFrom] = useState(false);
   const largeScreen = useMediaQuery("(min-width:800px)", { noSsr: true });
   const [user] = useAuth();
   useScroll(navRef);
@@ -24,7 +26,6 @@ const Header = () => {
     e.preventDefault();
     handleScrollToElement(elementId, navigate);
   }
-
 
   // Add bottom navigation on small screen
 
@@ -41,9 +42,13 @@ const Header = () => {
           <img
             src="/logo.png"
             alt="GrowTechie logo"
-            className={`w-auto ${largeScreen? "h-20" : "h-12"} fill-current invert`}
+            className={`w-auto ${
+              largeScreen ? "h-20" : "h-12"
+            } fill-current invert`}
           />
-          {largeScreen && <span className="ml-3 text-2xl text-slate-200">GrowTechie</span>}
+          {largeScreen && (
+            <span className="ml-3 text-2xl text-slate-200">GrowTechie</span>
+          )}
         </a>
 
         <nav
@@ -80,6 +85,11 @@ const Header = () => {
       <AuthDialogBox
         handleClose={() => setOpenAuthModal(false)}
         open={openAuthModal}
+        setOpenJoiningFrom={setOpenJoiningFrom}
+      />
+      <JoinAsTeacherForm
+        open={openJoiningForm}
+        handleClose={() => setOpenJoiningFrom(false)}
       />
       {/* {largeScreen && <BottomNavigationComponent />} */}
     </header>
