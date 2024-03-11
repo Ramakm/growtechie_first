@@ -1,6 +1,6 @@
 const textData = [
     {
-        label: "Name of the Teacher",
+        label: "Name",
         name: "name"
     },
     {
@@ -24,17 +24,17 @@ const textData = [
         name: "individualFee"
     },
     {
-        label: "Drop your LinkedIn handle",
+        label: "LinkedIn handle",
         name: "linkedin",
         optional: true,
     },
     {
-        label: "Drop your Twitter handle",
+        label: "Twitter handle",
         name: "twitter",
         optional: true,
     },
     {
-        label: "Drop your Instagram handle",
+        label: "Instagram handle",
         name: "instagram",
         optional: true,
     },
@@ -44,7 +44,7 @@ const textData = [
         type: "number",
     },
     {
-        label: "Number of sessions you will take per week",
+        label: "Number of sessions (per week)",
         name: "sessionCount",
         type: "number",
     },
@@ -53,12 +53,12 @@ const textData = [
         name: "preRequisities"
     },
     {
-        label: "Teaching Experience you have(in years)",
+        label: "Teaching Experience (in years)",
         name: "experience",
         type: "number"
     },
     {
-        label: "YouTube video link that describe about your work",
+        label: "YouTube video link",
         name: "ytLink",
         optional: true,
     },

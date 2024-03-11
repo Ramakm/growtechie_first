@@ -27,7 +27,7 @@ export default function ImageInput({ inputData, handleChange, formData }) {
   }
 
   return (
-    <div className={`w-fit z-10`}>
+    <div className={`w-fit z-10 mx-auto`}>
       <Avatar
         alt="User"
         src={checkSrc() ? URL.createObjectURL(src) : src}
@@ -41,7 +41,7 @@ export default function ImageInput({ inputData, handleChange, formData }) {
         startIcon={<CloudUploadIcon />}
         className="w-fit"
       >
-        Upload Your Image
+        Upload
         <VisuallyHiddenInput
           type="file"
           accept="image/*"

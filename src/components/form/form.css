@@ -1,0 +1,14 @@
+.form-field {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 5px;
+}
+
+.asform::after{
+    content: url("../../assets/other/form-design.png");
+    position: absolute;
+    right: -75px;
+    top: 0
+}

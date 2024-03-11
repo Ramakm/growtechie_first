@@ -1,6 +1,6 @@
 const RadioInput = ({ data, handleChange, formData, classes }) => {
     return (
-        <div className={`form-field bg-white text-black z-10 ${classes}`}>
+        <div className={`form-field text-slate-600 z-10 ${classes}`}>
             <p>{data.label} <span className="text-red-700">*</span></p>
 
             {data.values.map((item, idx) => (

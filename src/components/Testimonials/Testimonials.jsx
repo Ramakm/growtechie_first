@@ -64,7 +64,7 @@ const TestimonialSlides = ({ reviews }) => (
     {reviews.map((review) => (
       <div
         key={review.id}
-        className="testimonial-card w-[250px] relative px-2 py-4 lg:p-8 pt-0 cursor-default rounded-md transition-transform duration-300 transform hover:scale-105 lg:max-w-[400px] lg:w-[30vw]"
+        className="border-4 border-transparent border-solid moonstone-gradient-border white-box-shadow w-[250px] relative px-2 py-4 lg:p-8 pt-0 cursor-default rounded-md transition-transform duration-300 transform hover:scale-105 lg:max-w-[400px] lg:w-[30vw]"
       >
         <img
           src={review.image}

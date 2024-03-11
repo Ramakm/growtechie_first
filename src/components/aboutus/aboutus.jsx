@@ -1,5 +1,5 @@
 import React from "react";
-import { palakImg, yashodhanImg } from "../../assets/team";
+import { palakImg, yashodhanImg } from "../../assets";
 
 const AboutUs = () => {
   return (

@@ -1,5 +1,5 @@
 import "./Hero.css";
-import { heroImgBoy, heroImgWoman, heroImgLearners } from "../../assets/hero";
+import { heroImgBoy, heroImgWoman, heroImgLearners } from "../../assets";
 import handleScrollToElement from "../../utils/commonFn";
 import { useNavigate } from "react-router";
 import useMediaQuery from "@mui/material/useMediaQuery";
