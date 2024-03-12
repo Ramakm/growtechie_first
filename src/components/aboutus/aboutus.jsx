@@ -3,7 +3,7 @@ import { palakImg, yashodhanImg } from "../../assets";
 
 const AboutUs = () => {
   return (
-    <div className="text-[var(--primary-text)] relative mt-10">
+    <div className="reveal text-[var(--primary-text)] relative mt-10">
       <div>
         <div className="py-5" id="about-us">
           <div className="flex items-center ml-2 md:ml-5">

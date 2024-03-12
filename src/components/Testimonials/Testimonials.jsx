@@ -41,7 +41,7 @@ const Testimonial = () => {
   ];
 
   return (
-    <div className="flex flex-col w-[100vw] mt-20 overflow-hidden min-h-[100vh]">
+    <div className="reveal flex flex-col w-[100vw] mt-20 overflow-hidden min-h-[100vh]">
       <div id="testimonials" className="text-center">
         <h1 className="text-3xl lg:text-6xl mt-2 font-semibold capitalize text-white">
           Student Testimonies

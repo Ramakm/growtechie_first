@@ -16,7 +16,7 @@ const Courses = () => {
   }, [selectedCategory]);
 
   return (
-    <div className="py-24 pb-12">
+    <div className="py-24 pb-12 reveal">
       <div id="courses" className="max-w-[1500px] mx-auto px-4">
         <h2
           className="text-5xl lg:text-8xl uppercase font-bold

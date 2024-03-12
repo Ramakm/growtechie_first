@@ -7,7 +7,7 @@ const Joinus = () => {
   return (
     <div
       id="joinus"
-      className="font-sans min-h-screen relative flex justify-center items-center"
+      className="reveal font-sans min-h-screen relative flex justify-center items-center"
     >
       <span className="absolute shiny-border-design top-0 right-[60%] w-[800px] h-[600px]"></span>
 
