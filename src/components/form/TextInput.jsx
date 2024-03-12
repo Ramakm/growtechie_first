@@ -1,6 +1,6 @@
 const TextInput = ({ data, formData, handleChange }) => {
   return (
-    <div className="form-field z-10 text-slate-600 font-base">
+    <div className="form-field z-10 text-black font-base">
       <label htmlFor={data.name}>
         {data.label}{" "}
         {data.frequency && (
