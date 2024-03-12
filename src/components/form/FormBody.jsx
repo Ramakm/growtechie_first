@@ -30,13 +30,13 @@ const FormBody = (
         sx={style}
         className={`h-[500px] max-h-[90vh] overflow-y-scroll white-box-shadow no-scrollbar rounded-lg`}
       >
-        <h1 className="capitalize text-[40px] text-gradient font-bold px-3 pt-8 text-center">
+        <h1 className="capitalize text-[30px] text-gradient font-bold px-3 pt-8 text-center">
           {title}
         </h1>
         <form
           ref={ref}
           onSubmit={onSubmit}
-          className="flex flex-col gap-4 relative p-8"
+          className="flex flex-col gap-4 relative p-8 pt-0"
         >
           {children}
           <button
