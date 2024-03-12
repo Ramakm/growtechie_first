@@ -1,13 +1,13 @@
 const FAQItem = ({ faq, toggleAccordion, index, activeIndex }) => {
     return (
         <div
-            className="px-6 py-6 mb-4 mx-auto border border-gray-200 sm:px-8 md:px-12 sm:py-8 sm:rounded-lg sm:shadow"
+            className="px-4 py-4 select-none lg:px-6 lg:py-6 mb-4 mx-auto border border-gray-200 rounded-lg shadow"
         >
             <div
                 onClick={() => toggleAccordion(index)}
                 className="flex justify-between cursor-pointer"
             >
-                <h3 className="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">
+                <h3 className="text-base lg:text-2xl font-bold text-purple-500">
                     {faq.question}
                 </h3>
                 <span
@@ -18,7 +18,7 @@ const FAQItem = ({ faq, toggleAccordion, index, activeIndex }) => {
                 </span>
             </div>
             {activeIndex === index && (
-                <p className="mt-2 text-base text-[var(--secondary-text)] sm:text-lg md:text-normal">
+                <p className="mt-2 text-sm lg:text-base text-[var(--secondary-text)]">
                     {faq.answer}
                 </p>
             )}

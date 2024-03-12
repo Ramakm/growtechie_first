@@ -2,7 +2,7 @@ import React from 'react';
 import {
   computerScienceSubjects,
   courseImageURL,
-} from '../../coursedata';
+} from '../../staticData/coursedata';
 
 import CourseHeader from '../../components/course/courseHeader';
 import CourseFooter from '../../components/course/coursefooter';

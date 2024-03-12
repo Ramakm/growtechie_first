@@ -1,10 +1,10 @@
-import React from 'react';
-import handleScrollToElement from '../../commonFn';
-import { useNavigate } from 'react-router';
+import React from "react";
+import handleScrollToElement from "../../utils/commonFn";
+import { useNavigate } from "react-router";
 import { IoLogoFacebook } from "react-icons/io";
 import { FaInstagramSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import siteMapData from '../../navData';
+import siteMapData from "../../staticData/navData";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -13,14 +13,14 @@ const Footer = () => {
     <footer className="radial-shiny-gray-gradient py-5 px-8">
       <section className="flex justify-center gap-5 flex-col md:flex-row">
         <div className="flex flex-col gap-5">
-          <h3
-            className="text-5xl xl:text-8xl relative font-semibold footer-heading leading-[1.15] mb-2 text-[var(--primary-text)]"
-          >Contact Us</h3>
+          <h3 className="text-5xl xl:text-8xl relative font-semibold footer-heading leading-[1.15] mb-2 text-[var(--primary-text)]">
+            Contact Us
+          </h3>
           <p className="text-blue-300">
             We'd love to hear from you. Contact us through the following
             channels:
           </p>
-          <div className="flex flex-wrap space-x-6 text-slate-400">
+          <div className="flex flex-wrap justify-center space-x-4 space-x-6 text-slate-400">
             <div className="text-center">
               <a
                 href="tel:+917978939845"
@@ -60,7 +60,9 @@ const Footer = () => {
                     <a
                       onClick={() => handleScrollToElement(item.to, navigate)}
                       className="text-slate-400 hover:underline text-sm cursor-pointer"
-                    >{item.text}</a>
+                    >
+                      {item.text}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -69,31 +71,51 @@ const Footer = () => {
               <h4 className="font-semibold text-gray-200">Follow us on</h4>
               <ul className="flex flex-col gap-1 items-center">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61551916223733"
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61551916223733"
                     className="text-4xl text-center text-slate-400 hover:text-5xl transform transition-all"
-                  ><IoLogoFacebook /></a>
+                  >
+                    <IoLogoFacebook />
+                  </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/growtechie/"
+                  <a
+                    href="https://www.instagram.com/growtechie/"
                     className="text-4xl text-center text-slate-400 hover:text-5xl transform transition-all"
-                  ><FaInstagramSquare /></a>
+                  >
+                    <FaInstagramSquare />
+                  </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/company/growtechieind"
+                  <a
+                    href="https://www.linkedin.com/company/growtechieind"
                     className="text-4xl text-center text-slate-400 hover:text-5xl transform transition-all"
-                  ><FaLinkedin /></a>
+                  >
+                    <FaLinkedin />
+                  </a>
                 </li>
                 <li>
-                  <a href="https://twitter.com/growtechie"
+                  <a
+                    href="https://twitter.com/growtechie"
                     className="text-4xl text-center text-slate-400 hover:text-5xl transform transition-all"
-                  ><FaSquareXTwitter /></a>
+                  >
+                    <FaSquareXTwitter />
+                  </a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
         <div className="w-full md:w-1/2">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.791730986784!2d77.6619388!3d12.985168699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae114efa821173%3A0x819978309ce921dc!2sDRDO%20Township!5e0!3m2!1sen!2sin!4v1706290397203!5m2!1sen!2sin" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="w-full"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.791730986784!2d77.6619388!3d12.985168699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae114efa821173%3A0x819978309ce921dc!2sDRDO%20Township!5e0!3m2!1sen!2sin!4v1706290397203!5m2!1sen!2sin"
+            width="600"
+            height="450"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full"
+          ></iframe>
         </div>
       </section>
     </footer>
@@ -117,7 +139,7 @@ const PhoneSvg = () => (
       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
     />
   </svg>
-)
+);
 
 const MailSvg = () => (
   <svg
@@ -137,7 +159,7 @@ const MailSvg = () => (
       clipRule="evenodd"
     />
   </svg>
-)
+);
 
 const LocationSvg = () => (
   <svg
@@ -160,4 +182,4 @@ const LocationSvg = () => (
       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
     />
   </svg>
-)
+);

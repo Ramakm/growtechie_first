@@ -1,15 +1,13 @@
-import { useNavigate } from "react-router";
-import { login } from "../utils/auth";
+import { login } from "../../utils/auth";
 import { Modal, Box, Typography, Button } from "@mui/material";
 
-const AuthDialogBox = ({ open, handleClose }) => {
-  const navigate = useNavigate();
-
+const AuthDialogBox = ({ open, handleClose, setOpenJoiningFrom }) => {
   function handleJoin(e) {
     e.stopPropagation();
     login();
     handleClose();
   }
+
   return (
     <div>
       <Modal
@@ -26,7 +24,7 @@ const AuthDialogBox = ({ open, handleClose }) => {
             transform: "translate(-50%, -50%)",
             width: "80vw",
             maxWidth: "500px",
-            bgcolor: "background.paper",
+            bgcolor: "#f7f9f8",
             border: "2px solid #000",
             boxShadow: 24,
             p: 4,
@@ -82,7 +80,8 @@ const AuthDialogBox = ({ open, handleClose }) => {
               type="submit"
               sx={{ width: "300px" }}
               onClick={() => {
-                navigate("/join-as-teacher");
+                handleClose();
+                setOpenJoiningFrom(true);
               }}
             >
               Join as TEACHER

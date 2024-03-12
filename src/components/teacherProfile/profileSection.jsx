@@ -9,11 +9,9 @@ const ProfileSection = ({ teacher }) => {
     <div className="flex flex-col gap-8">
       <Wrapper className="!p-0">
         <div className="linear-purple-green-gradient rounded-t-lg relative h-52 w-full mb-[88px]">
-          <img
-            src={teacher.imageLink}
-            alt={teacher.name}
-            className="w-48 h-48 top-1/2 left-6 absolute rounded-3xl border-4 border-white"
-          />
+          <div className="w-48 overflow-hidden flex items-center justify-center h-48 top-1/2 left-6 absolute rounded-3xl border-4 border-white">
+            <img src={teacher.imageLink} alt={teacher.name} className="" />
+          </div>
         </div>
         <div className="p-6">
           <h2 className="text-2xl font-semibold">{teacher.name}</h2>

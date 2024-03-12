@@ -2,49 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-    --moonstone-blue: #01CABD;
-    --light-gray: #C6C6C6;
-    --dark-blue: rgb(79 70 229);
-    --dark-gray: #a8a6a6;
-    --shadow-color: rgba(22, 105, 99, 1);
-    --black-olive: #2a2828;
+  --moonstone-blue: #01cabd;
+  --light-gray: #c6c6c6;
+  --dark-blue: rgb(79 70 229);
+  --dark-gray: #a8a6a6;
+  --shadow-color: rgba(22, 105, 99, 1);
+  --black-olive: #2a2828;
 
-    --primary-text: white;
-    --secondary-text: var(--light-gray);
-    --highlighted-text: var(--moonstone-blue);
-    --active-link: var(--dark-blue);
-    --bg-color: black;
-    --profile-section-bg-color: var(--black-olive);
-    --contrast-bg-color: rgb(248, 245, 245);
+  --primary-text: white;
+  --secondary-text: var(--light-gray);
+  --highlighted-text: var(--moonstone-blue);
+  --active-link: var(--dark-blue);
+  --bg-color: black;
+  --profile-section-bg-color: var(--black-olive);
+  --contrast-bg-color: rgb(248, 245, 245);
 }
 
 /* ---------------- GRADIENTS -------------- */
 
-
 .linear-purple-green-gradient {
-    background: linear-gradient(90deg, #5235C5, rgba(22, 105, 99, 1));
+  background: linear-gradient(90deg, #5235c5, rgba(22, 105, 99, 1));
 }
 
 .linear-purple-gradient {
-    background: linear-gradient(90deg, #5235C5, #645DE5);
+  background: linear-gradient(90deg, #5235c5, #645de5);
 }
 
 .radial-shiny-gray-gradient {
-    background: radial-gradient(circle, #384B59, #2C2C2C);
+  background: radial-gradient(circle, #384b59, #2c2c2c);
 }
 
 .white-gradient {
-    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 .text-gradient {
-    background-image: linear-gradient(43deg, #415BD0 0%, #C850C0 46%, #FFCC70 100%);
-    background-clip: text;
-    color: transparent;
+  background-image: linear-gradient(
+    43deg,
+    #415bd0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  background-clip: text;
+  color: transparent;
 }
 
 .white-box-shadow {
-    box-shadow: 0 15px 25px rgba(255,255,255, 0.2);
+  box-shadow: 0 15px 25px rgba(255, 255, 255, 0.2);
+}
+
+.moonstone-gradient-border {
+  border-image: linear-gradient(
+    45deg,
+    white,
+    var(--moonstone-blue),
+    var(--moonstone-blue),
+    cyan
+  );
+  border-image-slice: 1;
 }

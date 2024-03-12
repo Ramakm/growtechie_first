@@ -1,18 +1,42 @@
 import { forwardRef } from "react";
-import { f1, f2, f3, f4 } from "/public/assets/form";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
+import "./form.css";
 
-const FormBody = ({ children, title, intro, onSubmit }, ref) => {
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "80vw",
+  maxWidth: "500px",
+  bgcolor: "#f7f9f8",
+  boxShadow:
+    "5px 15px 25px rgba(255, 255, 255, 0.3), 0px -5px 25px rgba(255,255,255,0.5)",
+};
+
+const FormBody = (
+  { children, title, onSubmit, open = true, handleClose },
+  ref
+) => {
   return (
-    <section className="p-5 py-28 z-10">
-      <div className="max-w-[90vw] mx-auto w-[700px]">
-        <h1 className="capitalize text-[40px] text-gradient font-bold">
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box
+        sx={style}
+        className={`h-[500px] max-h-[90vh] overflow-y-scroll white-box-shadow no-scrollbar rounded-lg`}
+      >
+        <h1 className="capitalize text-[40px] text-gradient font-bold px-3 pt-8 text-center">
           {title}
         </h1>
-        <p className="max-w-[64ch] text-[var(--secondary-text)]">{intro}</p>
         <form
           ref={ref}
           onSubmit={onSubmit}
-          className="mt-[5vh] flex flex-col gap-4 relative"
+          className="flex flex-col gap-4 relative p-8"
         >
           {children}
           <button
@@ -22,35 +46,9 @@ const FormBody = ({ children, title, intro, onSubmit }, ref) => {
             SUBMIT
           </button>
         </form>
-      </div>
-      <FormDesign />
-    </section>
+      </Box>
+    </Modal>
   );
 };
 
 export default forwardRef(FormBody);
-
-const FormDesign = () => (
-  <div>
-    <img
-      src={f1}
-      alt="design image"
-      className="hidden lg:block fixed w-40 top-24 left-10"
-    />
-    <img
-      src={f2}
-      alt="design image"
-      className="hidden lg:block fixed w-40 top-24 right-10"
-    />
-    <img
-      src={f3}
-      alt="design image"
-      className="hidden lg:block bottom-design fixed w-40 bottom-0 left-10"
-    />
-    <img
-      src={f4}
-      alt="design image"
-      className="hidden lg:block bottom-design fixed w-40 bottom-10 right-10"
-    />
-  </div>
-);

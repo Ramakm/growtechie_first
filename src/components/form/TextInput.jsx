@@ -1,6 +1,6 @@
 const TextInput = ({ data, formData, handleChange }) => {
     return (
-        <div className="form-field bg-white z-10 text-black">
+        <div className="form-field z-10 text-slate-600 font-base">
             <label htmlFor={data.name}>
                 {data.label}
                 {data.optional? <span>{" "}(Optional)</span> : <span className="text-red-700">*</span>}
@@ -12,7 +12,7 @@ const TextInput = ({ data, formData, handleChange }) => {
                 value={formData[data.name]}
                 onChange={handleChange}
                 maxLength={150}
-                className="border-b-[1px] border-solid border-gray-300 focus:outline-none"
+                className="border-b-[2px] bg-transparent pl-3 border-solid border-slate-500 focus:outline-none"
                 required={!data.optional}
             />
         </div>

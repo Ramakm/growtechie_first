@@ -18,5 +18,12 @@ const navData = [
     { text: "About Us", to: "about-us" }
   ];
 
+
+const mobileNavData = [
+    { text: "Courses", to: "courses" },
+    { text: "Testimonials", to: "testimonials" },
+    { text: "FAQ", to: "faq" },
+]
+
 export default siteMapData;
-export { navData };
+export { navData, mobileNavData };

@@ -8,7 +8,7 @@ import CourseDescription from '../../components/course/coursedescription';
 import CourseRequriement from '../../components/course/courserequirements';
 import CourseHero from '../../components/course/coursehero';
 import CourseheroMobile from '../../components/course/courseheromobile';
-import { courseImageURL, softwareTestingCourse } from '../../coursedata';
+import { courseImageURL, softwareTestingCourse } from '../../staticData/coursedata';
 import ScrollTop from '../../hooks/scrollTop';
 const SoftwareTesting = () => {
   const [activeIndex, setActiveIndex] = useState(null);
