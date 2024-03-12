@@ -30,7 +30,7 @@ const Joinus = () => {
               </p>
             </div>
 
-            <ul className="my-8 flex lg:flex-col justify-center gap-4 lg:justify-start">
+            <ul className="my-8 flex justify-center gap-4 md:justify-start">
               <li className="self-center break:self-start">
                 {" "}
                 <a
