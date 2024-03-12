@@ -9,8 +9,10 @@ import Footer from '../components/Footer/Footer';
 import Social from '../components/Sociallink/Social';
 import Joinus from '../components/joinus/twitter';
 import Banner from '../components/banner/Banner';
+import useReveal from '../hooks/useReveal';
 
 const Home = () => {
+  useReveal();
   return (
     <>
       <Header />

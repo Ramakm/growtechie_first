@@ -41,7 +41,7 @@ const Testimonial = () => {
   ];
 
   return (
-    <div className="flex flex-col w-[100vw] mt-20 overflow-hidden min-h-[100vh]">
+    <div className="reveal flex flex-col w-[100vw] mt-20 overflow-hidden min-h-[100vh]">
       <div id="testimonials" className="text-center">
         <h1 className="text-3xl lg:text-6xl mt-2 font-semibold capitalize text-white">
           Student Testimonies
@@ -64,12 +64,12 @@ const TestimonialSlides = ({ reviews }) => (
     {reviews.map((review) => (
       <div
         key={review.id}
-        className="border-4 border-transparent border-solid moonstone-gradient-border white-box-shadow w-[250px] relative px-2 py-4 lg:p-8 pt-0 cursor-default rounded-md transition-transform duration-300 transform hover:scale-105 lg:max-w-[400px] lg:w-[30vw]"
+        className="border-4 border-transparent border-solid moonstone-gradient-border white-box-shadow w-[250px] relative px-2 p-4 lg:p-8 pt-0 cursor-default rounded-md transition-transform duration-300 transform hover:scale-105 lg:max-w-[400px] lg:w-[30vw]"
       >
         <img
           src={review.image}
           alt="reviewer"
-          className="-mt-10 h-20 w-20 border-gray-400 border-2 border-solid rounded-full block mx-auto"
+          className="-mt-10 lg:-mt-[70px] h-20 w-20 border-gray-400 border-2 border-solid rounded-full block mx-auto"
         />
         <h4 className="uppercase text-xl font-bold mt-auto text-blue-400 inline-block">
           {review.name}

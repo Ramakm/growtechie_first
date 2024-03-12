@@ -1,4 +1,9 @@
+import CourseForm from "./CourseForm";
+import { useState } from "react";
+
 const CourseHero = ({ title, subtitle, imagelink, courseName }) => {
+  const [openForm, setOpenForm] = useState(false);
+
   return (
     <div className="relative h-80 radial-shiny-gray-gradient text-white">
       <div className="h-full flex flex-col justify-center items-center relative z-10">
@@ -12,13 +17,19 @@ const CourseHero = ({ title, subtitle, imagelink, courseName }) => {
             alt="Course Image"
             className="w-full h-48 object-cover rounded-lg mb-4"
           />
-          <a href={`/form?course=${courseName}`}>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105 w-full">
-              Register
-            </button>
-          </a>
+          <button
+            className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105 w-full"
+            onClick={() => setOpenForm(true)}
+          >
+            Register
+          </button>
         </div>
       </div>
+      <CourseForm
+        open={openForm}
+        handleClose={() => setOpenForm(false)}
+        courseName={courseName}
+      />
     </div>
   );
 };

@@ -14,7 +14,6 @@ import {
 } from "./page/courses";
 
 import { 
-  Form,
   Gallery,
   Home,
   Page404,
@@ -42,7 +41,6 @@ const App = () => {
         <Route path='/course/cssubjects' element={<CSsubjects />} />
         <Route path='course/careerintech' element={<CareerinTech />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/form" element={<Form/>} />
         <Route path="/teachers" element={<Teachers />} />
         <Route path="/profile" element={user ? <UserProfile /> : <Page404 />} />
         <Route path="/teachers/:id" element={<TeacherProfile />} />

@@ -1,12 +1,13 @@
 import "./Hero.css";
+import { useState } from "react";
 import { heroImgBoy, heroImgWoman, heroImgLearners } from "../../assets";
 import handleScrollToElement from "../../utils/commonFn";
 import { useNavigate } from "react-router";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import CourseForm from "../course/CourseForm";
 
 const Hero = () => {
   const navigate = useNavigate();
-  const largeScreen = useMediaQuery("(min-width:800px)", { noSsr: true });
+  const [openForm, setOpenForm] = useState(false);
 
   function handleNavigation(e, elementId) {
     e.preventDefault();
@@ -42,7 +43,7 @@ const Hero = () => {
                 Start Learning
               </button>
               <button
-                onClick={(e) => handleNavigation(e, "/form")}
+                onClick={() => setOpenForm(true)}
                 className="rounded-full px-7 py-2 border-2 border-solid 
                 border-[#7152ED] font-semibold hover:scale-105 transition-all"
               >
@@ -53,6 +54,11 @@ const Hero = () => {
 
           <LargeScreenRightSection />
         </div>
+        <CourseForm
+          open={openForm}
+          handleClose={() => setOpenForm(false)}
+          courseName="demooo"
+        />
       </div>
       <HeroBg />
     </div>

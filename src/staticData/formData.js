@@ -3,18 +3,13 @@ export const coursesArr = ["python-programming", "python-projects", "SQL", "powe
 
 export const data = [
     {
-        label: "Name of the Learner",
+        label: "Your name",
         name: "name",
         inputType: "text",
     },
     {
         label: "Email",
         name: "email",
-        inputType: "text",
-    },
-    {
-        label: "Mobile No",
-        name: "phone",
         inputType: "text",
     },
     {
@@ -30,9 +25,10 @@ export const data = [
         inputType: "radio",
     },
     {
-        label: "Course Fee? Lerner interested to give",
+        label: "Course Fee? You're interested to give",
         name: "fee",
         inputType: "text",
+        frequency: "monthly"
     },
     {
         name: "paymentOptions",
@@ -41,9 +37,10 @@ export const data = [
         inputType: "radio",
     },
     {
-        label: "Course time learner interested to give",
+        label: "Course Time? You're interested to give",
         name: "time",
         inputType: "text",
+        frequency: "weekly"
     },
     {
         name: "findUs",

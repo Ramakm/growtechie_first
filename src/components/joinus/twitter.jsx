@@ -7,7 +7,7 @@ const Joinus = () => {
   return (
     <div
       id="joinus"
-      className="font-sans min-h-screen relative flex justify-center items-center"
+      className="reveal font-sans min-h-screen relative flex justify-center items-center"
     >
       <span className="absolute shiny-border-design top-0 right-[60%] w-[800px] h-[600px]"></span>
 
@@ -30,7 +30,7 @@ const Joinus = () => {
               </p>
             </div>
 
-            <ul className="my-8 flex lg:flex-col justify-center gap-4 lg:justify-start">
+            <ul className="my-8 flex justify-center gap-4 md:justify-start">
               <li className="self-center break:self-start">
                 {" "}
                 <a
