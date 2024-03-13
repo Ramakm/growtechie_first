@@ -5,3 +5,7 @@
 .gradient-bg {
     background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(255,255,255,0.25));
 }
+
+.banner-box-shadow {
+    box-shadow: 0 5px 25px rgba(255, 255, 255, 0.2), 0 5px 25px rgba(255, 255, 255, 0.2), 0 15px 70px rgba(255, 255, 255, 0.2);
+  }
