@@ -38,7 +38,6 @@ const CourseForm = ({ open, handleClose, courseName }) => {
   return (
     <FormBody
       title={`${formattedCourseName} Registration`}
-      intro={`If you are interested in GrowTechie ${formattedCourseName} course, Please fill out this form first.`}
       ref={form}
       onSubmit={handleSubmit}
       open={open}

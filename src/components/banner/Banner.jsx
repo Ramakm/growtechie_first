@@ -1,6 +1,8 @@
 import "./banner.css";
 import { yashodhanImg } from "../../assets";
-import { Avatar } from "@mui/material";
+import HexagonImage from "./HexagonImage";
+import { useState } from "react";
+import EventRegistrationModal from "./EventRegistrationModal";
 
 const data = {
   title: "Annual",
@@ -15,6 +17,8 @@ const data = {
 };
 
 const Banner = () => {
+  const [openRegistrationForm, setOpenRegistrationForm] = useState(false);
+
   return (
     <div className="reveal banner-box-shadow relative mx-auto gradient-bg overflow-hidden text-white p-5 flex justify-around gap-5">
       <div className="z-[10]">
@@ -28,7 +32,10 @@ const Banner = () => {
         <p className="max-w-[35ch] first-line:lg:max-w-[50ch]">
           {data.description}
         </p>
-        <button className="hover:scale-110 transition-all px-5 py-2 mt-4 rounded-md bg-[var(--moonstone-blue)] text-white font-bold shadow-lg">
+        <button
+          className="hover:scale-110 transition-all px-5 py-2 mt-4 rounded-md bg-[var(--moonstone-blue)] text-white font-bold shadow-lg"
+          onClick={() => setOpenRegistrationForm(true)}
+        >
           {data.buttonText}
         </button>
       </div>
@@ -46,25 +53,12 @@ const Banner = () => {
           <HexagonImage src={data.image2Src} alt={data.image2Alt} />
         </div>
       </div>
+      {openRegistrationForm && <EventRegistrationModal
+        open={openRegistrationForm}
+        handleClose={() => setOpenRegistrationForm(false)}
+      />}
     </div>
   );
 };
 
 export default Banner;
-
-function HexagonImage({ src, alt }) {
-  return (
-    <div className="clip-hexagon w-40 h-40 overflow-hidden">
-      <Avatar
-        alt={alt}
-        src={src}
-        sx={{
-          width: "100%",
-          height: "100%",
-          objectPosition: "center",
-          borderRadius: 0,
-        }}
-      />
-    </div>
-  );
-}
