@@ -7,7 +7,7 @@ const Teachers = () => {
       <CourseHeader />
       <div className="mt-24 max-w-[900px] mx-auto">
         <h1 className="text-4xl font-semibold mb-[10vh]">
-          Book a Free Trial with a Teacher of your Choice
+        Book a free trial with a teacher of your choice
         </h1>
         <div className="flex flex-col gap-8">
           <TeachersComponent />
