@@ -42,6 +42,11 @@ const CourseForm = ({ open, handleClose, courseName }) => {
       onSubmit={handleSubmit}
       open={open}
       handleClose={handleClose}
+      sx={{
+        maxWidth: "650px",
+        maxHeight: "600px",
+        backgroundSize: "500px",
+      }}
     >
       <input
         className="w-0 h-0 m-0 p-0"

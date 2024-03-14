@@ -15,7 +15,7 @@ export default function EventRegistrationModal({ open, handleClose }) {
   function handleRegisterUser(e) {
     e.preventDefault();
     const alreadyRegistered = regsiteredUsers.includes(formData.email);
-    
+
     if (alreadyRegistered) {
       setformData({ email: "" });
       alert("You are already registerd!");
@@ -97,7 +97,6 @@ function useFetchUsers() {
 
     if (docSnap.exists()) {
       setRegisteredUsers(docSnap.data().joinersEmail);
-      console.log("Document data:", docSnap.data());
     }
   }
 
