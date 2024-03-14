@@ -28,6 +28,6 @@ const data = {
   ],
 };
 
-const CSsubjects = () => <CourseBody data={data} />;
+const CsSubjects = () => <CourseBody data={data} />;
 
-export default CSsubjects;
+export default CsSubjects;

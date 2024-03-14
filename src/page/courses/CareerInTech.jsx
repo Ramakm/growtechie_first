@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import CourseBody from "../../components/course/CourseBody";
 
 const data = {
@@ -13,6 +12,6 @@ const data = {
     "You should take this course if you want to become a Data Scientist or if you want to learn about the field",
 };
 
-const CareerinTech = () => <CourseBody data={data} />;
+const CareerInTech = () => <CourseBody data={data} />;
 
-export default CareerinTech;
+export default CareerInTech;

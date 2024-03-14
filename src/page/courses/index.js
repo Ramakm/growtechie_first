@@ -1,12 +1,12 @@
-import PythonProgramming from './pythonprogramming.jsx';
-import PythonProject from './pythonproject.jsx';
-import SQL from './sql.jsx';
-import PowerBI from './powerbi.jsx';
-import DataScience from './datascience.jsx';
-import DataAnalyst from './dataanalyts.jsx';
-import SoftwareTesting from './softwaretesting.jsx';
-import CSsubjects from './cssubjects.jsx';
-import CareerinTech from './careertech.jsx';
+import PythonProgramming from './PythonProgramming.jsx';
+import PythonProject from './PythonProject.jsx';
+import SQL from './SQL.jsx';
+import PowerBI from './PowerBI.jsx';
+import DataScience from './DataScience.jsx';
+import DataAnalyst from './DataAnalytics.jsx';
+import SoftwareTesting from './SoftwareTesting.jsx';
+import CSsubjects from './CsSubjects.jsx';
+import CareerinTech from './CareerInTech.jsx';
 
 export {
     PythonProgramming,
