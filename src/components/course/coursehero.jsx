@@ -1,7 +1,7 @@
 import CourseForm from "./CourseForm";
 import { useState } from "react";
 
-const CourseHero = ({ title, subtitle, imagelink, courseName }) => {
+const CourseHero = ({ title, subtitle, imagelink }) => {
   const [openForm, setOpenForm] = useState(false);
 
   return (
@@ -28,7 +28,7 @@ const CourseHero = ({ title, subtitle, imagelink, courseName }) => {
       <CourseForm
         open={openForm}
         handleClose={() => setOpenForm(false)}
-        courseName={courseName}
+        courseName={title}
       />
     </div>
   );

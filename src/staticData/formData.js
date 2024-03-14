@@ -1,6 +1,3 @@
-export const coursesArr = ["python-programming", "python-projects", "SQL", "power-BI", "data-science", "data-analytics", "software-testing", "CS-GATE-college-subjects", "tech-career-growth"]
-
-
 export const data = [
     {
         label: "Your name",

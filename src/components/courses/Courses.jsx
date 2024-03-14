@@ -1,7 +1,7 @@
 import "./courses.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { courseCategories, demoCourses } from "../../staticData/coursedata";
+import { courseCategories, demoCourses } from "../../staticData/courseDataHomePage";
 
 const Courses = () => {
   const [courses, setCourses] = useState(demoCourses);

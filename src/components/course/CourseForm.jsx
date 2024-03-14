@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { coursesArr, data } from "../../staticData/formData";
+import { data } from "../../staticData/formData";
 import { FormBody, TextInput, RadioInput } from "../form";
 import handleFormChange from "../../utils/handleFormChange";
 import extractInitData from "../../utils/extractInitData";
@@ -11,10 +11,6 @@ const CourseForm = ({ open, handleClose, courseName }) => {
   const form = useRef(null);
   const [formData, setFormData] = useState(initialData);
   const [sendingMail, setSendingMail] = useState(false);
-
-  let formattedCourseName = coursesArr.includes(courseName)
-    ? courseName.split("-").join(" ")
-    : "Demo";
 
   function handleSubmit(e) {
     setSendingMail(true);
@@ -37,7 +33,7 @@ const CourseForm = ({ open, handleClose, courseName }) => {
 
   return (
     <FormBody
-      title={`${formattedCourseName} Registration`}
+      title={`${courseName} Registration`}
       ref={form}
       onSubmit={handleSubmit}
       open={open}
@@ -51,7 +47,7 @@ const CourseForm = ({ open, handleClose, courseName }) => {
       <input
         className="w-0 h-0 m-0 p-0"
         name="course"
-        value={formattedCourseName}
+        value={courseName}
         readOnly
       />
       {data.map((input, idx) => {

@@ -1,4 +1,7 @@
 const CourseheroMobile = ({ imageurl, courseName }) => {
+
+  // Fix the form here
+  
   return (
     <div className="bg-white lg:hidden text-center p-4 mt-20">
       <img
