@@ -1,4 +1,4 @@
-const courseCategories = [
+export const courseCategories = [
   'Python',
   'Analytics & Data Science',
   'Testing',
@@ -6,7 +6,7 @@ const courseCategories = [
   'Other Courses'
 ]
 
-const demoCourses = [
+export const demoCourses = [
   {
     title: 'Python Programming',
     description:

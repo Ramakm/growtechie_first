@@ -15,7 +15,6 @@ const CourseBody = ({ data }) => {
     title,
     subTitle,
     imageUrl,
-    courseName,
     detail,
     syllabus,
     isDetailedSyllabus,
@@ -33,10 +32,9 @@ const CourseBody = ({ data }) => {
         title={title}
         subtitle={subTitle}
         imagelink={imageUrl}
-        courseName={courseName}
       />
 
-      <CourseheroMobile imageurl={imageUrl} courseName={courseName} />
+      <CourseheroMobile imageurl={imageUrl} courseName={title} />
 
       {detail && <CourseDetail details={detail} />}
 

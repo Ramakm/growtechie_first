@@ -57,7 +57,7 @@ const Hero = () => {
         <CourseForm
           open={openForm}
           handleClose={() => setOpenForm(false)}
-          courseName="demooo"
+          courseName="Demo"
         />
       </div>
       <HeroBg />
