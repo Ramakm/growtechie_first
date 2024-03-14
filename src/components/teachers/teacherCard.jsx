@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import BookTrialModal from "./bookTrialModal";
+import Avatar from "@mui/material/Avatar";
 
 function TeacherCard({ teacher }) {
   const navigate = useNavigate();
@@ -16,14 +17,20 @@ function TeacherCard({ teacher }) {
   }
 
   return (
-    <div className="flex border-2 hover:scale-[1.01] transition-all ease-in-out border-slate-500 p-5 gap-5 rounded-lg">
+    <div className="radial-shiny-gray-gradient white-box-shadow flex hover:scale-[1.01] transition-all ease-in-out p-5 gap-5 rounded-lg">
       <div className="w-[60%] flex flex-col gap-5">
         <div className="flex gap-5">
           <div className="shrink-0 w-48 h-48 overflow-hidden">
-            <img
+            <Avatar
+              alt="Remy Sharp"
               src={teacher.imageLink}
-              alt={teacher.name}
-              className="w-full h-full rounded-md object-center aspect-[initial]"
+              sx={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "6px",
+                objectPosition: "center",
+                aspectRatio: "initial",
+              }}
             />
           </div>
           <div className="flex flex-col">

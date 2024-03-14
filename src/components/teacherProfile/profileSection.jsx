@@ -3,6 +3,7 @@ import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import Avatar from "@mui/material/Avatar";
 
 const ProfileSection = ({ teacher }) => {
   return (
@@ -10,7 +11,17 @@ const ProfileSection = ({ teacher }) => {
       <Wrapper className="!p-0">
         <div className="linear-purple-green-gradient rounded-t-lg relative h-52 w-full mb-[88px]">
           <div className="w-48 overflow-hidden flex items-center justify-center h-48 top-1/2 left-6 absolute rounded-3xl border-4 border-white">
-            <img src={teacher.imageLink} alt={teacher.name} className="" />
+            <Avatar
+              alt="Remy Sharp"
+              src={teacher.imageLink}
+              sx={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "0",
+                objectPosition: "center",
+                aspectRatio: "initial",
+              }}
+            />
           </div>
         </div>
         <div className="p-6">

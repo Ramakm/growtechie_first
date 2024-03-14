@@ -5,7 +5,7 @@ import "./form.css";
 import { graphImg, growthImg } from "../../assets";
 
 const FormBody = (
-  { children, title, onSubmit, open = true, handleClose },
+  { children, title, onSubmit, open = true, handleClose, sx },
   ref
 ) => {
   return (
@@ -16,8 +16,8 @@ const FormBody = (
       aria-describedby="modal-modal-description"
     >
       <Box
-        sx={style}
-        className={`h-[500px] max-h-[90vh] overflow-y-scroll white-box-shadow no-scrollbar rounded-lg`}
+        sx={{ ...style, ...sx }}
+        className="overflow-y-scroll white-box-shadow no-scrollbar"
       >
         <h1 className="capitalize text-[30px] text-gradient font-bold px-3 pt-8 text-center">
           {title}
@@ -54,8 +54,10 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "80vw",
+  width: "90vw",
   maxWidth: "500px",
+  height: "90vh",
+  maxHeight: "500px",
   bgcolor: "#f7f9f8",
   boxShadow:
     "5px 15px 25px rgba(255, 255, 255, 0.3), 0px -5px 25px rgba(255,255,255,0.5)",
@@ -63,4 +65,5 @@ const style = {
   backgroundRepeat: "no-repeat",
   backgroundSize: "400px",
   backgroundPosition: "center",
+  borderRadius: "8px"
 };

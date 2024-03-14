@@ -2,10 +2,9 @@ import Wrapper from "./wrapper";
 import BookTrialForm from "../teachers/bookTrialForm";
 
 const BookTrialSection = ({ teacher }) => {
-
   return (
     <div className="hidden md:block w-[35%]">
-      <Wrapper className="text-black white-gradient">
+      <Wrapper className="text-black white-gradient !sticky top-24">
         <h3 className="capitalize text-lg border-b-[1px] pb-3">
           <span className="text-gradient font-bold text-xl">
             Book a Free 1:1 Trial:{" "}
@@ -13,7 +12,7 @@ const BookTrialSection = ({ teacher }) => {
           To Plan Your Learning Journey with {teacher.name}
         </h3>
 
-        <BookTrialForm teacher={teacher}/>
+        <BookTrialForm teacher={teacher} />
       </Wrapper>
     </div>
   );
