@@ -10,6 +10,14 @@ const Social = () => {
       >
         <img src="/assets/linkedin.svg" alt="LinkedIn" width="40" height="40" />
       </a>
+        <a
+        href="https://twitter.com/growtechie"
+        className="footer-icons"
+        title="Share on Twitter"
+        target="_blank"
+      >
+        <img src="/assets/tweet.svg" alt="Twitter" width="40" height="40" />
+      </a>
       <a
         href="https://www.facebook.com/profile.php?id=61551916223733"
         className="footer-icons"
@@ -26,15 +34,6 @@ const Social = () => {
         target="_blank"
       >
         <img src="/assets/insta.svg" alt="Instagram" width="40" height="40" />
-      </a>
-
-      <a
-        href="https://twitter.com/growtechie"
-        className="footer-icons"
-        title="Share on Twitter"
-        target="_blank"
-      >
-        <img src="/assets/tweet.svg" alt="Twitter" width="40" height="40" />
       </a>
 
     </div>
