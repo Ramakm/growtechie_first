@@ -1,9 +1,10 @@
 export const courseCategories = [
-  "Python",
+  "Programming",
   "Analytics & Data Science",
   "Testing",
   "Career Guidance",
-  "Other Courses",
+  "Database",
+  "Web Development"
 ];
 
 export const demoCourses = [
@@ -12,11 +13,10 @@ export const demoCourses = [
     description:
       "Learn Basic of python and all the essentials you need to get started with it ",
     tag: "Programming",
-    imageURL:
-      "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80",
-    alt: "python Programming",
+    imageURL: "https://backendapi.iihtsrt.com/wp-content/uploads/2022/04/Pythn.jpg",
+    alt: "Python Programming",
     courseLink: "/course/pythonprogramming",
-    category: ["Python"],
+    category: ["Programming"],
   },
   {
     title: "Python Projects",
@@ -27,7 +27,7 @@ export const demoCourses = [
       "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80",
     alt: "python projects",
     courseLink: "/course/pythonproject",
-    category: ["Python"],
+    category: ["Programming"],
   },
   {
     title: "SQL",
@@ -38,7 +38,7 @@ export const demoCourses = [
       "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-1125-SQL_Server_2022_web_blade_image_RWWaqg:VP1-539x440?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=1920&hei=600&qlt=100&fmt=png-alpha&fit=constrain",
     alt: "sql",
     courseLink: "/course/sql",
-    category: ["Other Courses"],
+    category: ["Database"],
   },
   {
     title: "Power BI",
@@ -46,10 +46,10 @@ export const demoCourses = [
       "Build powerful end-to-end business solutions by connecting Power Automate across Microsoft Power Platform",
     tag: "Technology",
     imageURL:
-      "https://pei.com/wp-content/uploads/2016/08/maxresdefaultreduced.jpg",
+    'https://5.imimg.com/data5/SELLER/Default/2023/8/332555419/KY/SH/WD/10150302/power-bi-software-500x500.jpg',
     alt: "Power BI",
     courseLink: "/course/powerbi",
-    category: ["Other Courses"],
+    category: ["Analytics & Data Science"],
   },
   {
     title: "Data Science",
@@ -57,7 +57,7 @@ export const demoCourses = [
       "Data science combines math and statistics, specialized programming, advanced analytics, artificial intelligence (AI), and machine learning ",
     tag: "Technology",
     imageURL:
-      "https://d1m75rqqgidzqn.cloudfront.net/wp-data/2019/09/11134058/What-is-data-science-2.jpg",
+    'https://www.eweek.com/wp-content/uploads/2021/01/Data.science.png',
     alt: "Data Science",
     courseLink: "/course/datascience",
     category: ["Analytics & Data Science"],
@@ -68,7 +68,7 @@ export const demoCourses = [
       "A data analyst collects, cleans, and interprets data sets to answer a question or solve a problem",
     tag: "Technology",
     imageURL:
-      "https://images.yourstory.com/cs/2/96eabe90392211eb93f18319e8c07a74/DATAANALYTICS-1686234812978.png",
+    'https://www.icat.co.th/wp-content/uploads/2024/01/business-data-analysis2.jpg  ',
     alt: "Data analytics",
     courseLink: "/course/dataanalytics",
     category: ["Analytics & Data Science"],
@@ -106,4 +106,17 @@ export const demoCourses = [
     courseLink: "/course/careerintech",
     category: ["Career Guidance"],
   },
+  {
+    title: 'Web Devlopement',
+    description:
+      'Learn Full stack developement and all the essentials you need to get started with it your dev career',
+    tag: 'Webdev',
+    imageURL:
+      'https://5.imimg.com/data5/SELLER/Default/2022/12/YU/EL/RU/182187902/software-development-500x500.jpg',
+    alt: 'Web Devlopement',
+    courseLink: '/course/webdevelopment',
+    category: ['Web Development'],
+  }
 ];
+
+
