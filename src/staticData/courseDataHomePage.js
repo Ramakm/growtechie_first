@@ -24,7 +24,7 @@ export const demoCourses = [
       "Make begineer to advance level project and get real world prgoramming skills",
     tag: "Programming",
     imageURL:
-      "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80",
+      "https://www.celoxis.com/cassets/img/pmc/project-management.png",
     alt: "python projects",
     courseLink: "/course/pythonproject",
     category: ["Programming"],
