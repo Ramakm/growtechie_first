@@ -5,6 +5,7 @@ import PowerBI from './PowerBI.jsx';
 import DataScience from './DataScience.jsx';
 import DataAnalyst from './DataAnalytics.jsx';
 import SoftwareTesting from './SoftwareTesting.jsx';
+import WebDevelopment from './webdevelopment.jsx';
 import CSsubjects from './CsSubjects.jsx';
 import CareerinTech from './CareerInTech.jsx';
 
@@ -16,6 +17,7 @@ export {
     DataScience,
     DataAnalyst,
     SoftwareTesting,
+    WebDevelopment,
     CSsubjects,
     CareerinTech,
 }
