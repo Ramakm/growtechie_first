@@ -5,7 +5,7 @@ import { useState } from "react";
 import EventRegistrationModal from "./EventRegistrationModal";
 
 const data = {
-  title: "Annual",
+  title: "Weekly",
   subTitle: "Conference",
   description:
     "We do free webniar for all. All you need to do is register and book a seat. Every week we will have a session from our leaders and other indurstry experts to clear your tech career doubts for free.",
