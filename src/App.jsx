@@ -9,6 +9,7 @@ import {
   DataScience,
   DataAnalyst,
   SoftwareTesting,
+  WebDevelopment,
   CSsubjects,
   CareerinTech,
 } from "./page/courses";
@@ -40,6 +41,8 @@ const App = () => {
         <Route path='/course/softwaretesting' element={<SoftwareTesting />} />
         <Route path='/course/cssubjects' element={<CSsubjects />} />
         <Route path='course/careerintech' element={<CareerinTech />} />
+        <Route path='course/webdevelopment' element={<WebDevelopment />} />
+
 
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/teachers" element={<Teachers />} />
