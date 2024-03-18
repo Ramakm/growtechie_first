@@ -14,7 +14,7 @@ export default function EventRegistrationModal({ open, handleClose }) {
 
   function handleRegisterUser(e) {
     e.preventDefault();
-    const alreadyRegistered = regsiteredUsers.includes(formData.email);
+    const alreadyRegistered = regsiteredUsers?.includes(formData.email);
 
     if (alreadyRegistered) {
       setformData({ email: "" });

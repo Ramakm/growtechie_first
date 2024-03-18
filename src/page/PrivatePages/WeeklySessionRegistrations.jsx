@@ -6,7 +6,7 @@ import { FullScreenLoader } from "../../components/loader/Loader";
 import Button from "@mui/material/Button";
 
 const WeeklySessionRegistrations = () => {
-  const [uncheckedEmails, allJoinersList, setAllDocs] = useFetchEmails();
+  const [uncheckedEmails, checkedEmailsList, setAllDocs] = useFetchEmails();
   const [selectedEmails, setSelectedEmails] = useState([]);
   const [deletingDocs, setDeletingDocs] = useState(false);
 
@@ -68,7 +68,7 @@ const WeeklySessionRegistrations = () => {
       <div className="mt-8">
         <h2 className="text-2xl mb-8">Checked Emails</h2>
         <ul className="flex flex-wrap gap-5">
-          {allJoinersList.map((email, idx) => (
+          {checkedEmailsList.map((email, idx) => (
             <li
               className="bg-slate-100 mb-4 p-3 text-black rounded-lg"
               key={idx}
@@ -77,6 +77,11 @@ const WeeklySessionRegistrations = () => {
             </li>
           ))}
         </ul>
+        {checkedEmailsList.length === 0 && (
+          <p className="mb-5 text-center text-slate-300 text-2xl">
+            No checked emails!
+          </p>
+        )}
       </div>
       {deletingDocs && <FullScreenLoader text="Deleting..." />}
     </div>
@@ -94,11 +99,15 @@ function useFetchEmails() {
     allDocs.filter((doc) => doc.id === "weekly-session-all-joiners")[0]
       ?.joinersEmail || [];
 
+  const checkedEmailsList = allJoinersList.filter(
+    (email) => !uncheckedEmailsList.some((obj) => obj.email === email)
+  );
+
   useEffect(() => {
     getDocs(setAllDocs);
   }, []);
 
-  return [uncheckedEmailsList, allJoinersList, setAllDocs];
+  return [uncheckedEmailsList, checkedEmailsList, setAllDocs];
 }
 
 async function getDocs(setAllDocs) {

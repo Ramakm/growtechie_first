@@ -14,7 +14,10 @@ import {
   CareerinTech,
 } from "./page/courses";
 
-import { WeeklySessionRegistrations } from "./page/PrivatePages";
+import {
+  WeeklySessionRegistrations,
+  UnapprovedTeachers,
+} from "./page/PrivatePages";
 
 import {
   Gallery,
@@ -54,7 +57,13 @@ const App = () => {
         <Route path="/profile" element={user ? <UserProfile /> : <Page404 />} />
         <Route path="/teachers/:id" element={<TeacherProfile />} />
         <Route path="/*" element={<Page404 />} />
-        <Route
+        {authors.includes(user?.email) && (
+          <>
+            <Route path="/weekly-session-registrations" element={<WeeklySessionRegistrations />} />
+            <Route path="/unapproved-teachers" element={<UnapprovedTeachers />} />
+          </>
+        )}
+        {/* <Route
           path="/weekly-session-registrations"
           element={
             authors.includes(user?.email) ? (
@@ -63,7 +72,7 @@ const App = () => {
               <Page404 />
             )
           }
-        />
+        /> */}
       </Routes>
     </>
   );
