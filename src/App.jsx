@@ -63,16 +63,6 @@ const App = () => {
             <Route path="/unapproved-teachers" element={<UnapprovedTeachers />} />
           </>
         )}
-        {/* <Route
-          path="/weekly-session-registrations"
-          element={
-            authors.includes(user?.email) ? (
-              <WeeklySessionRegistrations />
-            ) : (
-              <Page404 />
-            )
-          }
-        /> */}
       </Routes>
     </>
   );
