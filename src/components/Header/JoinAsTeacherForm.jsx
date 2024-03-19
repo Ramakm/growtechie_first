@@ -23,8 +23,9 @@ const JoinAsTeacherForm = ({ open, handleClose }) => {
   const [user, setUser] = useState(auth.currentUser);
   const [formData, setFormData] = useState(initialData);
   const [uploadForm, setUploadForm] = useState(false);
-  // const [open, setOpen] = useState(true);
   const navigate = useNavigate();
+
+  // Fix loader visibility
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) =>
@@ -33,9 +34,8 @@ const JoinAsTeacherForm = ({ open, handleClose }) => {
 
     if (
       user &&
-      uploadForm
-      // uploadForm &&
-      // user.metadata.creationTime === user.metadata.lastSignInTime
+      uploadForm &&
+      user.metadata.creationTime === user.metadata.lastSignInTime
     ) {
       postFormToDB();
     } else if (user) {
@@ -57,6 +57,7 @@ const JoinAsTeacherForm = ({ open, handleClose }) => {
             email: user.email,
             uid: user.uid,
             isTeacher: true,
+            approved: false,
             [fileData[0].name]: url,
           })
           .then(() => {

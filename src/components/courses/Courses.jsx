@@ -1,7 +1,10 @@
 import "./courses.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { courseCategories, demoCourses } from "../../staticData/courseDataHomePage";
+import {
+  courseCategories,
+  demoCourses,
+} from "../../staticData/courseDataHomePage";
 
 const Courses = () => {
   const [courses, setCourses] = useState(demoCourses);
@@ -25,9 +28,9 @@ const Courses = () => {
           OUR COURSES
         </h2>
 
-        <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-10">
+        <div className="flex flex-col lg:flex-row justify-between gap-10">
           {/* CATEGORIES LIST */}
-          <div className="lg:h-[530px] lg:pl-6">
+          <div className="lg:h-[530px] sticky top-3 lg:pl-6">
             <h4
               className="text-xl text-[var(--highlighted-text)]
             font-[math] font-semibold mb-4"

@@ -87,10 +87,10 @@ const Header = () => {
         open={openAuthModal}
         setOpenJoiningFrom={setOpenJoiningFrom}
       />
-      <JoinAsTeacherForm
+      {openJoiningForm && <JoinAsTeacherForm
         open={openJoiningForm}
         handleClose={() => setOpenJoiningFrom(false)}
-      />
+      />}
       {/* {largeScreen && <BottomNavigationComponent />} */}
     </header>
   );
