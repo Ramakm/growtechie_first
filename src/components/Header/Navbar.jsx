@@ -14,7 +14,6 @@ import JoinAsTeacherForm from "./JoinAsTeacherForm";
 const Header = () => {
   const navigate = useNavigate();
   const navRef = useRef();
-  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [openJoiningForm, setOpenJoiningFrom] = useState(false);
   const largeScreen = useMediaQuery("(min-width:800px)", { noSsr: true });
   const [user] = useAuth();
