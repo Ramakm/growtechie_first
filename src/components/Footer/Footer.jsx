@@ -1,13 +1,32 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import handleScrollToElement from "../../utils/commonFn";
 import { useNavigate } from "react-router";
 import { IoLogoFacebook } from "react-icons/io";
 import { FaInstagramSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import siteMapData from "../../staticData/navData";
+import useFetchEventRegisteredUsers from "../../hooks/useFetchEventRegisteredUsers";
+import registerEmail from "../../utils/registerEmail";
+import { FullScreenLoader } from "../loader/Loader";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [registringUser, setregistringUser] = useState(false);
+  const regsiteredUsers = useFetchEventRegisteredUsers();
+
+  function handleRegisterUser(e) {
+    e.preventDefault();
+    const alreadyRegistered = regsiteredUsers?.includes(email);
+    if (alreadyRegistered) {
+      setEmail("");
+      alert("You are already registerd!");
+    } else {
+      setregistringUser(true);
+      registerEmail(email, setregistringUser);
+      setEmail("");
+    }
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -125,6 +144,21 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+          <form onSubmit={handleRegisterUser} className="flex flex-start bg-slate-50 rounded-md overflow-hidden">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="bg-transparent border-b-2 border-solid border-gray-100 flex-1 px-4"
+              placeholder="Send email to know more about us"
+              required
+            />
+            <button
+              className="px-5 py-2 w-fit bg-blue-300 text-white font-bold active:scale-95 transition-all ease-out"
+            >
+              Submit
+            </button>
+          </form>
         </div>
         <div className="w-full h-full md:w-1/2">
           <video
@@ -138,6 +172,7 @@ const Footer = () => {
           />
         </div>
       </section>
+      {registringUser && <FullScreenLoader text="Registering..." />}
     </footer>
   );
 };
