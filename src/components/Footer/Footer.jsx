@@ -1,13 +1,52 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import handleScrollToElement from "../../utils/commonFn";
 import { useNavigate } from "react-router";
 import { IoLogoFacebook } from "react-icons/io";
 import { FaInstagramSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import siteMapData from "../../staticData/navData";
+import useFetchEventRegisteredUsers from "../../hooks/useFetchEventRegisteredUsers";
+import registerEmail from "../../utils/registerEmail";
+import { FullScreenLoader } from "../loader/Loader";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [registringUser, setregistringUser] = useState(false);
+  const regsiteredUsers = useFetchEventRegisteredUsers();
+
+  function handleRegisterUser(e) {
+    e.preventDefault();
+    const alreadyRegistered = regsiteredUsers?.includes(email);
+    if (alreadyRegistered) {
+      setEmail("");
+      alert("You are already registerd!");
+    } else {
+      setregistringUser(true);
+      registerEmail(email, setregistringUser);
+      setEmail("");
+    }
+  }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          videoRef.current.play();
+        } else {
+          videoRef.current.pause();
+        }
+      });
+    });
+
+    observer.observe(videoRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  const videoRef = useRef(null);
 
   return (
     <footer className="radial-shiny-gray-gradient py-5 px-8">
@@ -105,19 +144,35 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+          <form onSubmit={handleRegisterUser} className="flex flex-start bg-slate-50 rounded-md overflow-hidden">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="bg-transparent border-b-2 border-solid border-gray-100 flex-1 px-4"
+              placeholder="Send email to know more about us"
+              required
+            />
+            <button
+              className="px-5 py-2 w-fit bg-blue-300 text-white font-bold active:scale-95 transition-all ease-out"
+            >
+              Submit
+            </button>
+          </form>
         </div>
-        <div className="w-full md:w-1/2">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.791730986784!2d77.6619388!3d12.985168699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae114efa821173%3A0x819978309ce921dc!2sDRDO%20Township!5e0!3m2!1sen!2sin!4v1706290397203!5m2!1sen!2sin"
-            width="600"
-            height="450"
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="w-full"
-          ></iframe>
+        <div className="w-full h-full md:w-1/2">
+          <video
+            ref={videoRef}
+            src="https://ik.imagekit.io/2vgcgldkc/video.mp4?updatedAt=1711026387764"
+            width="100%"
+            muted
+            controls
+            loop
+            className="h-full"
+          />
         </div>
       </section>
+      {registringUser && <FullScreenLoader text="Registering..." />}
     </footer>
   );
 };

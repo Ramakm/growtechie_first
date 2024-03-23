@@ -30,7 +30,7 @@ const Courses = () => {
 
         <div className="flex flex-col lg:flex-row justify-between gap-10">
           {/* CATEGORIES LIST */}
-          <div className="lg:h-[530px] sticky top-3 lg:pl-6">
+          <div className="lg:h-[530px] lg:sticky top-3 lg:pl-6">
             <h4
               className="text-xl text-[var(--highlighted-text)]
             font-[math] font-semibold mb-4"

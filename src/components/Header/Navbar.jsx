@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
+import { login } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
 import handleScrollToElement from "../../utils/commonFn";
 import { navData, mobileNavData } from "../../staticData/navData";
-import AuthDialogBox from "./AuthDialogBox";
 import Avatar from "@mui/material/Avatar";
 import useAuth from "../../hooks/useAuth";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -14,11 +14,15 @@ import JoinAsTeacherForm from "./JoinAsTeacherForm";
 const Header = () => {
   const navigate = useNavigate();
   const navRef = useRef();
-  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [openJoiningForm, setOpenJoiningFrom] = useState(false);
   const largeScreen = useMediaQuery("(min-width:800px)", { noSsr: true });
   const [user] = useAuth();
   useScroll(navRef);
+
+  function handleJoin(e) {
+    e.stopPropagation();
+    login();
+  }
 
   const currentNavData = largeScreen ? navData : mobileNavData;
 
@@ -73,24 +77,32 @@ const Header = () => {
                 className="cursor-pointer"
               />
             ) : (
-              <button
+              <>
+                <button
+                  className="border-slate-700 border-solid border-[2px] text-white px-4 py-[5px] rounded hover:bg-slate-50 hover:text-black transition-all ease-in-out active:bg-slate-200 mr-3"
+                  onClick={handleJoin}
+                >
+                  Login
+                </button>
+                <button className="border-slate-700 border-solid border-[2px] text-white px-4 py-[5px] rounded hover:bg-slate-50 hover:text-black transition-all ease-in-out active:bg-slate-200" onClick={() => setOpenJoiningFrom(true)}>
+                  Apply as Mentor
+                </button>
+                {/* <button
                 className="ml-auto linear-purple-green-gradient text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
                 onClick={() => setOpenAuthModal(true)}
               >
                 JoinUs
-              </button>
+              </button> */}
+              </>
             ))}
         </nav>
       </div>
-      <AuthDialogBox
-        handleClose={() => setOpenAuthModal(false)}
-        open={openAuthModal}
-        setOpenJoiningFrom={setOpenJoiningFrom}
-      />
-      {openJoiningForm && <JoinAsTeacherForm
-        open={openJoiningForm}
-        handleClose={() => setOpenJoiningFrom(false)}
-      />}
+      {openJoiningForm && (
+        <JoinAsTeacherForm
+          open={openJoiningForm}
+          handleClose={() => setOpenJoiningFrom(false)}
+        />
+      )}
       {/* {largeScreen && <BottomNavigationComponent />} */}
     </header>
   );
