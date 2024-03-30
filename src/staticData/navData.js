@@ -11,13 +11,10 @@ const siteMapData = [
 const navData = [
   { text: "Courses", to: "courses" },
   { text: "Teachers", to: "/teachers" },
-];
-
-const mobileNavData = [
-  { text: "Courses", to: "courses" },
-  { text: "Testimonials", to: "testimonials" },
+  { text: "Gallery", to: "/gallery" },
   { text: "FAQ", to: "faq" },
 ];
 
+
 export default siteMapData;
-export { navData, mobileNavData };
+export { navData };
