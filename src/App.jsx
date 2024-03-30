@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-// import BottomNav from "./components/BottomNavigation.jsx";
+import BottomNav from "./components/BottomNavigation.jsx";
 import {
   PythonProgramming,
   PythonProject,
@@ -71,7 +71,7 @@ const App = () => {
           </>
         )}
       </Routes>
-      {/* <BottomNav /> */}
+      <BottomNav />
     </>
   );
 };
