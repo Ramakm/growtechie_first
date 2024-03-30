@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import HomeIcon from "@mui/icons-material/Home";
@@ -7,18 +6,21 @@ import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import SchoolIcon from "@mui/icons-material/School";
 import CollectionsBookmarkIcon from "@mui/icons-material/CollectionsBookmark";
 import { useNavigate } from "react-router";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function BottomNav() {
   const [value, setValue] = useState(0);
   const navigate = useNavigate();
+  const largeScreen = useMediaQuery("(min-width:800px)", { noSsr: true });
+
+  if (largeScreen) return <></>;
 
   function scrollToElement(target) {
     navigate("/");
     setTimeout(() => {
-      const element = document.getElementById(target)
-      console.log(element, "element")
+      const element = document.getElementById(target);
       element?.scrollIntoView({ behavior: "smooth" });
-    }, 1000)
+    }, 1000);
   }
 
   return (
