@@ -53,7 +53,7 @@ const Header = () => {
 
         <nav
           id="nav"
-          className="relative flex items-center justify-between h-24 text-base text-gray-800 border-t border-gray-200 w-auto flex-row bg-transparent mt-0 md:border-none md:py-0"
+          className="relative flex items-center justify-between h-24 text-base text-gray-800 w-auto flex-row bg-transparent mt-0 md:border-none md:py-0"
         >
           {largeScreen &&
             navData.map((item, idx) => (

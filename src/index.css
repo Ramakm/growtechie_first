@@ -52,6 +52,10 @@
   box-shadow: 0 15px 25px rgba(255, 255, 255, 0.2);
 }
 
+.upper-white-box-shadow {
+  box-shadow: 0px -15px 25px rgba(255, 255, 255, 0.3);
+}
+
 .moonstone-gradient-border {
   border-image: linear-gradient(
     45deg,
@@ -61,4 +65,10 @@
     cyan
   );
   border-image-slice: 1;
+}
+
+/* MUI bottom nav selected element color change */
+
+.css-1juv2mg-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected {
+  color: #85e7d9 !important;
 }
