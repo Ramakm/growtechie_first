@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import BottomNav from "./components/BottomNavigation.jsx";
 import {
   PythonProgramming,
   PythonProject,
@@ -59,11 +60,18 @@ const App = () => {
         <Route path="/*" element={<Page404 />} />
         {authors.includes(user?.email) && (
           <>
-            <Route path="/weekly-session-registrations" element={<WeeklySessionRegistrations />} />
-            <Route path="/unapproved-teachers" element={<UnapprovedTeachers />} />
+            <Route
+              path="/weekly-session-registrations"
+              element={<WeeklySessionRegistrations />}
+            />
+            <Route
+              path="/unapproved-teachers"
+              element={<UnapprovedTeachers />}
+            />
           </>
         )}
       </Routes>
+      <BottomNav />
     </>
   );
 };
