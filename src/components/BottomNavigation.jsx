@@ -12,6 +12,15 @@ export default function BottomNav() {
   const [value, setValue] = useState(0);
   const navigate = useNavigate();
 
+  function scrollToElement(target) {
+    navigate("/");
+    setTimeout(() => {
+      const element = document.getElementById(target)
+      console.log(element, "element")
+      element?.scrollIntoView({ behavior: "smooth" });
+    }, 1000)
+  }
+
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[999999] upper-white-box-shadow">
       <BottomNavigation
@@ -25,7 +34,7 @@ export default function BottomNav() {
         <BottomNavigationAction
           label="Home"
           icon={<HomeIcon />}
-          onClick={() => navigate("/")}
+          onClick={() => scrollToElement("hero")}
           sx={{ color: "#d0d5d7" }}
         />
         <BottomNavigationAction
@@ -37,7 +46,7 @@ export default function BottomNav() {
         <BottomNavigationAction
           label="Courses"
           icon={<SchoolIcon />}
-          onClick={() => navigate("/courses")}
+          onClick={() => scrollToElement("courses")}
           sx={{ color: "#d0d5d7" }}
         />
         <BottomNavigationAction
@@ -50,19 +59,3 @@ export default function BottomNav() {
     </div>
   );
 }
-
-// <Box sx={{ width: 500 }}>
-{
-  /* <BottomNavigation
-    showLabels
-    value={value}
-    onChange={(event, newValue) => {
-      setValue(newValue);
-    }}
-  >
-    <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-    <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-    <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-  </BottomNavigation> */
-}
-// </Box>

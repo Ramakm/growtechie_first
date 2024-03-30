@@ -17,7 +17,7 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="relative pt-24 w-screen box-border min-h-screen mx-auto block"
+      className="relative pt-[8vh] w-screen box-border min-h-screen mx-auto block"
     >
       <div className="relative h-full z-10 text-[var(--primary-text)] text-center">
         <div className="flex justify-around items-center py-5 min-h-[80vh]">
