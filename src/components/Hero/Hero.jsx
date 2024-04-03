@@ -4,6 +4,7 @@ import { heroImgBoy, heroImgWoman, heroImgLearners } from "../../assets";
 import handleScrollToElement from "../../utils/commonFn";
 import { useNavigate } from "react-router";
 import CourseForm from "../course/CourseForm";
+import { demoFormData } from "../../staticData/demoForm";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -58,6 +59,7 @@ const Hero = () => {
           open={openForm}
           handleClose={() => setOpenForm(false)}
           courseName="Demo"
+          data={demoFormData}
         />
       </div>
       <HeroBg />
