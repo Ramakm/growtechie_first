@@ -1,4 +1,4 @@
-export const data = [
+export const courseFormData = [
     {
         label: "Your name",
         name: "name",
