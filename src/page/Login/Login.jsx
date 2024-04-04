@@ -1,59 +1,42 @@
 import "./login.css";
-import "./login.js";
-import React, { useState, useEffect, useRef } from "react";
-import {
-  handleMouseMove,
-  handleFocusPassword,
-  handleFocusOutPassword,
-} from "./login.js";
+import React, { useState, useRef } from "react";
 import { login } from "../../utils/auth";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth2 } from "../../firebase/config.js";
+import useEventListener from "../../hooks/useEventListeners.js";
 
 const Login = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    remember: false,
+  });
   const passRef = useRef(null);
   const submitBtnRef = useRef(null);
   const navigate = useNavigate();
-
+  useEventListener(passRef, submitBtnRef);
   // Fix login using google click event
 
-  useEffect(() => {
-    document.addEventListener("mousemove", (event) => handleMouseMove(event));
-    passRef.current.addEventListener("focus", (event) =>
-      handleFocusPassword(event)
-    );
-    passRef.current.addEventListener("focusout", (event) =>
-      handleFocusOutPassword(event)
-    );
-
-    submitBtnRef.current.addEventListener("mouseover", (event) =>
-      document.getElementById("ball").classList.toggle("look_at")
-    );
-    submitBtnRef.current.addEventListener("mouseout", (event) =>
-      document.getElementById("ball").classList.toggle("look_at")
-    );
-
-    return () => {
-      document.removeEventListener("mousemove", (event) =>
-        handleMouseMove(event)
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth2,
+        formData.email,
+        formData.password
       );
-      passRef?.current?.removeEventListener("focus", (event) =>
-        handleFocusPassword(event)
-      );
-      passRef?.current?.removeEventListener("focusout", (event) =>
-        handleFocusOutPassword(event)
-      );
-
-      submitBtnRef?.current?.removeEventListener("mouseover", (event) =>
-        document.getElementById("ball").classList.toggle("look_at")
-      );
-      submitBtnRef?.current?.removeEventListener("mouseout", (event) =>
-        document.getElementById("ball").classList.toggle("look_at")
-      );
-    };
-  }, []);
-
+      console.log(userCredential);
+      const user = userCredential.user;
+      localStorage.setItem("token", user.accessToken);
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/");
+    } catch (error) {
+      alert("Please put correct email and password!");
+      console.error(error);
+    }
+  };
 
   return (
     <main>
@@ -78,12 +61,14 @@ const Login = () => {
           Welcome back! Please, enter your information
         </p>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleLogin}>
           <label className="form-control__label">Email</label>
           <input
             type="email"
             className="form-control"
             value={formData.email}
+            required
+            minLength={10}
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
@@ -94,8 +79,9 @@ const Login = () => {
             <input
               type="password"
               className="form-control"
-              minLength="4"
+              minLength="8"
               id="password"
+              required
               value={formData.password}
               ref={passRef}
               onChange={(e) =>
@@ -116,6 +102,35 @@ const Login = () => {
               />
             </svg>
           </div>
+          <div className="password__settings select-none">
+            <label className="password__settings__remember">
+              <input
+                type="checkbox"
+                checked={formData.remember}
+                onChange={(e) =>
+                  setFormData({ ...formData, remember: e.target.checked })
+                }
+              />
+              <span className="custom__checkbox">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+              </span>
+              Remember me
+            </label>
+          </div>
+
           <button
             type="submit"
             className="form__submit"
@@ -125,6 +140,10 @@ const Login = () => {
             Log In
           </button>
         </form>
+        <p className="form__footer">
+          Don't have an account?
+          <br /> <a href="#">Create an account</a>
+        </p>
 
         <div className="flex items-center w-full max-w-[420px] my-6 gap-1">
           <span className="flex-1 h-[2px] bg-[rgb(235,233,233)] " />
@@ -134,7 +153,7 @@ const Login = () => {
 
         <button
           className="flex items-center justify-center gap-3 border border-gray-200 w-full max-w-[420px] h-[52px] rounded-lg font-medium hover:bg-gray-100 transition-all ease-in-out shadow-sm hover:shadow-lg"
-          onClick={async() => {
+          onClick={async () => {
             await login();
             // Fix as it navigate before logging in
             navigate("/");
