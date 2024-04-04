@@ -1,6 +1,4 @@
-const passwordField = document.getElementById("password")
-
-const handleMouseMove = event => {
+export const handleMouseMove = event => {
     if (!document.querySelector("#password:is(:focus)") && !document.querySelector("#password:is(:user-invalid)")) {
         const eyes = document.getElementsByClassName('eye')
   
@@ -15,7 +13,7 @@ const handleMouseMove = event => {
     }
 }
 
-const handleFocusPassword = event => {
+export const handleFocusPassword = event => {
     document.getElementById('face').style.transform = 'translateX(30px)'
     const eyes = document.getElementsByClassName('eye')
 
@@ -24,7 +22,7 @@ const handleFocusPassword = event => {
      }
 }
 
-const handleFocusOutPassword = event => {
+export const handleFocusOutPassword = event => {
     document.getElementById('face').style.transform = 'translateX(0)'
     if(event.target.checkValidity()) {
         document.getElementById('ball').classList.toggle('sad')
@@ -37,11 +35,3 @@ const handleFocusOutPassword = event => {
             }
     }
 }
-
-
-document.addEventListener("mousemove", event => handleMouseMove(event))
-passwordField?.addEventListener('focus', event => handleFocusPassword(event))
-passwordField?.addEventListener('focusout', event => handleFocusOutPassword(event))
-
-document.getElementById('submit')?.addEventListener("mouseover", event => document.getElementById('ball').classList.toggle('look_at'))
-document.getElementById('submit')?.addEventListener("mouseout", event => document.getElementById('ball').classList.toggle('look_at'))

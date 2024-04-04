@@ -1,8 +1,54 @@
 import "./login.css";
 import "./login.js";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  handleMouseMove,
+  handleFocusPassword,
+  handleFocusOutPassword,
+} from "./login.js";
 
 const Login = () => {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const passRef = useRef(null);
+  const submitBtnRef = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener("mousemove", (event) => handleMouseMove(event));
+    passRef.current.addEventListener("focus", (event) =>
+      handleFocusPassword(event)
+    );
+    passRef.current.addEventListener("focusout", (event) =>
+      handleFocusOutPassword(event)
+    );
+
+    submitBtnRef.current.addEventListener("mouseover", (event) =>
+      document.getElementById("ball").classList.toggle("look_at")
+    );
+    submitBtnRef.current.addEventListener("mouseout", (event) =>
+      document.getElementById("ball").classList.toggle("look_at")
+    );
+
+    return () => {
+      document.removeEventListener("mousemove", (event) =>
+        handleMouseMove(event)
+      );
+      passRef.current.removeEventListener("focus", (event) =>
+        handleFocusPassword(event)
+      );
+      passRef.current.removeEventListener("focusout", (event) =>
+        handleFocusOutPassword(event)
+      );
+
+      submitBtnRef.current.removeEventListener("mouseover", (event) =>
+        document.getElementById("ball").classList.toggle("look_at")
+      );
+      submitBtnRef.current.removeEventListener("mouseout", (event) =>
+        document.getElementById("ball").classList.toggle("look_at")
+      );
+    };
+  }, []);
+
+  
   return (
     <main>
       <section className="form">
@@ -28,7 +74,14 @@ const Login = () => {
 
         <form className="login-form">
           <label className="form-control__label">Email</label>
-          <input type="email" className="form-control" />
+          <input
+            type="email"
+            className="form-control"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+          />
 
           <label className="form-control__label">Password</label>
           <div className="password-field">
@@ -37,6 +90,11 @@ const Login = () => {
               className="form-control"
               minLength="4"
               id="password"
+              value={formData.password}
+              ref={passRef}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -52,32 +110,13 @@ const Login = () => {
               />
             </svg>
           </div>
-          <div className="password__settings">
-            <label className="password__settings__remember">
-              <input type="checkbox" />
-              <span className="custom__checkbox">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4.5 12.75l6 6 9-13.5"
-                  />
-                </svg>
-              </span>
-              Remember me
-            </label>
 
-            <a href="#">Forgot Password?</a>
-          </div>
-
-          <button type="submit" className="form__submit" id="submit">
+          <button
+            type="submit"
+            className="form__submit"
+            id="submit"
+            ref={submitBtnRef}
+          >
             Log In
           </button>
         </form>
