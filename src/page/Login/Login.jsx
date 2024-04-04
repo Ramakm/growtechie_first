@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth2 } from "../../firebase/config.js";
 import useEventListener from "../../hooks/useEventListeners.js";
+import { FullScreenLoader } from "../../components/loader/Loader.jsx";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -15,10 +16,8 @@ const Login = () => {
     confirmedPass: "",
     remember: false,
   });
-
-  console.log(formData);
   const [isSignUp, setIsSignUp] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
   const passRef = useRef(null);
   const submitBtnRef = useRef(null);
   const navigate = useNavigate();
@@ -27,6 +26,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth2,
@@ -43,6 +43,7 @@ const Login = () => {
       alert("Please put correct email and password!");
       console.error(error);
     } finally {
+      setIsLoading(false);
       navigate("/");
     }
   };
@@ -53,6 +54,7 @@ const Login = () => {
       alert("Password doesn't match");
       return;
     }
+    setIsLoading(true);
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth2,
@@ -69,6 +71,7 @@ const Login = () => {
       alert("Please try again later!");
       console.error(error);
     } finally {
+      setIsLoading(false);
       navigate("/");
     }
   };
@@ -268,6 +271,7 @@ const Login = () => {
         </div>
         <div className="ball__shadow"></div>
       </section>
+      {isLoading && <FullScreenLoader />}
     </main>
   );
 };
