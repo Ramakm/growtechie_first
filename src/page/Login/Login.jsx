@@ -4,6 +4,7 @@ import { login } from "../../utils/auth";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth2 } from "../../firebase/config.js";
 import useEventListener from "../../hooks/useEventListeners.js";
 
@@ -13,6 +14,8 @@ const Login = () => {
     password: "",
     remember: false,
   });
+  const [isSignUp, setIsSignUp] = useState(false);
+
   const passRef = useRef(null);
   const submitBtnRef = useRef(null);
   const navigate = useNavigate();
@@ -27,14 +30,39 @@ const Login = () => {
         formData.email,
         formData.password
       );
-      console.log(userCredential);
-      const user = userCredential.user;
-      localStorage.setItem("token", user.accessToken);
-      localStorage.setItem("user", JSON.stringify(user));
-      navigate("/");
+      if (formData.remember) {
+        console.log(userCredential);
+        const user = userCredential.user;
+        localStorage.setItem("token", user.accessToken);
+        localStorage.setItem("user", JSON.stringify(user));
+      }
     } catch (error) {
       alert("Please put correct email and password!");
       console.error(error);
+    } finally {
+      navigate("/");
+    }
+  };
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth2,
+        email,
+        password
+      );
+      if (formData.remember) {
+        console.log(userCredential);
+        const user = userCredential.user;
+        localStorage.setItem("token", user.accessToken);
+        localStorage.setItem("user", JSON.stringify(user));
+      }
+    } catch (error) {
+      alert("Please try again later!");
+      console.error(error);
+    } finally {
+      navigate("/");
     }
   };
 
@@ -56,9 +84,13 @@ const Login = () => {
             />
           </svg>
         </div>
-        <h1 className="form__title">Log in to your Account</h1>
+        <h1 className="form__title">
+          {isSignUp ? "Sign Up to create account" : "Log in to your Account"}
+        </h1>
         <p className="form__description">
-          Welcome back! Please, enter your information
+          {isSignUp
+            ? "Glad to see you here, let's get started"
+            : "Welcome back! Please, enter your information"}
         </p>
 
         <form className="login-form" onSubmit={handleLogin}>
@@ -137,13 +169,27 @@ const Login = () => {
             id="submit"
             ref={submitBtnRef}
           >
-            Log In
+            {isSignUp? "Sign Up" : "Log In"}
           </button>
         </form>
-        <p className="form__footer">
-          Don't have an account?
-          <br /> <a href="#">Create an account</a>
-        </p>
+        {isSignUp ? (
+          <p className="form__footer">
+            Already have an account?{" "}
+            <button
+              className="text-blue-500"
+              onClick={() => setIsSignUp(false)}
+            >
+              Log In
+            </button>
+          </p>
+        ) : (
+          <p className="form__footer">
+            Don't have an account?{" "}
+            <button className="text-blue-500" onClick={() => setIsSignUp(true)}>
+              Create an account
+            </button>
+          </p>
+        )}
 
         <div className="flex items-center w-full max-w-[420px] my-6 gap-1">
           <span className="flex-1 h-[2px] bg-[rgb(235,233,233)] " />
