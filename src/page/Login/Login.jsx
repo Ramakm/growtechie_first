@@ -26,7 +26,7 @@ const Login = () => {
           Welcome back! Please, enter your information
         </p>
 
-        <form>
+        <form className="login-form">
           <label className="form-control__label">Email</label>
           <input type="email" className="form-control" />
 
@@ -81,11 +81,6 @@ const Login = () => {
             Log In
           </button>
         </form>
-
-        <p className="form__footer">
-          Don't have an account?
-          <br /> <a href="#">Create an account</a>
-        </p>
       </section>
 
       <section className="form__animation">
