@@ -39,7 +39,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        {!user && <Route path="/login" element={<Login />} />}
+        <Route path="/login" element={<Login />} />
         {/* <Route path='/course/:coursename' element={<Course />} /> */}
         <Route
           path="/course/pythonprogramming"

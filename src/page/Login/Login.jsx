@@ -6,11 +6,17 @@ import {
   handleFocusPassword,
   handleFocusOutPassword,
 } from "./login.js";
+import { login } from "../../utils/auth";
+import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const passRef = useRef(null);
   const submitBtnRef = useRef(null);
+  const navigate = useNavigate();
+
+  // Fix login using google click event
 
   useEffect(() => {
     document.addEventListener("mousemove", (event) => handleMouseMove(event));
@@ -32,23 +38,23 @@ const Login = () => {
       document.removeEventListener("mousemove", (event) =>
         handleMouseMove(event)
       );
-      passRef.current.removeEventListener("focus", (event) =>
+      passRef?.current?.removeEventListener("focus", (event) =>
         handleFocusPassword(event)
       );
-      passRef.current.removeEventListener("focusout", (event) =>
+      passRef?.current?.removeEventListener("focusout", (event) =>
         handleFocusOutPassword(event)
       );
 
-      submitBtnRef.current.removeEventListener("mouseover", (event) =>
+      submitBtnRef?.current?.removeEventListener("mouseover", (event) =>
         document.getElementById("ball").classList.toggle("look_at")
       );
-      submitBtnRef.current.removeEventListener("mouseout", (event) =>
+      submitBtnRef?.current?.removeEventListener("mouseout", (event) =>
         document.getElementById("ball").classList.toggle("look_at")
       );
     };
   }, []);
 
-  
+
   return (
     <main>
       <section className="form">
@@ -110,7 +116,6 @@ const Login = () => {
               />
             </svg>
           </div>
-
           <button
             type="submit"
             className="form__submit"
@@ -120,6 +125,24 @@ const Login = () => {
             Log In
           </button>
         </form>
+
+        <div className="flex items-center w-full max-w-[420px] my-6 gap-1">
+          <span className="flex-1 h-[2px] bg-[rgb(235,233,233)] " />
+          <p className="opacity-80">or</p>
+          <span className="flex-1 h-[2px] bg-[rgb(235,233,233)] " />
+        </div>
+
+        <button
+          className="flex items-center justify-center gap-3 border border-gray-200 w-full max-w-[420px] h-[52px] rounded-lg font-medium hover:bg-gray-100 transition-all ease-in-out shadow-sm hover:shadow-lg"
+          onClick={async() => {
+            await login();
+            // Fix as it navigate before logging in
+            navigate("/");
+          }}
+        >
+          <FcGoogle className="scale-[1.5]" />
+          <p>Log In using Google</p>
+        </button>
       </section>
 
       <section className="form__animation">
