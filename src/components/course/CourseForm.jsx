@@ -1,13 +1,14 @@
 import { useState, useRef } from "react";
-import { data } from "../../staticData/formData";
+import { courseFormData } from "../../staticData/formData";
 import { FormBody, TextInput, RadioInput } from "../form";
 import handleFormChange from "../../utils/handleFormChange";
 import extractInitData from "../../utils/extractInitData";
 import sendEmail from "../../utils/sendEmail";
 import { FullScreenLoader } from "../loader/Loader";
 
-const CourseForm = ({ open, handleClose, courseName }) => {
-  const initialData = extractInitData(data, "name");
+const CourseForm = ({ open, handleClose, courseName, data }) => {
+  const dataTobeRenderend = data || courseFormData;
+  const initialData = extractInitData(dataTobeRenderend, "name");
   const form = useRef(null);
   const [formData, setFormData] = useState(initialData);
   const [sendingMail, setSendingMail] = useState(false);
@@ -50,7 +51,7 @@ const CourseForm = ({ open, handleClose, courseName }) => {
         value={courseName}
         readOnly
       />
-      {data.map((input, idx) => {
+      {dataTobeRenderend.map((input, idx) => {
         if (input.inputType === "text") {
           return (
             <TextInput

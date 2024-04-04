@@ -1,4 +1,4 @@
-export const courseFormData = [
+export const demoFormData = [
     {
         label: "Your name",
         name: "name",
@@ -19,18 +19,6 @@ export const courseFormData = [
         name: "courseLearningOption",
         label: "Course Learning Option",
         values: ["Group Session", "1-1 Session"],
-        inputType: "radio",
-    },
-    {
-        label: "Course Fee? You're interested to give",
-        name: "fee",
-        inputType: "text",
-        frequency: "monthly"
-    },
-    {
-        name: "paymentOptions",
-        label: "Payments Options",
-        values: ["UPI", "Net Banking"],
         inputType: "radio",
     },
     {
