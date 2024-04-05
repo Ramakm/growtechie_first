@@ -27,6 +27,7 @@ import {
   TeacherProfile,
   Teachers,
   UserProfile,
+  Login,
 } from "./page";
 import useAuth from "./hooks/useAuth.jsx";
 
@@ -38,6 +39,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         {/* <Route path='/course/:coursename' element={<Course />} /> */}
         <Route
           path="/course/pythonprogramming"

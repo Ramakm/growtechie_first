@@ -76,7 +76,7 @@ const Header = () => {
             <>
               <button
                 className="border-slate-700 border-solid border-[2px] text-white px-4 py-[5px] rounded hover:bg-slate-50 hover:text-black transition-all text-sm md:text-base ease-in-out active:bg-slate-200 mr-3"
-                onClick={handleJoin}
+                onClick={() => navigate("/login")}
               >
                 Login
               </button>

@@ -2,6 +2,7 @@
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import "firebase/compat/storage";
+import { getAuth } from "firebase/auth";
 
 import firebase from "firebase/compat/app";
 
@@ -20,5 +21,6 @@ const db = app.firestore();
 const auth = firebase.auth();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 const storage = firebase.storage();
+const auth2 = getAuth();
 
-export { app, auth, db, googleAuthProvider, storage };
+export { app, auth, db, googleAuthProvider, storage, auth2 };

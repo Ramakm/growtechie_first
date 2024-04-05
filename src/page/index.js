@@ -4,6 +4,7 @@ import Page404 from "./Page404";
 import TeacherProfile from "./teacherProfile";
 import Teachers from "./teachers";
 import UserProfile from "./UserProfile"
+import Login from "./Login/Login";
 
 export { 
     Gallery,
@@ -12,4 +13,5 @@ export {
     TeacherProfile,
     Teachers,
     UserProfile,
+    Login,
 }
