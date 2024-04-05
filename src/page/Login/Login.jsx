@@ -80,19 +80,7 @@ const Login = () => {
     <main>
       <section className="form">
         <div className="logo">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25"
-            />
-          </svg>
+         <img src="/logo.png" alt="Growtechiee logo" className="w-auto h-20 invert-[100%]" />
         </div>
         <h1 className="form__title">
           {isSignUp ? "Sign Up to create account" : "Log in to your Account"}
@@ -235,13 +223,13 @@ const Login = () => {
         )}
 
         <div className="flex items-center w-full max-w-[420px] my-6 gap-1">
-          <span className="flex-1 h-[2px] bg-[rgb(235,233,233)] " />
-          <p className="opacity-80">or</p>
-          <span className="flex-1 h-[2px] bg-[rgb(235,233,233)] " />
+          <span className="flex-1 h-[2px] bg-[rgb(102,101,101)] " />
+          <p className="opacity-80 text-white">or</p>
+          <span className="flex-1 h-[2px] bg-[rgb(102,101,101)] " />
         </div>
 
         <button
-          className="flex items-center justify-center gap-3 border border-gray-200 w-full max-w-[420px] h-[52px] rounded-lg font-medium hover:bg-gray-100 transition-all ease-in-out shadow-sm hover:shadow-lg"
+          className="flex items-center justify-center gap-3 border text-white hover:text-black border-gray-200 w-full max-w-[420px] h-[52px] rounded-lg font-medium hover:bg-gray-100 transition-all ease-in-out shadow-sm hover:shadow-lg"
           onClick={async () => {
             await login();
             // Fix as it navigate before logging in
