@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import handleScrollToElement from "../../utils/commonFn";
 import { useNavigate } from "react-router";
 import { IoLogoFacebook } from "react-icons/io";
@@ -20,7 +20,7 @@ const Footer = () => {
     const alreadyRegistered = regsiteredUsers?.includes(email);
     if (alreadyRegistered) {
       setEmail("");
-      alert("You are already registerd!");
+      alert("You are already registered!");
     } else {
       setregistringUser(true);
       registerEmail(email, setregistringUser);
@@ -28,36 +28,15 @@ const Footer = () => {
     }
   }
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          videoRef.current.play();
-        } else {
-          videoRef.current.pause();
-        }
-      });
-    });
-
-    observer.observe(videoRef.current);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  const videoRef = useRef(null);
-
   return (
     <footer className="radial-shiny-gray-gradient py-5 px-8">
-      <section className="flex justify-center gap-5 flex-col md:flex-row">
+      <section className="flex justify-between flex-col md:flex-row">
         <div className="flex flex-col gap-5">
           <h3 className="text-5xl xl:text-8xl relative font-semibold footer-heading leading-[1.15] mb-2 text-[var(--primary-text)]">
             Contact Us
           </h3>
           <p className="text-blue-300">
-            We'd love to hear from you. Contact us through the following
-            channels:
+            We'd love to hear from you. Contact us through the following channels:
           </p>
           <div className="flex flex-wrap justify-center space-x-4 space-x-6 text-slate-400">
             <div className="text-center">
@@ -90,6 +69,8 @@ const Footer = () => {
               </a>
             </div>
           </div>
+        </div>
+        <div className="flex flex-col gap-5">
           <div className="flex gap-9">
             <div>
               <h4 className="font-semibold text-gray-200">SiteMap</h4>
@@ -159,17 +140,6 @@ const Footer = () => {
               Submit
             </button>
           </form>
-        </div>
-        <div className="w-full h-full md:w-1/2">
-          <video
-            ref={videoRef}
-            src="https://ik.imagekit.io/2vgcgldkc/video.mp4?updatedAt=1711026387764"
-            width="100%"
-            muted
-            controls
-            loop
-            className="h-full"
-          />
         </div>
       </section>
       {registringUser && <FullScreenLoader text="Registering..." />}
